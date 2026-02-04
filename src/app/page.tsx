@@ -7,6 +7,7 @@ import { TrustSection } from "@/components/home/TrustSection";
 import { TargetAudience } from "@/components/home/TargetAudience";
 import { CTASection } from "@/components/home/CTASection";
 import { MakeTheDifferenceSection } from "@/components/home/MakeTheDifferenceSection";
+import { ServicesSection } from "@/components/home/ServicesSection";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
 
       <VisionMissionSection />
       <MakeTheDifferenceSection />
-
+      <ServicesSection />
       <ProblemsSolutions />
       <ServicesGrid />
       <TrustSection />

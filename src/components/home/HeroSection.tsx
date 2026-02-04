@@ -50,7 +50,7 @@ const slides: SlideData[] = [
         ctaText: "Explore Services",
         ctaLink: "/services",
         image: HeroImage2,
-        accentColor: "#FECD03",
+        accentColor: "#0B7E3E",
         stats: [
             { label: "Avg. Growth", value: "40%", icon: TrendingUp },
             { label: "Revenue Optimized", value: "$50M+", icon: BarChart3 }
