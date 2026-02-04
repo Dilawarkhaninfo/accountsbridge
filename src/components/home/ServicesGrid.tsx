@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import {
     LineChart,
@@ -10,147 +11,181 @@ import {
     ShieldCheck,
     ArrowRight,
     Briefcase,
-    Globe2
+    Globe2,
+    Layers,
+    TrendingUp,
+    Zap
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Variants } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const services = [
     {
         title: "Business Advice",
-        description: "Strategic business plans, budgeting, cash flow projections, and obtaining finance.",
+        description: "Strategic business plans, budgeting, cash flow projections, and obtaining finance to fuel your growth.",
         icon: LineChart,
         link: "/services/business",
+        accent: "bg-primary/5"
     },
     {
         title: "Financial Structuring",
-        description: "Structure business financials considering risks and potentials to forecast appropriate returns.",
+        description: "Scale your business with optimized structures that mitigate risks and maximize long-term returns.",
         icon: Building2,
         link: "/services/advisory",
+        accent: "bg-secondary/10"
     },
     {
         title: "Company Valuation",
-        description: "Effective share valuation to provide a strong plan and structure for prospectuses.",
+        description: "Expert share valuation and prospectus structuring to provide absolute clarity for stakeholders.",
         icon: PieChart,
         link: "/services/advisory",
+        accent: "bg-primary/5"
     },
     {
         title: "Accounting Services",
-        description: "Bookkeeping, payroll, internal audit, grants, cost accounting, and more.",
+        description: "Comprehensive bookkeeping, payroll, and internal audits to keep your operations flawless.",
         icon: Calculator,
         link: "/services/business",
+        accent: "bg-primary/5"
     },
     {
         title: "Taxation Services",
-        description: "Income tax planning, GST, direct & indirect taxes, international taxes, and charities.",
+        description: "Proactive income tax planning, GST compliance, and international tax advisory for SMEs.",
         icon: FileText,
         link: "/services/compliance",
+        accent: "bg-secondary/10"
     },
     {
         title: "Audits & Settlements",
-        description: "Assisting with audits and dispute settlements to ensure cleared accounts.",
+        description: "Navigating complex ATO audits and dispute settlements with precision and confidence.",
         icon: ShieldCheck,
         link: "/services/compliance",
+        accent: "bg-primary/5"
     },
     {
         title: "Global Consulting",
-        description: "International business strategy and cross-border financial compliance.",
+        description: "Expand boundaries with international strategy and cross-border financial compliance expertise.",
         icon: Globe2,
         link: "/services/advisory",
+        accent: "bg-primary/5"
     },
     {
         title: "Corporate Strategy",
-        description: "Long-term planning and corporate governance to drive sustainable growth.",
+        description: "Future-proof your business with sustainable planning and robust corporate governance.",
         icon: Briefcase,
         link: "/services/advisory",
+        accent: "bg-secondary/10"
     },
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: { staggerChildren: 0.1 },
-    },
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 10 },
-    show: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.4, ease: "easeOut" },
-    },
-};
-
 export function ServicesGrid() {
     return (
-        <section className="py-24 bg-white relative">
-            <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+        <section className="relative py-24 bg-white overflow-hidden">
+            {/* --- Premium Background Elements --- */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-[20%] -left-[10%] w-[30%] h-[30%] bg-primary/5 rounded-full blur-[100px]" />
+                <div className="absolute bottom-[20%] -right-[10%] w-[30%] h-[30%] bg-secondary/10 rounded-full blur-[100px]" />
+            </div>
+
+            <div className="container relative z-10 mx-auto px-6 max-w-7xl">
                 {/* Section Header */}
-                <div className="text-left mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                        Services that make the difference
-                    </h2>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+                    <div className="max-w-2xl space-y-4">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20"
+                        >
+                            <Zap size={14} className="text-primary" />
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Strategic Solutions</span>
+                        </motion.div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#1A202C] tracking-tight leading-tight">
+                            Services that make <br /> the <span className="text-primary italic">difference.</span>
+                        </h2>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <Button
+                            asChild
+                            variant="outline"
+                            className="group h-14 px-8 rounded-xl border-slate-200 text-slate-600 font-bold hover:bg-slate-50 transition-all shadow-sm"
+                        >
+                            <Link href="/services">
+                                View Methodology <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                        </Button>
+                    </motion.div>
                 </div>
 
                 {/* Services Grid */}
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-50px" }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-slate-200"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-100 border border-slate-100 rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50">
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            variants={itemVariants}
-                            className="group relative border-r border-b border-slate-200 bg-white hover:bg-slate-50/50 transition-colors duration-300 p-8 flex flex-col h-full min-h-[320px]"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className="group relative bg-white p-8 lg:p-10 flex flex-col h-full transition-all duration-500 hover:bg-slate-50/50"
                         >
-                            {/* Vertical Accent Line (Left of content) */}
-                            <div className="absolute left-0 top-8 bottom-8 w-[3px] bg-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+                            {/* Hover Overlay Accent */}
+                            <div className={cn(
+                                "absolute top-0 left-0 w-full h-1 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100",
+                                index % 3 === 0 ? "bg-primary" : "bg-secondary"
+                            )} />
 
                             {/* Icon */}
-                            <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                <service.icon className="w-6 h-6" strokeWidth={1.5} />
+                            <div className="relative mb-8">
+                                <div className={cn(
+                                    "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-primary/10",
+                                    service.accent
+                                )}>
+                                    <service.icon className="w-7 h-7 text-primary transition-transform duration-500 group-hover:rotate-12" strokeWidth={1.5} />
+                                </div>
                             </div>
 
                             {/* Content */}
-                            <div className="flex-grow">
-                                <h3 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-primary transition-colors duration-300">
+                            <div className="flex-grow space-y-4">
+                                <h3 className="text-xl font-bold text-[#1A202C] group-hover:text-primary transition-colors">
                                     {service.title}
                                 </h3>
-                                <p className="text-sm text-slate-500 leading-relaxed mb-6 group-hover:text-slate-600">
+                                <p className="text-[15px] text-slate-500 leading-relaxed font-medium">
                                     {service.description}
                                 </p>
                             </div>
 
-                            {/* Footer Link */}
-                            <div className="mt-auto pt-4">
+                            {/* Link */}
+                            <div className="mt-10">
                                 <Link
                                     href={service.link}
-                                    className="inline-flex items-center text-sm font-bold text-primary hover:text-secondary transition-colors"
+                                    className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-[#1A202C] hover:text-primary transition-all group/link"
                                 >
-                                    Explore
-                                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                    Explore Service
+                                    <span className="ml-2 w-8 h-px bg-slate-200 group-hover/link:w-12 group-hover/link:bg-primary transition-all" />
+                                    <ArrowRight className="ml-2 w-3.5 h-3.5 opacity-0 -translate-x-4 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all text-primary" />
                                 </Link>
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-12 text-center md:text-left">
-                    <Button
-                        asChild
-                        className="rounded-full px-8 py-6 text-base font-bold bg-primary hover:bg-[#096A35] text-white shadow-lg hover:shadow-xl transition-all"
-                    >
-                        <Link href="/services">
-                            All Services <ArrowRight className="ml-2 w-5 h-5" />
-                        </Link>
-                    </Button>
+                {/* Bottom Trust Note */}
+                <div className="mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 opacity-60">
+                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        Trusted by 250+ Melbourne Businesses across all industries
+                    </p>
+                    <div className="flex gap-8">
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Taxation</span>
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Advisory</span>
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Audit</span>
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Growth</span>
+                    </div>
                 </div>
             </div>
         </section>
