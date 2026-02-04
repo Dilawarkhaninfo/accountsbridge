@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Variants } from "framer-motion";
 
 const services = [
     {
@@ -66,25 +67,20 @@ const services = [
     },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
+        transition: { staggerChildren: 0.1 },
     },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
     show: {
         opacity: 1,
         y: 0,
-        transition: {
-            duration: 0.4,
-            ease: "easeOut"
-        }
+        transition: { duration: 0.4, ease: "easeOut" },
     },
 };
 

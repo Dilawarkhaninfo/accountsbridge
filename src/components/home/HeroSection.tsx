@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
@@ -22,6 +22,7 @@ interface SlideData {
     ctaLink: string;
     image: StaticImageData;
     accentColor: string;
+    icon: React.ElementType;
 }
 
 // --- Hero Content Data ---
@@ -34,6 +35,7 @@ const slides: SlideData[] = [
         ctaLink: "/contact-us",
         image: HeroImage1,
         accentColor: "bg-primary", // Green
+        icon: TrendingUp
     },
     {
         id: 2,
@@ -43,6 +45,7 @@ const slides: SlideData[] = [
         ctaLink: "/services",
         image: HeroImage2,
         accentColor: "bg-secondary", // Yellow
+        icon: Sparkles
     },
     {
         id: 3,
@@ -52,6 +55,7 @@ const slides: SlideData[] = [
         ctaLink: "/contact-us",
         image: HeroImage3,
         accentColor: "bg-primary",
+        icon: ShieldCheck
     },
 ];
 
@@ -67,47 +71,62 @@ export function HeroSection() {
     }, []);
 
     // Animation Variants
-    const slideVariants = {
-        hidden: { opacity: 0, x: 100 },
+    const slideVariants: Variants = {
+        hidden: { opacity: 0, x: 50 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-        exit: { opacity: 0, x: -100, transition: { duration: 0.6, ease: "easeInOut" } },
+        exit: { opacity: 0, x: -50, transition: { duration: 0.6, ease: "easeInOut" } },
     };
 
-    const textVariants = {
+    const textVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
     };
 
+    const imageVariants: Variants = {
+        hidden: { opacity: 0, scale: 0.95, x: 30 },
+        visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+        exit: { opacity: 0, scale: 1.05, x: -30, transition: { duration: 0.6, ease: "easeIn" } }
+    };
+
     return (
-        <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-slate-50 flex items-center">
+        <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden bg-slate-50 flex items-center">
 
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] z-0 pointer-events-none" />
 
-            <div className="container relative z-10 h-full flex items-center px-4 md:px-10">
-                <div className="flex flex-col lg:flex-row items-center justify-between w-full h-full gap-12 lg:gap-0">
+            {/* Soft Ambient Glows */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl opacity-50" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-3xl opacity-50" />
+            </div>
+
+            <div className="container relative z-10 h-full flex flex-col justify-center px-4 md:px-10">
+                <div className="flex flex-col lg:flex-row items-center w-full gap-8 lg:gap-16">
 
                     {/* Left Side: Text Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center h-full order-2 lg:order-1 py-12 lg:py-0 relative">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 relative z-20">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentSlide}
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="space-y-8 max-w-2xl relative z-10"
+                                className="space-y-6 max-w-2xl"
                             >
-                                {/* Animated Accent Line */}
+                                {/* Animated Accent Label */}
                                 <motion.div
-                                    className={cn("h-1.5 w-24 rounded-full mb-6", slides[currentSlide].accentColor)}
-                                    initial={{ width: 0 }}
-                                    animate={{ width: 96 }}
-                                    transition={{ duration: 1, ease: "easeOut" }}
-                                />
+                                    variants={textVariants}
+                                    className="flex items-center gap-2"
+                                >
+                                    <span className={cn("h-8 w-1 rounded-full", slides[currentSlide].accentColor)} />
+                                    <span className="text-sm font-semibold tracking-wider text-slate-500 uppercase">
+                                        Accounts Bridge
+                                    </span>
+                                </motion.div>
 
                                 <motion.h1
                                     variants={textVariants}
-                                    className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] text-slate-900 tracking-tight"
+                                    className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900 tracking-tight"
                                 >
                                     {slides[currentSlide].headline}
                                 </motion.h1>
@@ -122,18 +141,18 @@ export function HeroSection() {
                                 <motion.div variants={textVariants} className="flex flex-wrap gap-4 pt-4">
                                     <Button
                                         size="lg"
-                                        className="h-14 px-8 text-lg font-semibold rounded-md bg-primary hover:bg-[#096A35] text-white shadow-lg shadow-primary/20 transition-all hover:-translate-y-1"
+                                        className="group h-14 px-8 text-lg font-semibold rounded-md bg-primary hover:bg-[#096A35] text-white shadow-lg shadow-primary/20 transition-all hover:translate-y-[-2px]"
                                         asChild
                                     >
-                                        <Link href={slides[currentSlide].ctaLink}>
+                                        <Link href={slides[currentSlide].ctaLink} className="flex items-center gap-2">
                                             {slides[currentSlide].ctaText}
-                                            {/* No arrow icon to match generic corporate style if desired, or keep it. User said 'jesy button navbar main hy' which is simple text usually. But navbar has 'Book Consultation'. Let's keep strict style. */}
+                                            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                                         </Link>
                                     </Button>
                                     <Button
                                         variant="outline"
                                         size="lg"
-                                        className="h-14 px-8 text-lg font-semibold rounded-md border-2 border-slate-200 text-slate-700 hover:border-primary hover:text-primary bg-transparent transition-all"
+                                        className="h-14 px-8 text-lg font-semibold rounded-md border-2 border-slate-200 text-slate-700 hover:border-primary hover:text-primary bg-transparent transition-all hover:bg-slate-50"
                                         asChild
                                     >
                                         <Link href="/services">
@@ -143,50 +162,61 @@ export function HeroSection() {
                                 </motion.div>
                             </motion.div>
                         </AnimatePresence>
-
-                        {/* Vertical Pagination Dots - Absolute Left Positioned */}
-                        <div className="absolute left-[-20px] top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20 hidden lg:flex">
-                            {slides.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setCurrentSlide(index)}
-                                    className={cn(
-                                        "w-1.5 rounded-full transition-all duration-500 ease-in-out",
-                                        currentSlide === index ? "h-12 " + slides[index].accentColor : "h-2 bg-slate-300 hover:bg-slate-400"
-                                    )}
-                                    aria-label={`Go to slide ${index + 1}`}
-                                />
-                            ))}
-                        </div>
                     </div>
 
                     {/* Right Side: Image Slide */}
-                    <div className="w-full lg:w-1/2 h-full relative order-1 lg:order-2 flex items-center justify-center lg:justify-end">
+                    <div className="w-full lg:w-1/2 relative order-1 lg:order-2 flex items-center justify-center lg:justify-start lg:pl-10">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentSlide}
-                                initial={{ opacity: 0, scale: 0.95, x: 50 }}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                exit={{ opacity: 0, scale: 1.05, x: -50 }}
-                                transition={{ duration: 0.8, ease: "easeOut" }}
-                                className="relative w-full max-w-[500px] lg:max-w-[650px] aspect-[4/3] lg:aspect-auto lg:h-[80%] rounded-[2rem] overflow-hidden shadow-2xl lg:translate-x-12"
+                                variants={imageVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                className="relative w-full max-w-[500px] lg:max-w-none aspect-[4/3] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50"
                             >
                                 <Image
                                     src={slides[currentSlide].image}
                                     alt={slides[currentSlide].headline}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-700 hover:scale-105"
                                     priority
                                 />
                                 {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+
+                                {/* Floating Badge/Icon */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+                                    className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg flex items-center gap-4 max-w-[200px]"
+                                >
+                                    <div className={cn("p-2 rounded-full text-white", slides[currentSlide].accentColor)}>
+                                        {React.createElement(slides[currentSlide].icon, { size: 24 })}
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-slate-500 font-medium">Focus</span>
+                                        <span className="text-sm font-bold text-slate-800">Growth & Scale</span>
+                                    </div>
+                                </motion.div>
                             </motion.div>
                         </AnimatePresence>
-
-                        {/* Decorative Circle */}
-                        <div className="absolute -right-20 top-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl z-[-1]" />
-                        <div className="absolute right-40 top-20 w-32 h-32 bg-secondary/10 rounded-full blur-2xl z-[-1]" />
                     </div>
+                </div>
+
+                {/* Pagination Dots - Moved to Bottom Center */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setCurrentSlide(index)}
+                            className={cn(
+                                "h-2 rounded-full transition-all duration-500 ease-in-out",
+                                currentSlide === index ? "w-8 " + slides[index].accentColor : "w-2 bg-slate-300 hover:bg-slate-400"
+                            )}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
