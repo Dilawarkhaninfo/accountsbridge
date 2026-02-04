@@ -133,16 +133,16 @@ export function MakeTheDifferenceSection() {
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="w-full lg:w-[50%] text-white space-y-8"
                     >
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight">
+                        <h3 className="text-3xl md:text-4xl text-white lg:text-5xl font-bold leading-[1.15] tracking-tight">
                             Make Move Bold With<br />
                             <span className="text-secondary">Accounts Bridge</span>
                         </h3>
 
-                        <div className="space-y-6 text-green-50/90 text-lg md:text-xl leading-relaxed">
-                            <p>
+                        <div className="space-y-6 text-white text-lg md:text-xl leading-relaxed">
+                            <p className="opacity-95 text-white">
                                 We combine our multi-disciplinary approach with deep, practical industry knowledge to help you meet challenges and respond to opportunities.
                             </p>
-                            <p>
+                            <p className="opacity-95 text-white">
                                 Connect with our team to start the conversation.
                             </p>
                         </div>
@@ -161,7 +161,7 @@ export function MakeTheDifferenceSection() {
                                 </div>
                                 <div>
                                     <div className="text-2xl font-bold text-white">500+</div>
-                                    <div className="text-xs text-green-100/70">Happy Clients</div>
+                                    <div className="text-xs text-white/80 font-medium">Happy Clients</div>
                                 </div>
                             </div>
 
@@ -171,7 +171,7 @@ export function MakeTheDifferenceSection() {
                                 </div>
                                 <div>
                                     <div className="text-2xl font-bold text-white">15+</div>
-                                    <div className="text-xs text-green-100/70">Years Experience</div>
+                                    <div className="text-xs text-white/80 font-medium">Years Experience</div>
                                 </div>
                             </div>
 
@@ -181,7 +181,7 @@ export function MakeTheDifferenceSection() {
                                 </div>
                                 <div>
                                     <div className="text-2xl font-bold text-white">50+</div>
-                                    <div className="text-xs text-green-100/70">Team Members</div>
+                                    <div className="text-xs text-white/80 font-medium">Team Members</div>
                                 </div>
                             </div>
 
@@ -191,7 +191,7 @@ export function MakeTheDifferenceSection() {
                                 </div>
                                 <div>
                                     <div className="text-2xl font-bold text-white">100%</div>
-                                    <div className="text-xs text-green-100/70">Success Rate</div>
+                                    <div className="text-xs text-white/80 font-medium">Success Rate</div>
                                 </div>
                             </div>
                         </motion.div>
@@ -200,7 +200,7 @@ export function MakeTheDifferenceSection() {
                             <Button
                                 asChild
                                 size="lg"
-                                className="btn-lg btn-secondary"
+                                className="btn-lg bg-white text-primary hover:bg-white/90 shadow-2xl shadow-black/10 hover:scale-[1.02] active:scale-[0.98] border-none group"
                             >
                                 <Link href="/contact-us" className="flex items-center gap-2">
                                     Contact us today

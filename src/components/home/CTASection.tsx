@@ -90,7 +90,7 @@ export function CTASection() {
                             asChild
                         >
                             <Link href="/contact-us">
-                                <span className="flex items-center gap-3">
+                                <span className="flex items-center te gap-3">
                                     Book a Consultation
                                     <Sparkles className="w-5 h-5 transition-transform group-hover:rotate-12" />
                                 </span>
@@ -100,12 +100,12 @@ export function CTASection() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="btn-lg btn-outline border-white/30 text-white hover:bg-white/10 hover:border-white"
+                            className="btn-lg btn-outline text-green-500 border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white"
                             asChild
                         >
                             <Link href="/contact-us">
-                                <span className="flex items-center gap-3">
-                                    <PhoneCall className="w-5 h-5 opacity-70 group-hover:opacity-100" />
+                                <span className="flex items-center text-green-700 hover:text-white gap-3">
+                                    <PhoneCall className="w-5 h-5 text-green-700 hover:text-white opacity-100" />
                                     Speak with an Advisor
                                 </span>
                             </Link>
