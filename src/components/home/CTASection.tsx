@@ -86,7 +86,7 @@ export function CTASection() {
                     >
                         <Button
                             size="lg"
-                            className="h-16 px-10 text-lg font-bold rounded-xl bg-secondary hover:bg-[#E5B800] text-slate-900 shadow-2xl shadow-secondary/20 transition-all hover:scale-[1.05] active:scale-[0.95] group"
+                            className="btn-lg btn-secondary"
                             asChild
                         >
                             <Link href="/contact-us">
@@ -100,7 +100,7 @@ export function CTASection() {
                         <Button
                             size="lg"
                             variant="outline"
-                            className="h-16 px-10 text-lg font-bold rounded-xl border-2 border-white/30 bg-transparent text-white hover:bg-white/10 hover:border-white transition-all group"
+                            className="btn-lg btn-outline border-white/30 text-white hover:bg-white/10 hover:border-white"
                             asChild
                         >
                             <Link href="/contact-us">

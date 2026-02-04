@@ -169,7 +169,7 @@ export function HeroSection() {
                                 <div className="flex flex-col sm:flex-row gap-5 pt-3">
                                     <Button
                                         size="lg"
-                                        className="h-16 px-10 text-lg font-bold rounded-xl bg-primary hover:bg-[#075A2C] text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] group" // H-16, larger text, larger padding
+                                        className="btn-lg btn-primary"
                                         asChild
                                     >
                                         <Link href={slideData.ctaLink}>
@@ -183,7 +183,7 @@ export function HeroSection() {
                                     <Button
                                         variant="outline"
                                         size="lg"
-                                        className="h-16 px-10 text-lg font-bold rounded-xl border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 transition-all" // H-16, larger text
+                                        className="btn-lg btn-outline"
                                         asChild
                                     >
                                         <Link href="/services">

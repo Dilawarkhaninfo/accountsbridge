@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { motion, useScroll } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu, ChevronRight } from "lucide-react";
 import {
@@ -154,6 +155,11 @@ export function Navbar() {
         <nav
             className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300"
         >
+            {/* Scroll Progress Bar */}
+            <motion.div
+                className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-primary origin-left z-50"
+                style={{ scaleX: useScroll().scrollYProgress }}
+            />
             <div
                 className="relative mx-auto flex items-center justify-between container px-6 md:px-8 py-3"
             >
@@ -261,10 +267,8 @@ export function Navbar() {
                 <div className="flex items-center gap-4 shrink-0">
                     <Button
                         className={cn(
-                            "hidden lg:flex font-semibold shadow-md transition-all duration-300",
-                            isScrolled
-                                ? "bg-primary hover:bg-primary/90 text-white rounded-md h-9 px-5 text-sm"
-                                : "bg-primary hover:bg-primary/90 text-white rounded-md h-11 px-6 text-base"
+                            "hidden lg:flex btn-primary",
+                            isScrolled ? "btn-sm" : "btn-md"
                         )}
                         asChild
                     >

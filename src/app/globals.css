@@ -129,6 +129,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for sticky navbar */
   }
 
   * {
@@ -137,5 +139,51 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* --- Unified Typography --- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-slate-900;
+  }
+
+  p {
+    @apply text-slate-500 leading-relaxed;
+  }
+
+  /* --- Unified Buttons --- */
+  .btn-base,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-3 transition-all duration-300 font-bold disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-lg {
+    @apply h-16 px-10 text-lg rounded-xl;
+  }
+
+  .btn-md {
+    @apply h-12 px-8 text-base rounded-lg;
+  }
+
+  .btn-sm {
+    @apply h-10 px-6 text-sm rounded-md;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white shadow-xl shadow-primary/10 hover:bg-[#075A2C] hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-slate-900 shadow-xl shadow-secondary/10 hover:bg-[#E5B800] hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 hover:text-primary;
   }
 }

@@ -29,7 +29,7 @@ const cards = [
 
 export function VisionMissionSection() {
     return (
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-24 bg-white">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {cards.map((card, idx) => (
@@ -64,12 +64,12 @@ export function VisionMissionSection() {
                                 </p>
                                 <Button
                                     variant="link"
-                                    className="w-fit p-0 h-auto font-semibold text-white hover:text-white hover:no-underline transition-all group/btn"
+                                    className="w-fit p-0 h-auto font-bold text-white hover:text-secondary hover:no-underline transition-all group/btn"
                                     asChild
                                 >
                                     <Link href={card.link} className="flex items-center gap-2">
                                         Read More
-                                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1 text-primary" />
+                                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                                     </Link>
                                 </Button>
                             </div>

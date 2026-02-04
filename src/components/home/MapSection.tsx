@@ -89,7 +89,7 @@ export function MapSection() {
                                 target="_blank"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="flex-1 h-14 rounded-2xl bg-primary text-white font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:bg-[#096a35] transition-all"
+                                className="btn-md btn-primary flex-1 !rounded-2xl"
                             >
                                 <Navigation size={18} />
                                 Get Directions

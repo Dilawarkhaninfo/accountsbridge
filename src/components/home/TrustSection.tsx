@@ -40,7 +40,7 @@ export function TrustSection() {
     const [startCount, setStartCount] = useState(false);
 
     return (
-        <section className="relative py-20 bg-primary overflow-hidden text-white">
+        <section className="relative py-24 bg-primary overflow-hidden text-white">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
 
@@ -74,7 +74,7 @@ export function TrustSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-lg text-white/80 max-w-md leading-relaxed"
+                            className="text-lg text-white/80 max-w-md leading-relaxed font-medium"
                         >
                             We provide accurate, timely, and strategic financial advice to ensure your business stays compliant and profitable.
                         </motion.p>

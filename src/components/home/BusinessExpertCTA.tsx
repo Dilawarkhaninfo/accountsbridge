@@ -108,7 +108,7 @@ export function BusinessExpertCTA() {
                         <Button
                             asChild
                             size="lg"
-                            className="group h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-semibold rounded-md bg-primary hover:bg-[#096A35] text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 shrink-0"
+                            className="btn-lg btn-primary"
                         >
                             <Link href="/contact-us" className="flex items-center gap-2">
                                 Get a Quote

@@ -29,7 +29,7 @@ const features = [
 
 export function WhyAccountsBridge() {
     return (
-        <section className="bg-slate-50 py-16 md:py-24">
+        <section className="bg-slate-50 py-24">
             <div className="container px-4 md:px-8 mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
@@ -65,7 +65,7 @@ export function WhyAccountsBridge() {
 
                                     {/* CTA */}
                                     <div className="mt-auto pt-6 border-t border-slate-50">
-                                        <span className="inline-flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all duration-300">
+                                        <span className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary/70 group-hover:text-primary transition-all duration-300">
                                             Read More
                                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                                         </span>

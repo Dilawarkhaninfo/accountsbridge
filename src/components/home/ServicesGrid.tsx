@@ -145,7 +145,7 @@ export function ServicesGrid() {
                         <Button
                             asChild
                             variant="outline"
-                            className="h-16 px-10 text-lg font-bold rounded-xl border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 transition-all shadow-sm"
+                            className="btn-lg btn-outline"
                         >
                             <Link href="/services">
                                 Our Methodology <ArrowRight className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-1" />

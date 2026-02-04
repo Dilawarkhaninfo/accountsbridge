@@ -155,7 +155,7 @@ export function RequestCallbackSection() {
                                 </div>
 
                                 <Button
-                                    className="w-full h-14 text-lg font-bold bg-primary hover:bg-[#075A2C] text-white shadow-lg shadow-primary/20 transition-all hover:scale-[1.01] active:scale-[0.99] group"
+                                    className="btn-lg btn-primary w-full"
                                 >
                                     <span className="flex items-center gap-2">
                                         Submit Request
