@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { VisionMissionSection, FollowUpSection } from "@/components/home/VisionMissionSection";
+import { VisionMissionSection } from "@/components/home/VisionMissionSection";
 import { BusinessExpertCTA } from "@/components/home/BusinessExpertCTA";
 import { ProblemsSolutions } from "@/components/home/ProblemsSolutions";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
@@ -17,7 +17,6 @@ export default function Home() {
       <VisionMissionSection />
       <MakeTheDifferenceSection />
 
-      <FollowUpSection />
       <ProblemsSolutions />
       <ServicesGrid />
       <TrustSection />
