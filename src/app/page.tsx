@@ -15,10 +15,11 @@ export default function Home() {
       <BusinessExpertCTA />
 
       <VisionMissionSection />
+      <MakeTheDifferenceSection />
+
       <FollowUpSection />
       <ProblemsSolutions />
       <ServicesGrid />
-      <MakeTheDifferenceSection />
       <TrustSection />
       <TargetAudience />
       <CTASection />

@@ -147,7 +147,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* Headline */}
-                                <h1 className="text-5xl md:text-6xl lg:text-[45px] font-bold tracking-tight text-slate-900 leading-[1.05]"> {/* +35% size: text-5xl -> 6xl/68px */}
+                                <h1 className="text-4xl md:text-5xl lg:text-[45px] font-bold tracking-tight text-slate-900 leading-[1.05]"> {/* +35% size: text-5xl -> 6xl/68px */}
                                     {slideData.headline.split(" ").map((word, i) => (
                                         <span
                                             key={i}

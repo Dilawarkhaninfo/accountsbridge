@@ -152,26 +152,15 @@ export function Navbar() {
 
     return (
         <nav
-            className={cn(
-                "sticky top-0 z-40 w-full transition-all duration-500 ease-in-out",
-                isScrolled ? "py-1" : "py-0 bg-white border-b border-slate-100"
-            )}
+            className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300"
         >
             <div
-                className={cn(
-                    "relative mx-auto transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] flex items-center justify-between container",
-                    isScrolled
-                        ? "bg-white/95 backdrop-blur-md shadow-sm rounded-full py-2 px-6 border border-slate-200/60 mt-1"
-                        : "px-6 md:px-8 py-3"
-                )}
+                className="relative mx-auto flex items-center justify-between container px-6 md:px-8 py-3"
             >
                 {/* Logo Section */}
                 <Link href="/" className="relative z-50 flex items-center gap-2 shrink-0 mr-8">
                     <div
-                        className={cn(
-                            "relative transition-all duration-300",
-                            isScrolled ? "w-32 h-9" : "w-40 h-10 md:w-44 md:h-12"
-                        )}
+                        className="relative w-40 h-10 md:w-44 md:h-12 transition-all duration-300"
                     >
                         <Image
                             src={LogoImage}

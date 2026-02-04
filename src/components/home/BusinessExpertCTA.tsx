@@ -9,7 +9,7 @@ export function BusinessExpertCTA() {
     return (
         <section className="bg-secondary py-4 md:py-4 border-y border-yellow-500/10">
             <div className="container mx-auto px-4 md:px-8">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8  mx-auto">
 
                     {/* Text Content */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1 md:space-y-0.5">
@@ -18,9 +18,7 @@ export function BusinessExpertCTA() {
                                 Looking for expert business & accounting support?
                             </h2>
                         </div>
-                        <p className="text-slate-800/90 font-medium text-sm md:text-base">
-                            Let our advisors help you move forward with confidence.
-                        </p>
+
                     </div>
 
                     {/* CTA Button */}
