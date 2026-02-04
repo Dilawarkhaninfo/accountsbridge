@@ -68,7 +68,7 @@ export function BusinessExpertCTA() {
             </div>
 
             <div className="container relative z-10 mx-auto px-6 md:px-12">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12  mx-auto">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 mx-auto">
 
                     {/* Text Content */}
                     <motion.div

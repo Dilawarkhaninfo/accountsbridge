@@ -11,9 +11,17 @@ import {
     Receipt,
     ClipboardCheck,
     ArrowRight,
-    CheckCircle2
+    CheckCircle2,
+    PieChart,
+    Coins,
+    FileText,
+    Globe,
+    Laptop,
+    Sparkles,
+    Target
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface Service {
     id: number;
@@ -75,6 +83,17 @@ const services: Service[] = [
     }
 ];
 
+// Floating decorative icons configuration
+const floatingIcons = [
+    { Icon: PieChart, position: "top-[10%] left-[5%]", delay: 0, size: "w-16 h-16" },
+    { Icon: Coins, position: "top-[25%] right-[8%]", delay: 0.2, size: "w-14 h-14" },
+    { Icon: FileText, position: "bottom-[15%] left-[8%]", delay: 0.4, size: "w-12 h-12" },
+    { Icon: Globe, position: "top-[50%] left-[3%]", delay: 0.3, size: "w-10 h-10" },
+    { Icon: Laptop, position: "bottom-[25%] right-[10%]", delay: 0.5, size: "w-14 h-14" },
+    { Icon: Target, position: "top-[40%] right-[5%]", delay: 0.6, size: "w-12 h-12" },
+    { Icon: Sparkles, position: "bottom-[40%] left-[12%]", delay: 0.7, size: "w-10 h-10" },
+];
+
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -119,6 +138,22 @@ export function ServicesSection() {
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                     className="absolute bottom-[10%] left-[5%] w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px]"
                 />
+            </div>
+
+            {/* Floating Decorative Icons */}
+            <div className="absolute inset-0 pointer-events-none hidden lg:block overflow-hidden">
+                {floatingIcons.map(({ Icon, position, delay, size }, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8, rotate: -20 }}
+                        whileInView={{ opacity: 0.05, scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay, ease: "easeOut" }}
+                        className={cn("absolute", position)}
+                    >
+                        <Icon className={cn(size, "text-primary stroke-[1.5]")} />
+                    </motion.div>
+                ))}
             </div>
 
             {/* Subtle Noise Texture */}
