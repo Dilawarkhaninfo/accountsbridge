@@ -83,7 +83,7 @@ export function HeroSection() {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 6000); // Increased to 6s for better readability
+        }, 6000);
         return () => clearInterval(timer);
     }, []);
 
@@ -92,7 +92,7 @@ export function HeroSection() {
     return (
         <section
             ref={containerRef}
-            className="relative h-auto min-h-[550px] max-h-[700px] w-full overflow-hidden bg-white flex items-center pt-8 pb-6" // Increased height slightly
+            className="relative h-auto min-h-[650px] w-full overflow-hidden bg-white flex items-center pt-8 pb-8" // Increased min-height significantly
         >
             {/* --- Premium Background Elements --- */}
 
@@ -125,7 +125,7 @@ export function HeroSection() {
             />
 
             <div className="container relative z-10 mx-auto px-6 md:px-12">
-                <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10"> {/* Increased gap */}
+                <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16"> {/* Increased gap */}
 
                     {/* Left: Content Wrapper */}
                     <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
@@ -136,18 +136,18 @@ export function HeroSection() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit to avoid white flash
                                 transition={{ duration: 0.3, ease: "easeOut" }} // Fast entry
-                                className="space-y-4" // Increased spacing
+                                className="space-y-6" // Increased spacing between elements
                             >
                                 {/* Tagline */}
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/50">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500"> {/* Increased tagline size slightly */}
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500"> {/* +35% size: text-xs */}
                                         {slideData.tagline}
                                     </span>
                                 </div>
 
                                 {/* Headline */}
-                                <h1 className="text-4xl md:text-5xl lg:text-[48px] font-bold tracking-tight text-slate-900 leading-[1.1]"> {/* Increased text size */}
+                                <h1 className="text-5xl md:text-6xl lg:text-[45px] font-bold tracking-tight text-slate-900 leading-[1.05]"> {/* +35% size: text-5xl -> 6xl/68px */}
                                     {slideData.headline.split(" ").map((word, i) => (
                                         <span
                                             key={i}
@@ -161,21 +161,21 @@ export function HeroSection() {
                                 </h1>
 
                                 {/* Description */}
-                                <p className="text-base text-slate-500 leading-relaxed max-w-lg"> {/* Increased text size */}
+                                <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl"> {/* +35% size: text-base -> text-xl */}
                                     {slideData.description}
                                 </p>
 
                                 {/* Buttons Container */}
-                                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                <div className="flex flex-col sm:flex-row gap-5 pt-3">
                                     <Button
                                         size="lg"
-                                        className="h-12 px-7 text-base font-bold rounded-lg bg-primary hover:bg-[#075A2C] text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] group" // Increased button height and font
+                                        className="h-16 px-10 text-lg font-bold rounded-xl bg-primary hover:bg-[#075A2C] text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] group" // H-16, larger text, larger padding
                                         asChild
                                     >
                                         <Link href={slideData.ctaLink}>
-                                            <span className="relative z-10 flex items-center gap-2">
+                                            <span className="relative z-10 flex items-center gap-3">
                                                 {slideData.ctaText}
-                                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                                             </span>
                                         </Link>
                                     </Button>
@@ -183,7 +183,7 @@ export function HeroSection() {
                                     <Button
                                         variant="outline"
                                         size="lg"
-                                        className="h-12 px-7 text-base font-bold rounded-lg border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 transition-all" // Increased button height and font
+                                        className="h-16 px-10 text-lg font-bold rounded-xl border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 transition-all" // H-16, larger text
                                         asChild
                                     >
                                         <Link href="/services">
@@ -193,18 +193,18 @@ export function HeroSection() {
                                 </div>
 
                                 {/* Trust Indicators - Compact */}
-                                <div className="flex items-center gap-4 pt-5 border-t border-slate-100 w-full">
+                                <div className="flex items-center gap-5 pt-6 border-t border-slate-100 w-full">
                                     <div className="relative group">
                                         {/* Splash effect behind avatars */}
-                                        <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        <div className="relative flex -space-x-3">
+                                        <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="relative flex -space-x-4">
                                             {[
                                                 "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&h=100&auto=format&fit=crop",
                                                 "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&h=100&auto=format&fit=crop",
                                                 "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&h=100&auto=format&fit=crop",
                                                 "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&h=100&auto=format&fit=crop"
                                             ].map((src, i) => (
-                                                <div key={i} className="w-9 h-9 rounded-full border-2 border-white bg-slate-100 overflow-hidden relative"> {/* Increased avatar size */}
+                                                <div key={i} className="w-12 h-12 rounded-full border-[3px] border-white bg-slate-100 overflow-hidden relative"> {/* Larger avatars */}
                                                     <Image
                                                         src={src}
                                                         alt="Expert Advisor"
@@ -215,11 +215,11 @@ export function HeroSection() {
                                             ))}
                                         </div>
                                     </div>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-1 text-yellow-500">
-                                            {[1, 2, 3, 4, 5].map((s) => <CheckCircle2 key={s} className="w-3.5 h-3.5 fill-current" />)} {/* Increased star size */}
+                                            {[1, 2, 3, 4, 5].map((s) => <CheckCircle2 key={s} className="w-5 h-5 fill-current" />)} {/* Larger stars */}
                                         </div>
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight"> {/* Constant size generally ok */}
+                                        <p className="text-xs font-bold text-slate-400 uppercase tracking-tight">
                                             Trusted by 250+ Melbourne Businesses
                                         </p>
                                     </div>
@@ -237,10 +237,10 @@ export function HeroSection() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
                                 transition={{ duration: 0.3, ease: "easeOut" }} // Fast entry
-                                className="relative z-10 w-full max-w-[720px]" // Increased max-width for image
+                                className="relative z-10 w-full max-w-[780px]" // Maximized width even more
                             >
-                                {/* Main Image Container - Shorter for one-view fit */}
-                                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl group border-4 border-white">
+                                {/* Main Image Container - Increased Height */}
+                                <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl group border-4 border-white"> {/* Taller aspect ratio 16/10 */}
                                     <Image
                                         src={slideData.image}
                                         alt={slideData.headline}
@@ -251,34 +251,34 @@ export function HeroSection() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
                                 </div>
 
-                                {/* Floating Stat Cards - Shrunk & repositioned with splash */}
+                                {/* Floating Stat Cards - Larger */}
                                 <div
-                                    className="absolute -right-4 top-[10%] z-20 bg-white/95 backdrop-blur-md p-3 rounded-lg shadow-lg border border-slate-50 flex items-center gap-3 animate-in fade-in slide-in-from-right-4 duration-500" // Increased padding/gap
+                                    className="absolute -right-6 top-[10%] z-20 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-slate-50 flex items-center gap-4 animate-in fade-in slide-in-from-right-4 duration-500"
                                 >
                                     {/* Splash effect */}
-                                    <div className="absolute -inset-2 bg-primary/10 blur-xl rounded-full -z-10" />
+                                    <div className="absolute -inset-4 bg-primary/10 blur-2xl rounded-full -z-10" />
 
-                                    <div className="w-9 h-9 rounded-md bg-primary/10 flex items-center justify-center text-primary"> {/* Increased icon box */}
-                                        {React.createElement(slideData.stats[0].icon, { size: 16 })}
+                                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                        {React.createElement(slideData.stats[0].icon, { size: 24 })}
                                     </div>
                                     <div>
-                                        <p className="text-base font-bold text-slate-900 leading-none">{slideData.stats[0].value}</p>
-                                        <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{slideData.stats[0].label}</p>
+                                        <p className="text-xl font-bold text-slate-900 leading-none">{slideData.stats[0].value}</p>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{slideData.stats[0].label}</p>
                                     </div>
                                 </div>
 
                                 <div
-                                    className="absolute -left-2 bottom-[15%] z-20 bg-white/95 backdrop-blur-md p-3 rounded-lg shadow-lg border border-slate-50 flex items-center gap-3 animate-in fade-in slide-in-from-left-4 duration-500" // Increased padding/gap
+                                    className="absolute -left-4 bottom-[15%] z-20 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-slate-50 flex items-center gap-4 animate-in fade-in slide-in-from-left-4 duration-500"
                                 >
                                     {/* Splash effect */}
-                                    <div className="absolute -inset-2 bg-secondary/20 blur-xl rounded-full -z-10" />
+                                    <div className="absolute -inset-4 bg-secondary/20 blur-2xl rounded-full -z-10" />
 
-                                    <div className="w-9 h-9 rounded-md bg-secondary/20 flex items-center justify-center text-secondary-foreground"> {/* Increased icon box */}
-                                        {React.createElement(slideData.stats[1].icon, { size: 16 })}
+                                    <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary-foreground">
+                                        {React.createElement(slideData.stats[1].icon, { size: 24 })}
                                     </div>
                                     <div>
-                                        <p className="text-base font-bold text-slate-900 leading-none">{slideData.stats[1].value}</p>
-                                        <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{slideData.stats[1].label}</p>
+                                        <p className="text-xl font-bold text-slate-900 leading-none">{slideData.stats[1].value}</p>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{slideData.stats[1].label}</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -288,33 +288,33 @@ export function HeroSection() {
                 </div>
 
                 {/* --- Slider Controls --- */}
-                <div className="flex items-center justify-between mt-5 pt-3 border-t border-slate-100/50">
-                    <div className="flex gap-2">
+                <div className="flex items-center justify-between mt-8 pt-4 border-t border-slate-100/50">
+                    <div className="flex gap-3">
                         {slides.map((_, i) => (
                             <button
                                 key={i}
                                 onClick={() => setCurrentSlide(i)}
                                 className={cn(
-                                    "h-1.5 transition-all duration-300 rounded-full",
-                                    currentSlide === i ? "w-8 bg-primary" : "w-2 bg-slate-200"
+                                    "h-2 transition-all duration-300 rounded-full",
+                                    currentSlide === i ? "w-10 bg-primary" : "w-2.5 bg-slate-200"
                                 )}
                                 aria-label={`Go to slide ${i + 1}`}
                             />
                         ))}
                     </div>
 
-                    <div className="hidden md:flex items-center gap-4">
+                    <div className="hidden md:flex items-center gap-5">
                         <div className="flex flex-col items-end">
-                            <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">Up Next</span>
-                            <span className="text-[10px] font-bold text-slate-500 truncate max-w-[180px]">
+                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Up Next</span>
+                            <span className="text-xs font-bold text-slate-500 truncate max-w-[200px]">
                                 {slides[(currentSlide + 1) % slides.length].tagline}
                             </span>
                         </div>
                         <button
                             onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-                            className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all group"
+                            className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all group"
                         >
-                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
                         </button>
                     </div>
                 </div>
