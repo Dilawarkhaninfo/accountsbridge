@@ -6,7 +6,6 @@ import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { TrustSection } from "@/components/home/TrustSection";
 import { CTASection } from "@/components/home/CTASection";
 import { MakeTheDifferenceSection } from "@/components/home/MakeTheDifferenceSection";
-import { ServicesSection } from "@/components/home/ServicesSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { RequestCallbackSection } from "@/components/home/RequestCallbackSection";
 import { MapSection } from "@/components/home/MapSection";
@@ -16,10 +15,8 @@ export default function Home() {
     <>
       <HeroSection />
       <BusinessExpertCTA />
-
       <VisionMissionSection />
       <MakeTheDifferenceSection />
-      <ServicesSection />
       <ProblemsSolutions />
       <ServicesGrid />
       <TrustSection />
