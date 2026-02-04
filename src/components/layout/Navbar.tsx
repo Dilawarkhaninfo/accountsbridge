@@ -154,15 +154,15 @@ export function Navbar() {
         <nav
             className={cn(
                 "sticky top-0 z-40 w-full transition-all duration-500 ease-in-out",
-                isScrolled ? "py-2" : "py-0 bg-white border-b border-slate-100"
+                isScrolled ? "py-1" : "py-0 bg-white border-b border-slate-100"
             )}
         >
             <div
                 className={cn(
                     "relative mx-auto transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] flex items-center justify-between container",
                     isScrolled
-                        ? "bg-white/95 backdrop-blur-md shadow-sm rounded-full py-2.5 px-6 border border-slate-200/60 mt-2"
-                        : "px-6 md:px-8 py-5"
+                        ? "bg-white/95 backdrop-blur-md shadow-sm rounded-full py-2 px-6 border border-slate-200/60 mt-1"
+                        : "px-6 md:px-8 py-3"
                 )}
             >
                 {/* Logo Section */}

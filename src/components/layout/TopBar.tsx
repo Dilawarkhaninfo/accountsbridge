@@ -8,7 +8,7 @@ interface TopBarProps {
 
 export function TopBar({ className }: TopBarProps) {
     return (
-        <div className={cn("hidden md:block w-full bg-primary text-white py-2.5 z-50 shadow-sm relative overflow-hidden", className)}>
+        <div className={cn("hidden md:block w-full bg-primary text-white py-1.5 z-50 shadow-sm relative overflow-hidden", className)}>
             {/* Subtle pattern overlay/highlight for texture */}
             <div className="absolute top-0 left-0 w-full h-1 bg-white/10" />
 

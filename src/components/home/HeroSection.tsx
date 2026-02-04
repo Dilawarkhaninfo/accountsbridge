@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles, TrendingUp, ShieldCheck } from "lucide-react";
+import { ArrowRight, TrendingUp, ShieldCheck, BarChart3, Users, Globe, Award, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
@@ -16,207 +16,307 @@ import HeroImage3 from "../../../public/images/hero-image-3.png";
 // --- Hero Content Data Types ---
 interface SlideData {
     id: number;
+    tagline: string;
     headline: string;
     description: string;
     ctaText: string;
     ctaLink: string;
     image: StaticImageData;
     accentColor: string;
-    icon: React.ElementType;
+    stats: { label: string; value: string; icon: React.ElementType }[];
 }
 
 // --- Hero Content Data ---
 const slides: SlideData[] = [
     {
         id: 1,
+        tagline: "Strategic Advisory & Accounting",
         headline: "Strategic Financial Advice for Growing Businesses",
         description: "Your partner in accounting, tax compliance, and long-term business growth. We help you navigate complexity with confidence.",
         ctaText: "Book Consultation",
         ctaLink: "/contact-us",
         image: HeroImage1,
-        accentColor: "bg-primary", // Green
-        icon: TrendingUp
+        accentColor: "#0B7E3E",
+        stats: [
+            { label: "Client Satisfaction", value: "98%", icon: Users },
+            { label: "Expert Advisors", value: "15+", icon: Award }
+        ]
     },
     {
         id: 2,
-        headline: "Scale Your Business from $1M to $5M+",
+        tagline: "Business Expansion Experts",
+        headline: "Scale Your Business from $1M to $10M+",
         description: "Expert advisory services designed to structure your financials, optimize cash flow, and fuel sustainable expansion.",
         ctaText: "Explore Services",
         ctaLink: "/services",
         image: HeroImage2,
-        accentColor: "bg-secondary", // Yellow
-        icon: Sparkles
+        accentColor: "#FECD03",
+        stats: [
+            { label: "Avg. Growth", value: "40%", icon: TrendingUp },
+            { label: "Revenue Optimized", value: "$50M+", icon: BarChart3 }
+        ]
     },
     {
         id: 3,
-        headline: "Precision, Compliance & Peace of Mind",
+        tagline: "Compliance Excellence",
+        headline: "Precision, Compliance & Absolute Peace of Mind",
         description: "Stay ahead of regulations with our proactive tax planning and audit support solutions. Zero stress, maximum clarity.",
         ctaText: "Get Started",
         ctaLink: "/contact-us",
         image: HeroImage3,
-        accentColor: "bg-primary",
-        icon: ShieldCheck
+        accentColor: "#0B7E3E",
+        stats: [
+            { label: "Audit Pass Rate", value: "100%", icon: ShieldCheck },
+            { label: "Global Reach", value: "24/7", icon: Globe }
+        ]
     },
 ];
 
 export function HeroSection() {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollY } = useScroll();
+
+    const opacity = useTransform(scrollY, [0, 200], [1, 0]);
 
     // Auto-slide logic
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 6000);
+        }, 5000); // Faster cycle
         return () => clearInterval(timer);
     }, []);
 
-    // Animation Variants
-    const slideVariants: Variants = {
-        hidden: { opacity: 0, x: 50 },
-        visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeInOut" } },
-        exit: { opacity: 0, x: -50, transition: { duration: 0.6, ease: "easeInOut" } },
-    };
-
-    const textVariants: Variants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
-    };
-
-    const imageVariants: Variants = {
-        hidden: { opacity: 0, scale: 0.95, x: 30 },
-        visible: { opacity: 1, scale: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
-        exit: { opacity: 0, scale: 1.05, x: -30, transition: { duration: 0.6, ease: "easeIn" } }
-    };
+    const slideData = slides[currentSlide];
 
     return (
-        <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden bg-slate-50 flex items-center">
+        <section
+            ref={containerRef}
+            className="relative h-auto min-h-[480px] max-h-[600px] w-full overflow-hidden bg-white flex items-center pt-8 pb-4" // Reduced height and padding
+        >
+            {/* --- Premium Background Elements --- */}
 
-            {/* Background Texture */}
-            <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.03] z-0 pointer-events-none" />
-
-            {/* Soft Ambient Glows */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-                <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-3xl opacity-50" />
-                <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-3xl opacity-50" />
+            {/* Soft mesh gradient blobs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                <motion.div
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        x: [0, 50, 0],
+                        y: [0, 30, 0],
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-[10%] -left-[5%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-[120px]"
+                />
+                <motion.div
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        x: [0, -30, 0],
+                        y: [0, -50, 0],
+                    }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                    className="absolute -bottom-[10%] -right-[5%] w-[50%] h-[50%] bg-secondary/10 rounded-full blur-[100px]"
+                />
             </div>
 
-            <div className="container relative z-10 h-full flex flex-col justify-center px-4 md:px-10">
-                <div className="flex flex-col lg:flex-row items-center w-full gap-8 lg:gap-16">
+            {/* Subtle Noise Texture */}
+            <div
+                className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+            />
 
-                    {/* Left Side: Text Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 relative z-20">
-                        <AnimatePresence mode="wait">
+            <div className="container relative z-10 mx-auto px-6 md:px-12">
+                <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8"> {/* Reduced gap */}
+
+                    {/* Left: Content Wrapper */}
+                    <div className="w-full lg:w-[45%] flex flex-col items-start text-left">
+                        <AnimatePresence mode="popLayout">
                             <motion.div
                                 key={currentSlide}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="space-y-6 max-w-2xl"
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit to avoid white flash
+                                transition={{ duration: 0.3, ease: "easeOut" }} // Fast entry
+                                className="space-y-3" // Reduced spacing
                             >
-                                {/* Animated Accent Label */}
-                                <motion.div
-                                    variants={textVariants}
-                                    className="flex items-center gap-2"
-                                >
-                                    <span className={cn("h-8 w-1 rounded-full", slides[currentSlide].accentColor)} />
-                                    <span className="text-sm font-semibold tracking-wider text-slate-500 uppercase">
-                                        Accounts Bridge
+                                {/* Tagline */}
+                                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200/50">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                                    <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                                        {slideData.tagline}
                                     </span>
-                                </motion.div>
+                                </div>
 
-                                <motion.h1
-                                    variants={textVariants}
-                                    className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900 tracking-tight"
-                                >
-                                    {slides[currentSlide].headline}
-                                </motion.h1>
+                                {/* Headline */}
+                                <h1 className="text-3xl md:text-4xl lg:text-[40px] font-bold tracking-tight text-slate-900 leading-[1.1]"> {/* Reduced text size */}
+                                    {slideData.headline.split(" ").map((word, i) => (
+                                        <span
+                                            key={i}
+                                            className="inline-block mr-[0.2em]"
+                                        >
+                                            {word === "Strategic" || word === "Scale" || word === "Precision" ? (
+                                                <span className="text-primary italic font-semibold">{word}</span>
+                                            ) : word}
+                                        </span>
+                                    ))}
+                                </h1>
 
-                                <motion.p
-                                    variants={textVariants}
-                                    className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-lg"
-                                >
-                                    {slides[currentSlide].description}
-                                </motion.p>
+                                {/* Description */}
+                                <p className="text-sm text-slate-500 leading-relaxed max-w-lg"> {/* Reduced text size */}
+                                    {slideData.description}
+                                </p>
 
-                                <motion.div variants={textVariants} className="flex flex-wrap gap-4 pt-4">
+                                {/* Buttons Container */}
+                                <div className="flex flex-col sm:flex-row gap-3 pt-1">
                                     <Button
                                         size="lg"
-                                        className="group h-14 px-8 text-lg font-semibold rounded-md bg-primary hover:bg-[#096A35] text-white shadow-lg shadow-primary/20 transition-all hover:translate-y-[-2px]"
+                                        className="h-11 px-6 text-sm font-bold rounded-lg bg-primary hover:bg-[#075A2C] text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-[0.98] group" // Smaller button height
                                         asChild
                                     >
-                                        <Link href={slides[currentSlide].ctaLink} className="flex items-center gap-2">
-                                            {slides[currentSlide].ctaText}
-                                            <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                        <Link href={slideData.ctaLink}>
+                                            <span className="relative z-10 flex items-center gap-2">
+                                                {slideData.ctaText}
+                                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                            </span>
                                         </Link>
                                     </Button>
+
                                     <Button
                                         variant="outline"
                                         size="lg"
-                                        className="h-14 px-8 text-lg font-semibold rounded-md border-2 border-slate-200 text-slate-700 hover:border-primary hover:text-primary bg-transparent transition-all hover:bg-slate-50"
+                                        className="h-11 px-6 text-sm font-bold rounded-lg border border-slate-200 text-slate-600 hover:border-primary/30 hover:bg-slate-50 transition-all" // Smaller button height
                                         asChild
                                     >
                                         <Link href="/services">
-                                            Our Services
+                                            Our Methodology
                                         </Link>
                                     </Button>
-                                </motion.div>
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                                </div>
 
-                    {/* Right Side: Image Slide */}
-                    <div className="w-full lg:w-1/2 relative order-1 lg:order-2 flex items-center justify-center lg:justify-start lg:pl-10">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentSlide}
-                                variants={imageVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="relative w-full max-w-[500px] lg:max-w-none aspect-[4/3] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50"
-                            >
-                                <Image
-                                    src={slides[currentSlide].image}
-                                    alt={slides[currentSlide].headline}
-                                    fill
-                                    className="object-cover transition-transform duration-700 hover:scale-105"
-                                    priority
-                                />
-                                {/* Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-
-                                {/* Floating Badge/Icon */}
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
-                                    className="absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg flex items-center gap-4 max-w-[200px]"
-                                >
-                                    <div className={cn("p-2 rounded-full text-white", slides[currentSlide].accentColor)}>
-                                        {React.createElement(slides[currentSlide].icon, { size: 24 })}
+                                {/* Trust Indicators - Compact */}
+                                <div className="flex items-center gap-3 pt-4 border-t border-slate-100 w-full">
+                                    <div className="relative group">
+                                        {/* Splash effect behind avatars */}
+                                        <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="relative flex -space-x-2">
+                                            {[
+                                                "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=100&h=100&auto=format&fit=crop",
+                                                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=100&h=100&auto=format&fit=crop",
+                                                "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&h=100&auto=format&fit=crop",
+                                                "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&h=100&auto=format&fit=crop"
+                                            ].map((src, i) => (
+                                                <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 overflow-hidden relative">
+                                                    <Image
+                                                        src={src}
+                                                        alt="Expert Advisor"
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-xs text-slate-500 font-medium">Focus</span>
-                                        <span className="text-sm font-bold text-slate-800">Growth & Scale</span>
+                                        <div className="flex items-center gap-1 text-yellow-500">
+                                            {[1, 2, 3, 4, 5].map((s) => <CheckCircle2 key={s} className="w-3 h-3 fill-current" />)}
+                                        </div>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
+                                            Trusted by 250+ Melbourne Businesses
+                                        </p>
                                     </div>
-                                </motion.div>
+                                </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
+
+                    {/* Right: Visionary Visuals */}
+                    <div className="w-full lg:w-[55%] relative flex justify-center lg:justify-end">
+                        <AnimatePresence mode="popLayout">
+                            <motion.div
+                                key={currentSlide}
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
+                                transition={{ duration: 0.3, ease: "easeOut" }} // Fast entry
+                                className="relative z-10 w-full max-w-[550px]"
+                            >
+                                {/* Main Image Container - Shorter for one-view fit */}
+                                <div className="relative aspect-[16/9] rounded-2xl overflow-hidden shadow-xl group border-4 border-white">
+                                    <Image
+                                        src={slideData.image}
+                                        alt={slideData.headline}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        priority
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+                                </div>
+
+                                {/* Floating Stat Cards - Shrunk & repositioned with splash */}
+                                <div
+                                    className="absolute -right-4 top-[10%] z-20 bg-white/95 backdrop-blur-md p-2 rounded-lg shadow-lg border border-slate-50 flex items-center gap-2 animate-in fade-in slide-in-from-right-4 duration-500"
+                                >
+                                    {/* Splash effect */}
+                                    <div className="absolute -inset-2 bg-primary/10 blur-xl rounded-full -z-10" />
+
+                                    <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center text-primary">
+                                        {React.createElement(slideData.stats[0].icon, { size: 14 })}
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-bold text-slate-900 leading-none">{slideData.stats[0].value}</p>
+                                        <p className="text-[7px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{slideData.stats[0].label}</p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    className="absolute -left-2 bottom-[15%] z-20 bg-white/95 backdrop-blur-md p-2 rounded-lg shadow-lg border border-slate-50 flex items-center gap-2 animate-in fade-in slide-in-from-left-4 duration-500"
+                                >
+                                    {/* Splash effect */}
+                                    <div className="absolute -inset-2 bg-secondary/20 blur-xl rounded-full -z-10" />
+
+                                    <div className="w-8 h-8 rounded-md bg-secondary/20 flex items-center justify-center text-secondary-foreground">
+                                        {React.createElement(slideData.stats[1].icon, { size: 14 })}
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-bold text-slate-900 leading-none">{slideData.stats[1].value}</p>
+                                        <p className="text-[7px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{slideData.stats[1].label}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
                 </div>
 
-                {/* Pagination Dots - Moved to Bottom Center */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
-                    {slides.map((_, index) => (
+                {/* --- Slider Controls --- */}
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100/50">
+                    <div className="flex gap-1.5">
+                        {slides.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrentSlide(i)}
+                                className={cn(
+                                    "h-1 transition-all duration-300 rounded-full",
+                                    currentSlide === i ? "w-6 bg-primary" : "w-1.5 bg-slate-200"
+                                )}
+                                aria-label={`Go to slide ${i + 1}`}
+                            />
+                        ))}
+                    </div>
+
+                    <div className="hidden md:flex items-center gap-3">
+                        <div className="flex flex-col items-end">
+                            <span className="text-[7px] font-bold text-slate-400 uppercase tracking-widest">Up Next</span>
+                            <span className="text-[9px] font-bold text-slate-500 truncate max-w-[150px]">
+                                {slides[(currentSlide + 1) % slides.length].tagline}
+                            </span>
+                        </div>
                         <button
-                            key={index}
-                            onClick={() => setCurrentSlide(index)}
-                            className={cn(
-                                "h-2 rounded-full transition-all duration-500 ease-in-out",
-                                currentSlide === index ? "w-8 " + slides[index].accentColor : "w-2 bg-slate-300 hover:bg-slate-400"
-                            )}
-                            aria-label={`Go to slide ${index + 1}`}
-                        />
-                    ))}
+                            onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+                            className="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all group"
+                        >
+                            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
