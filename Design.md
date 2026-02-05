@@ -130,6 +130,26 @@ The **Business Expert CTA** uses a reversed color logic for maximum attention:
     *   Stars: `w-4 h-4 text-secondary fill-secondary`
     *   Score: `text-sm font-bold`
 
+### Vision Cards (Image + Content)
+Used for "Why Us", "Vision", and "Mission" sections.
+*   **Structure**: Vertical Stack (Image Top, Content Bottom).
+*   **Image**: Fixed height `h-64` (256px), object-cover, scale-on-hover.
+*   **Content Box**:
+    *   Background: `bg-primary` (Green).
+    *   Text: `text-white`.
+    *   Padding: `p-8`.
+    *   Button: `text-secondary` uppercase link, turns white on hover.
+
+### Service List Grid
+*   **Header**: Centered lowercase Heading 1 (`text-4xl` to `5xl`, `text-primary`) with a central yellow (`bg-secondary`) underline accent.
+*   **Grid Layout**: 3 Columns by 2 Rows.
+*   **Item Design**:
+    *   **Icon**: Hexagonal border (SVG), `w-16 h-16`, Primary Green.
+    *   **Typography**:
+        *   Title: `text-xl font-bold text-primary` (Green).
+        *   Body: `text-sm text-slate-500` (Gray).
+*   **Icons**: Plane, TrendingUp, ShoppingCart, Landmark, Lightbulb, Truck.
+
 ---
 
 ## 5. CSS / Tailwind Configuration Notes

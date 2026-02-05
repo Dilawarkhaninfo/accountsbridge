@@ -16,9 +16,10 @@ export default function Home() {
       <HeroSection />
       <BusinessExpertCTA />
       <VisionMissionSection />
+      <ServicesGrid />
+
       <MakeTheDifferenceSection />
       <ProblemsSolutions />
-      <ServicesGrid />
       <TrustSection />
       <TestimonialsSection />
       <MapSection />

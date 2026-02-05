@@ -1,25 +1,33 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Star } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+
+// Images
+import VisionWhy from "../../../public/images/vision-why.jpg";
+import VisionVision from "../../../public/images/vision-vision.jpg";
+import VisionMission from "../../../public/images/vision-mission.jpg";
 
 const cards = [
     {
         title: "Why Accounts Bridge?",
-        description: "Comprehensive taxation and financial advisory services tailored to help your business reach its full growth potential.",
+        description: "We offer wide range of services revolving around taxation, management accounting, book-keeping, and financial advisory. That helps your business grow better.",
         link: "/about-us",
+        image: VisionWhy,
     },
     {
         title: "Our Vision",
-        description: "To be the most trusted business partner, empowering organizations through professional and industry-leading consultancy.",
-        link: "/about-us",
+        description: "To be trusted business partners of Businesses and help them reaching their full potential of growth by engaging with professional & industry leading consultants.",
+        link: "/about-us/vision",
+        image: VisionVision,
     },
     {
         title: "Our Mission",
-        description: "Translating expertise into measurable growth by managing tax liabilities and providing strategic decision support.",
-        link: "/about-us",
+        description: "Translating our knowledge and expertise into growth and profitability for our clients by helping them to manage tax liabilities and providing timely decision support.",
+        link: "/about-us/mission",
+        image: VisionMission,
     },
 ];
 
@@ -27,38 +35,43 @@ export function VisionMissionSection() {
     return (
         <section className="py-20 bg-white">
             <div className="max-w-8xl mx-auto px-6 md:px-12">
-
-                {/* Header */}
-                <div className="max-w-3xl mb-16 space-y-4">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
-                        <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">How We Define Success</span>
-                    </div>
-
-                    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
-                        Our Core Purpose & <span className="text-primary">Strategic Vision</span>.
-                    </h2>
-                    <p className="text-base text-slate-500 max-w-2xl leading-relaxed">
-                        We transform financial complexity into strategic advantage, ensuring your business stays profitable and compliant in an ever-changing landscape.
-                    </p>
-                </div>
-
-                {/* Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {cards.map((card, idx) => (
-                        <div key={idx} className="group p-8 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
-                            <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors">
-                                {card.title}
-                            </h3>
-                            <p className="text-sm text-slate-500 leading-relaxed mb-6">
-                                {card.description}
-                            </p>
-                            <Button variant="link" className="p-0 h-auto font-bold text-primary flex items-center gap-2 group/btn" asChild>
-                                <Link href={card.link}>
-                                    Read More
-                                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                                </Link>
-                            </Button>
+                        <div
+                            key={idx}
+                            className="group flex flex-col rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                        >
+                            {/* Image Section */}
+                            <div className="relative h-64 w-full overflow-hidden">
+                                <Image
+                                    src={card.image}
+                                    alt={card.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-300" />
+                            </div>
+
+                            {/* Content Section */}
+                            <div className="flex flex-col flex-grow bg-primary p-8 text-white relative">
+                                <h3 className="text-xl md:text-2xl font-bold mb-4 text-white group-hover:text-secondary transition-colors">
+                                    {card.title}
+                                </h3>
+                                <p className="text-sm md:text-base text-white/80 leading-relaxed mb-8 line-clamp-4 flex-grow">
+                                    {card.description}
+                                </p>
+
+                                <div className="mt-auto">
+                                    <Link
+                                        href={card.link}
+                                        className="inline-flex items-center gap-2 text-sm font-bold text-secondary hover:text-white transition-colors uppercase tracking-wider"
+                                    >
+                                        READ MORE
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
