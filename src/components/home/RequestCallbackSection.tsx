@@ -47,7 +47,7 @@ export function RequestCallbackSection() {
                                 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
                             >
                                 Request a <br className="hidden md:block" />
-                                <span className="text-primary italic font-semibold">Call Back.</span>
+                                <span className="text-primary font-semibold">Call Back.</span>
                             </motion.h2>
 
                             <motion.p

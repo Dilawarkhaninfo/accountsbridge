@@ -61,7 +61,7 @@ export function CTASection() {
                             className="text-4xl md:text-6xl lg:text-[72px] font-bold text-white tracking-tight leading-[1.02]"
                         >
                             Ready to scale your <br />
-                            <span className="text-secondary italic font-semibold">Business Potential?</span>
+                            <span className="text-secondary font-semibold">Business Potential?</span>
                         </motion.h2>
 
                         <motion.p

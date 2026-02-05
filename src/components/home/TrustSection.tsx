@@ -77,7 +77,7 @@ export function TrustSection() {
                             className="text-4xl md:text-5xl lg:text-[45px] font-bold text-white tracking-tight leading-[1.05]"
                         >
                             Doing the right thing, <br className="hidden md:block" />
-                            <span className="text-secondary italic font-semibold">at the right time.</span>
+                            <span className="text-secondary font-semibold">at the right time.</span>
                         </motion.h2>
 
                         <motion.p

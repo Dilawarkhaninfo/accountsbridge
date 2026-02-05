@@ -42,7 +42,7 @@ export function MapSection() {
                             </div>
                             <h2 className="text-3xl font-bold text-slate-900 tracking-tight leading-none">
                                 Melbourne <br />
-                                <span className="text-primary italic">Executive Office</span>
+                                <span className="text-primary">Executive Office</span>
                             </h2>
                         </div>
 

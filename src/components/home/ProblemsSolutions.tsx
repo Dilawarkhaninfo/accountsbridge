@@ -67,7 +67,7 @@ export function ProblemsSolutions() {
                             className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
                         >
                             Solutions for the <br className="hidden md:block" />
-                            <span className="text-primary italic font-semibold">Financial Frontier.</span>
+                            <span className="text-primary font-semibold">Financial Frontier.</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, x: -20 }}

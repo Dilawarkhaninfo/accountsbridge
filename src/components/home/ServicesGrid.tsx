@@ -110,7 +110,7 @@ export function ServicesGrid() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
                         >
-                            Services that make <br className="hidden md:block" /> the <span className="text-primary italic font-semibold">Difference.</span>
+                            Services that make <br className="hidden md:block" /> the <span className="text-primary font-semibold">Difference.</span>
                         </motion.h2>
 
                         <motion.p

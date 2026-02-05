@@ -154,7 +154,7 @@ export function HeroSection() {
                                             className="inline-block mr-[0.2em]"
                                         >
                                             {word === "Strategic" || word === "Scale" || word === "Precision" ? (
-                                                <span className="text-primary italic font-semibold">{word}</span>
+                                                <span className="text-primary font-semibold">{word}</span>
                                             ) : word}
                                         </span>
                                     ))}

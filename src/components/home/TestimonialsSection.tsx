@@ -109,7 +109,7 @@ export function TestimonialsSection() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-5xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-tight"
                         >
-                            What <span className="text-primary italic font-semibold">Industry Leaders</span> Say.
+                            What <span className="text-primary font-semibold">Industry Leaders</span> Say.
                         </motion.h2>
 
                         <motion.p
@@ -187,7 +187,7 @@ export function TestimonialsSection() {
 
                                     {/* Testimonial Content */}
                                     <div className="flex-1">
-                                        <p className="text-[16px] text-slate-700 leading-relaxed font-medium italic">
+                                        <p className="text-[16px] text-slate-700 leading-relaxed font-medium">
                                             "{testimonial.content}"
                                         </p>
                                     </div>
