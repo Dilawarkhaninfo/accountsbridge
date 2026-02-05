@@ -153,13 +153,16 @@ Used for "Why Us", "Vision", and "Mission" sections.
     *   **Decoration**: Vertical yellow dashed lines (`border-dashed border-secondary`) appear above and below the hexagon icon.
 
 ### Parallax Stats Section
+*   **Layout**: Centered Content and Alignment.
 *   **Background**: Full-width fixed image (`bg-fixed`) with darker overlay (`bg-slate-900/70`).
 *   **Typography**:
     *   Heading Line 1: Yellow (`text-secondary`).
     *   Heading Line 2: White (`text-white`).
     *   Stats Numbers: White (`text-white`).
-    *   Stats Label: White (`text-white/90`).
-*   **Icon**: Large Secondary Yellow Check Circle (`w-16 h-16`).
+    *   Stats Label: White (`text-white/90`), Uppercase.
+*   **Icons**:
+    *   Main: Large Secondary Yellow Check Circle (`w-20 h-20`) centered above text.
+    *   Stats: Circular icon style (`w-12 h-12` container), Secondary Yellow Icon inside.
 
 ---
 
