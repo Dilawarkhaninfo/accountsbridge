@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 export function RequestCallbackSection() {
     return (
         <section className="py-24 bg-white">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row items-stretch gap-16 lg:gap-24">
 
                     {/* Left: Info */}

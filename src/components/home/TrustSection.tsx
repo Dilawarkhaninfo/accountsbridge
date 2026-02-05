@@ -13,7 +13,7 @@ const stats = [
 export function TrustSection() {
     return (
         <section className="py-24 bg-primary text-white">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                     <div className="space-y-6 max-w-2xl">

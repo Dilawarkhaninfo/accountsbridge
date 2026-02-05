@@ -59,7 +59,7 @@ const services = [
 export function ServicesGrid() {
     return (
         <section className="py-24 bg-white">
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-7xl mx-auto px-6 md:px-12">
 
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">

@@ -22,7 +22,7 @@ const partners = [
 export function HeroSection() {
     return (
         <section className="relative w-full bg-white pt-20 pb-12 overflow-hidden">
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
+            <div className="max-w-7xl relative z-10 mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Left: Content */}
