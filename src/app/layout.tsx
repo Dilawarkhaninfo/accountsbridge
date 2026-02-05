@@ -13,6 +13,22 @@ const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat
 export const metadata: Metadata = {
   title: "Accounts Bridge - Strategic Finance Partners",
   description: "Expert accounting, taxation, and advisory for innovative SMEs. Focused on growth and strategic financial planning.",
+  openGraph: {
+    title: "Accounts Bridge - Strategic Finance Partners",
+    description: "Expert accounting, taxation, and advisory for innovative SMEs.",
+    url: "https://accountsbridge.com.au", // Ideally this should be the actual domain
+    siteName: "Accounts Bridge",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Accounts Bridge - Strategic Finance Partners",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
