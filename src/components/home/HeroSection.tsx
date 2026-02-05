@@ -168,8 +168,7 @@ export function HeroSection() {
                                 {/* Buttons Container */}
                                 <div className="flex flex-col sm:flex-row gap-5 pt-3">
                                     <Button
-                                        size="lg"
-                                        className="btn-lg btn-primary"
+                                        className="btn-primary btn-md"
                                         asChild
                                     >
                                         <Link href={slideData.ctaLink}>
@@ -182,8 +181,7 @@ export function HeroSection() {
 
                                     <Button
                                         variant="outline"
-                                        size="lg"
-                                        className="btn-lg btn-outline"
+                                        className="btn-outline btn-md"
                                         asChild
                                     >
                                         <Link href="/services">

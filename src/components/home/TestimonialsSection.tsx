@@ -70,44 +70,33 @@ export function TestimonialsSection() {
     };
 
     // Determine which testimonials to show based on screen size
-    const itemsToShow = isMobile ? 1 : 2;
+    const itemsToShow = isMobile ? 1 : 3;
     const visibleTestimonials = [];
     for (let i = 0; i < itemsToShow; i++) {
         visibleTestimonials.push(testimonials[(currentIndex + i) % testimonials.length]);
     }
 
     return (
-        <section className="relative py-28 bg-[#fafafa] overflow-hidden">
+        <section className="relative pt-24 pb-12 bg-[#fafafa] overflow-hidden">
             {/* --- Premium Background Elements --- */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
                 <motion.div
-                    animate={{
-                        opacity: [0.2, 0.4, 0.2],
-                        scale: [1, 1.1, 1],
-                    }}
+                    animate={{ opacity: [0.15, 0.3, 0.15], scale: [1, 1.1, 1] }}
                     transition={{ duration: 15, repeat: Infinity }}
                     className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"
-                />
-                <motion.div
-                    animate={{
-                        opacity: [0.1, 0.3, 0.1],
-                        scale: [1, 1.2, 1],
-                    }}
-                    transition={{ duration: 18, repeat: Infinity }}
-                    className="absolute bottom-1/4 -left-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"
                 />
             </div>
 
             <div className="container relative z-10 mx-auto px-6 md:px-12">
                 {/* Section Header - Unified Left-Aligned Style */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16 px-4 md:px-0">
-                    <div className="flex flex-col items-start text-left space-y-6 max-w-2xl">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+                    <div className="flex flex-col items-start text-left space-y-5 max-w-2xl">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/50 shadow-sm mb-2"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/50 shadow-sm"
                         >
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
                             <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Global Trust Indicators</span>
@@ -118,10 +107,9 @@ export function TestimonialsSection() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
+                            className="text-4xl md:text-5xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-tight"
                         >
-                            What <br className="hidden md:block" />
-                            <span className="text-primary italic font-semibold">Industry Leaders</span> Say.
+                            What <span className="text-primary italic font-semibold">Industry Leaders</span> Say.
                         </motion.h2>
 
                         <motion.p
@@ -129,23 +117,23 @@ export function TestimonialsSection() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-slate-500 leading-relaxed"
+                            className="text-lg text-slate-500 leading-relaxed md:max-w-xl"
                         >
                             We measure our success by the growth and confidence of the businesses we serve across the globe.
                         </motion.p>
                     </div>
 
-                    <div className="flex gap-4 mb-4 lg:mb-2">
+                    <div className="flex gap-2.5 mb-2">
                         <button
                             onClick={prev}
-                            className="w-11 h-11 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
+                            className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
                             aria-label="Previous"
                         >
                             <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
                         </button>
                         <button
                             onClick={next}
-                            className="w-11 h-11 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
+                            className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
                             aria-label="Next"
                         >
                             <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
@@ -154,29 +142,29 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Testimonials Slider */}
-                <div className="relative max-w-7xl mx-auto min-h-[480px]">
+                <div className="relative max-w-full mx-auto min-h-[420px]">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
-                            initial={{ opacity: 0, x: 20 }}
+                            initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.4, ease: "easeOut" }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                         >
                             {visibleTestimonials.map((testimonial) => (
                                 <motion.div
                                     key={testimonial.id}
-                                    className="group relative flex flex-col bg-white p-8 md:p-10 rounded-[2.5rem] shadow-[0_15px_60px_-15px_rgba(0,0,0,0.06)] border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+                                    className="group relative flex flex-col bg-white p-7 md:p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] border border-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
                                 >
                                     {/* Quote Icon Accent */}
-                                    <div className="absolute top-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                                        <Quote size={60} className="text-primary fill-current" />
+                                    <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <Quote size={40} className="text-primary fill-current" />
                                     </div>
 
-                                    {/* Author Info - Top Header Style */}
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-slate-50 shadow-sm">
+                                    {/* Author Info */}
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-50 shadow-sm">
                                             <Image
                                                 src={testimonial.image}
                                                 alt={testimonial.name}
@@ -186,34 +174,32 @@ export function TestimonialsSection() {
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-1.5">
-                                                <h3 className="text-[17px] font-black text-slate-900 leading-none tracking-tight">
+                                                <h3 className="text-[15px] font-black text-slate-900 leading-none tracking-tight">
                                                     {testimonial.name}
                                                 </h3>
-                                                <div className="w-3.5 h-3.5 rounded-full bg-primary/10 flex items-center justify-center">
-                                                    <CheckCircle2 size={10} className="text-primary" />
-                                                </div>
+                                                <CheckCircle2 size={10} className="text-primary" />
                                             </div>
-                                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
-                                                {testimonial.role} <span className="mx-1.5 text-slate-200">/</span> {testimonial.company}
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
+                                                {testimonial.role} <span className="mx-1 text-slate-200">/</span> {testimonial.company}
                                             </p>
                                         </div>
                                     </div>
 
                                     {/* Testimonial Content */}
                                     <div className="flex-1">
-                                        <p className="text-[18px] md:text-xl text-slate-700 leading-relaxed font-medium italic">
+                                        <p className="text-[16px] text-slate-700 leading-relaxed font-medium italic">
                                             "{testimonial.content}"
                                         </p>
                                     </div>
 
-                                    {/* Ratings & Service Date Footer */}
-                                    <div className="mt-10 pt-6 border-t border-slate-50 flex items-center justify-between">
-                                        <div className="flex gap-1">
+                                    {/* Ratings Footer */}
+                                    <div className="mt-8 pt-5 border-t border-slate-50 flex items-center justify-between">
+                                        <div className="flex gap-0.5">
                                             {[...Array(5)].map((_, i) => (
-                                                <Star key={i} size={14} className="text-secondary fill-secondary" />
+                                                <Star key={i} size={12} className="text-secondary fill-secondary" />
                                             ))}
                                         </div>
-                                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">
                                             Verified Client
                                         </span>
                                     </div>
@@ -223,15 +209,15 @@ export function TestimonialsSection() {
                     </AnimatePresence>
                 </div>
 
-                {/* International Trust Footer - Simplified & Elegant */}
-                <div className="mt-20 pt-10 border-t border-slate-100 flex flex-wrap justify-between items-center gap-8 opacity-40">
-                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
+                {/* International Trust Footer - No large gap */}
+                <div className="mt-12 pt-8 border-t border-slate-100 flex flex-wrap justify-between items-center gap-6 opacity-40">
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">
                         Global Finance Network • Certified Partners • Melbourne SME Alliance
                     </p>
-                    <div className="flex gap-8">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                        <div className="w-2 h-2 rounded-full bg-secondary" />
-                        <div className="w-2 h-2 rounded-full bg-primary" />
+                    <div className="flex gap-5">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
                 </div>
             </div>

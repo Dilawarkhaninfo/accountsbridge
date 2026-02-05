@@ -107,8 +107,7 @@ export function BusinessExpertCTA() {
                     >
                         <Button
                             asChild
-                            size="lg"
-                            className="btn-lg btn-primary"
+                            className="btn-primary btn-md group"
                         >
                             <Link href="/contact-us" className="flex items-center gap-2">
                                 Get a Quote

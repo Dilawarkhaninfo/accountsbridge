@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import IconImage from "../../../public/icons.png"
 export function Preloader() {
     const [isLoading, setIsLoading] = useState(true);
 

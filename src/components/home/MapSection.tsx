@@ -89,7 +89,7 @@ export function MapSection() {
                                 target="_blank"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="btn-md btn-primary flex-1 !rounded-2xl"
+                                className="btn-md btn-primary flex-1"
                             >
                                 <Navigation size={18} />
                                 Get Directions
@@ -99,7 +99,7 @@ export function MapSection() {
                                 target="_blank"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-14 h-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all shadow-sm"
+                                className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all shadow-sm"
                             >
                                 <ExternalLink size={20} />
                             </motion.a>

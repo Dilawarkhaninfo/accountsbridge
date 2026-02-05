@@ -199,8 +199,7 @@ export function MakeTheDifferenceSection() {
                         <div className="pt-6">
                             <Button
                                 asChild
-                                size="lg"
-                                className="btn-lg bg-white text-primary hover:bg-white/90 shadow-2xl shadow-black/10 hover:scale-[1.02] active:scale-[0.98] border-none group"
+                                className="btn-md bg-white text-primary hover:bg-slate-100 transition-all font-bold border-none group"
                             >
                                 <Link href="/contact-us" className="flex items-center gap-2">
                                     Contact us today
