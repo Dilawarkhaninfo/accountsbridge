@@ -3,8 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Target, TrendingUp } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 
 const features = [
     {
@@ -33,18 +31,14 @@ export function WhyAccountsBridge() {
             <div className="container px-4 md:px-8 mx-auto max-w-7xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group h-full"
                         >
                             <Link href={feature.link} className="block h-full">
                                 <div className="h-full bg-white rounded-xl shadow-sm border border-slate-100 p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-primary/20 relative overflow-hidden">
 
-                                    {/* Top Accent Line (Optional but adds polish) */}
+                                    {/* Top Accent Line */}
                                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/0 to-transparent group-hover:via-primary transition-all duration-500" />
 
                                     {/* Icon Header */}
@@ -72,7 +66,7 @@ export function WhyAccountsBridge() {
                                     </div>
                                 </div>
                             </Link>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

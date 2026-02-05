@@ -2,32 +2,16 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, PhoneCall, TrendingUp, Star } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, PhoneCall, Star } from "lucide-react";
 
 export function CTASection() {
     return (
         <section className="relative py-28 w-full bg-[#0B7E3E] overflow-hidden">
             {/* --- Premium Background Elements --- */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-[20%] -right-[10%] w-[700px] h-[700px] bg-white/10 rounded-full blur-[140px]"
-                />
-                <motion.div
-                    animate={{
-                        scale: [1, 1.1, 1],
-                        opacity: [0.1, 0.2, 0.1],
-                    }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] bg-black/20 rounded-full blur-[120px]"
-                />
+                <div className="absolute -top-[20%] -right-[10%] w-[700px] h-[700px] bg-white/10 rounded-full blur-[140px] opacity-[0.3]" />
+                <div className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] bg-black/20 rounded-full blur-[120px] opacity-[0.1]" />
             </div>
 
             {/* Subtle Noise Texture */}
@@ -39,49 +23,26 @@ export function CTASection() {
             <div className="container relative z-10 mx-auto px-6 md:px-12">
                 <div className="max-w-4xl mx-auto text-center space-y-12">
 
-                    {/* Tagline Badge - Unified Style */}
+                    {/* Tagline Badge */}
                     <div className="flex justify-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xl"
-                        >
-                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
+                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white">Your Success is Our Priority</span>
-                        </motion.div>
+                        </div>
                     </div>
 
                     <div className="space-y-6">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-6xl lg:text-[72px] font-bold text-white tracking-tight leading-[1.02]"
-                        >
+                        <h2 className="text-4xl md:text-6xl lg:text-[72px] font-bold text-white tracking-tight leading-[1.02]">
                             Ready to scale your <br />
                             <span className="text-secondary font-semibold">Business Potential?</span>
-                        </motion.h2>
+                        </h2>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium"
-                        >
+                        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-medium">
                             Partner with Accounts Bridge today. We provide the strategic framework, financial clarity, and expert advisory needed for your long-term expansion.
-                        </motion.p>
+                        </p>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4"
-                    >
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-5 pt-4">
                         <Button
                             asChild
                             variant="secondary"
@@ -107,9 +68,9 @@ export function CTASection() {
                                 </span>
                             </Link>
                         </Button>
-                    </motion.div>
+                    </div>
 
-                    {/* International Trust Footer - Redesigned */}
+                    {/* International Trust Footer */}
                     <div className="mt-16 pt-10 border-t border-white/10 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-1000">
                         <div className="flex items-center gap-3">
                             <span className="text-[10px] font-black tracking-widest uppercase text-white">No Obligation Initial Meeting</span>

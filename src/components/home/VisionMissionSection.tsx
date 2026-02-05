@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,47 +33,26 @@ export function VisionMissionSection() {
         <section className="py-24 bg-white overflow-hidden">
             <div className="container relative z-10 mx-auto px-6 md:px-12">
 
-                {/* Section Header - Unified Style */}
+                {/* Section Header */}
                 <div className="flex flex-col items-start text-left mb-16 space-y-6 max-w-3xl">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2"
-                    >
-                        <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2">
+                        <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                         <span className="text-xs font-bold uppercase tracking-widest text-slate-500">How We Define Success</span>
-                    </motion.div>
+                    </div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
-                    >
+                    <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
                         Our Core Purpose & <br className="hidden md:block" />
                         <span className="text-primary font-semibold">Strategic Vision.</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-lg md:text-xl text-slate-500 leading-relaxed"
-                    >
+                    </h2>
+                    <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
                         We translate our knowledge and expertise into measurable growth and profitability by managing complex tax structures and providing timely decision support.
-                    </motion.p>
+                    </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {cards.map((card, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
                             className="group relative h-[450px] w-full overflow-hidden rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
                         >
                             {/* Background Image */}
@@ -108,7 +87,7 @@ export function VisionMissionSection() {
                                     </Link>
                                 </Button>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -120,12 +99,7 @@ export function FollowUpSection() {
     return (
         <section className="py-20 bg-slate-50 border-t border-b border-slate-100/50">
             <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                <div>
                     <h2 className="text-3xl font-bold text-slate-800 mb-6">
                         Expertise That Drives Real Growth
                     </h2>
@@ -133,7 +107,7 @@ export function FollowUpSection() {
                         We don't just balance the books; we provide the strategic insights you need to make confident decisions.
                         From comprehensive tax planning to long-term business advisory, we are here to support your journey.
                     </p>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

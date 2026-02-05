@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu, ChevronRight } from "lucide-react";
 import {
@@ -155,18 +154,13 @@ export function Navbar() {
         <nav
             className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300"
         >
-            {/* Scroll Progress Bar */}
-            <motion.div
-                className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-primary origin-left z-50"
-                style={{ scaleX: useScroll().scrollYProgress }}
-            />
             <div
                 className="relative mx-auto flex items-center justify-between container px-6 md:px-8 py-3"
             >
                 {/* Logo Section */}
                 <Link href="/" className="relative z-50 flex items-center gap-2 shrink-0 mr-8">
                     <div
-                        className="relative w-40 h-10 md:w-44 md:h-12 transition-all duration-300"
+                        className="relative w-40 h-10 md:w-44 md:h-12"
                     >
                         <Image
                             src={LogoImage}
@@ -198,10 +192,10 @@ export function Navbar() {
                                 <ChevronRight className={cn("ml-1 w-3.5 h-3.5 transition-transform duration-200 rotate-90 opacity-40", hoveredItem === key && "opacity-100")} />
                             </Link>
 
-                            {/* Dropdown Menu - Standard Absolute Positioning */}
+                            {/* Dropdown Menu */}
                             <div
                                 className={cn(
-                                    "absolute top-full left-0 pt-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-200 ease-out transform group-hover:translate-y-0 translate-y-2 z-50",
+                                    "absolute top-full left-0 pt-4 opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-all duration-200 ease-out z-50",
                                     "min-w-max"
                                 )}
                             >

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Calculator, BarChart3, PieChart, FileText, Coins, TrendingUp, Star } from "lucide-react";
+import React from "react";
+import { ArrowRight, TrendingUp, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -49,45 +49,22 @@ export function ProblemsSolutions() {
                 {/* Section Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-12">
                     <div className="flex flex-col items-start text-left space-y-6 max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2"
-                        >
-                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2">
+                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Why Modern Businesses Choose Us</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h2
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
-                        >
+                        <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
                             Solutions for the <br className="hidden md:block" />
                             <span className="text-primary font-semibold">Financial Frontier.</span>
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-slate-500 leading-relaxed"
-                        >
+                        </h2>
+                        <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
                             From complex tax structures to strategic growth advisory, we provide the clarity and confidence your business deserves.
-                        </motion.p>
+                        </p>
                     </div>
 
                     {/* CTA Area on the Right */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="hidden lg:flex flex-col items-end justify-end pb-4"
-                    >
+                    <div className="hidden lg:flex flex-col items-end justify-end pb-4">
                         <Button
                             asChild
                             className="btn-primary btn-sm group"
@@ -100,19 +77,15 @@ export function ProblemsSolutions() {
 
                         {/* Minimalistic background decoration for CTA */}
                         <div className="relative mt-3 mr-3 opacity-20 pointer-events-none">
-                            <TrendingUp size={32} className="text-primary animate-pulse" />
+                            <TrendingUp size={32} className="text-primary" />
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-200/60 rounded-3xl overflow-hidden bg-white shadow-2xl shadow-slate-200/50">
                     {solutions.map((item, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
                             className={cn(
                                 "group relative flex flex-col h-full bg-white transition-all duration-500",
                                 idx !== solutions.length - 1 ? "border-b md:border-b-0 md:border-r border-slate-100" : ""
@@ -165,7 +138,7 @@ export function ProblemsSolutions() {
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 

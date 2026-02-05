@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Shield, Users, Trophy, Smile, Star, TrendingUp } from "lucide-react";
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import React from "react";
+import { Shield, Users, Trophy, Smile, Star } from "lucide-react";
 
 const stats = [
     { label: "Cases Completed", value: 321, icon: Shield, suffix: "" },
@@ -12,34 +10,7 @@ const stats = [
     { label: "Satisfied Customers", value: 100, icon: Smile, suffix: "%" },
 ];
 
-function Counter({ from, to, duration, suffix }: { from: number; to: number; duration: number, suffix: string }) {
-    const [count, setCount] = useState(from);
-
-    useEffect(() => {
-        let startTime: number;
-        let animationFrame: number;
-
-        const update = (timestamp: number) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-
-            setCount(Math.floor(progress * (to - from) + from));
-
-            if (progress < 1) {
-                animationFrame = requestAnimationFrame(update);
-            }
-        };
-
-        animationFrame = requestAnimationFrame(update);
-        return () => cancelAnimationFrame(animationFrame);
-    }, [from, to, duration]);
-
-    return <span>{count}{suffix}</span>;
-}
-
 export function TrustSection() {
-    const [startCount, setStartCount] = useState(false);
-
     return (
         <section className="relative py-28 bg-[#0B7E3E] overflow-hidden text-white">
             {/* Premium Background Decoration */}
@@ -59,48 +30,26 @@ export function TrustSection() {
 
                     {/* Left Side: Content Hierarchy */}
                     <div className="flex flex-col items-start text-left space-y-8 max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-sm mb-2"
-                        >
-                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-sm mb-2">
+                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-xs font-bold uppercase tracking-widest text-white/90">Our Proven Track Record</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h2
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[45px] font-bold text-white tracking-tight leading-[1.05]"
-                        >
+                        <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-white tracking-tight leading-[1.05]">
                             Doing the right thing, <br className="hidden md:block" />
                             <span className="text-secondary font-semibold">at the right time.</span>
-                        </motion.h2>
+                        </h2>
 
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-white/80 leading-relaxed font-medium"
-                        >
+                        <p className="text-lg md:text-xl text-white/80 leading-relaxed font-medium">
                             We provide accurate, timely, and strategic financial advice to ensure your business stays compliant and profitable in an ever-changing landscape.
-                        </motion.p>
+                        </p>
                     </div>
 
-                    {/* Right Side: Stats Grid - Refined Glassmorphism */}
+                    {/* Right Side: Stats Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
                         {stats.map((stat, i) => (
-                            <motion.div
+                            <div
                                 key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                onViewportEnter={() => setStartCount(true)}
-                                transition={{ delay: 0.3 + (i * 0.1), duration: 0.6 }}
                                 className="group relative flex flex-col items-center md:items-start p-8 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 overflow-hidden"
                             >
                                 {/* Gradient Inner Glow */}
@@ -111,13 +60,13 @@ export function TrustSection() {
                                         <stat.icon size={26} strokeWidth={2} />
                                     </div>
                                     <div className="text-4xl lg:text-5xl font-black tracking-tighter mb-2 text-white">
-                                        {startCount ? <Counter from={0} to={stat.value} duration={2.5} suffix={stat.suffix} /> : `0${stat.suffix}`}
+                                        {stat.value}{stat.suffix}
                                     </div>
                                     <div className="text-[10px] font-black text-secondary uppercase tracking-[0.2em] opacity-90">
                                         {stat.label}
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
 

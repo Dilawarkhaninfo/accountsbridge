@@ -1,22 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-import {
-    LineChart,
-    Building2,
-    PieChart,
-    Calculator,
-    FileText,
-    ShieldCheck,
-    ArrowRight,
-    Briefcase,
-    Globe2,
-    Layers,
-    TrendingUp,
-    Zap,
-    Star
-} from "lucide-react";
+import { LineChart, Building2, PieChart, Calculator, FileText, ShieldCheck, ArrowRight, Briefcase, Globe2, Star } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -90,47 +75,24 @@ export function ServicesGrid() {
             </div>
 
             <div className="container relative z-10 mx-auto px-6 md:px-12">
-                {/* Section Header - Unified Style */}
+                {/* Section Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16">
                     <div className="flex flex-col items-start text-left space-y-6 max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2"
-                        >
-                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2">
+                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Expertise That Matters</span>
-                        </motion.div>
+                        </div>
 
-                        <motion.h2
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
-                        >
+                        <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
                             Services that make <br className="hidden md:block" /> the <span className="text-primary font-semibold">Difference.</span>
-                        </motion.h2>
+                        </h2>
 
-                        <motion.p
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-lg md:text-xl text-slate-500 leading-relaxed"
-                        >
+                        <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
                             Expert-led accounting and advisory services designed to structure your financials, optimize cash flow, and fuel sustainable expansion.
-                        </motion.p>
+                        </p>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="hidden lg:flex"
-                    >
+                    <div className="hidden lg:flex">
                         <Button
                             asChild
                             className="btn-primary btn-sm group"
@@ -140,21 +102,16 @@ export function ServicesGrid() {
                                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                             </Link>
                         </Button>
-                    </motion.div>
+                    </div>
                 </div>
 
-                {/* Services Grid - Refined & Compact */}
+                {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-200/60 rounded-[2rem] overflow-hidden bg-white shadow-2xl shadow-slate-200/50">
                     {services.map((service, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.05 }}
                             className={cn(
                                 "group relative p-8 flex flex-col h-full transition-all duration-500 hover:bg-slate-50",
-                                // Adding borders between items
                                 index % 4 !== 3 && "lg:border-r border-slate-100",
                                 index < 4 && "lg:border-b border-slate-100",
                                 (index % 2 === 0) && "md:border-r lg:border-r-0 border-slate-100",
@@ -167,7 +124,7 @@ export function ServicesGrid() {
                             {/* Icon Area */}
                             <div className="mb-6">
                                 <div className={cn(
-                                    "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110",
+                                    "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110",
                                     service.accent
                                 )}>
                                     <service.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
@@ -194,11 +151,11 @@ export function ServicesGrid() {
                                     <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
                                 </Link>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
-                {/* Simplified Bottom Note */}
+                {/* Bottom Note */}
                 <div className="mt-12 text-center opacity-50">
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
                         Comprehensive Support for Melbourne SMEs

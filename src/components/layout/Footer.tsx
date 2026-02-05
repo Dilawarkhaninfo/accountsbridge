@@ -5,8 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Linkedin, Twitter, Mail, Phone, MapPin, ArrowRight, Instagram, Star } from "lucide-react";
 import LogoImage from "../../../public/logo.png";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 
 const footerData = {
     services: [
@@ -82,10 +80,10 @@ export function Footer() {
                         </div>
                     </div>
 
-                    {/* Column 2: Quick Links - Unified Style */}
+                    {/* Column 2: Quick Links */}
                     <div className="lg:col-span-2 space-y-8">
                         <div className="flex items-center gap-2">
-                            <Star size={12} className="text-secondary fill-secondary animate-pulse" />
+                            <Star size={12} className="text-secondary fill-secondary" />
                             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white">
                                 Expertise
                             </h4>
@@ -102,10 +100,10 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Quick Links - Unified Style */}
+                    {/* Column 3: Quick Links */}
                     <div className="lg:col-span-2 space-y-8">
                         <div className="flex items-center gap-2">
-                            <Star size={12} className="text-secondary fill-secondary animate-pulse" />
+                            <Star size={12} className="text-secondary fill-secondary" />
                             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white">
                                 Company
                             </h4>
@@ -169,7 +167,7 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Bottom Bar - Refined */}
+                {/* Bottom Bar */}
                 <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="space-y-2 text-center md:text-left">
                         <p className="text-slate-500 text-[11px] font-bold tracking-tight">

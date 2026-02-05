@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { MapPin, Navigation, ExternalLink, Globe2, Clock, Phone } from "lucide-react";
 
 export function MapSection() {
@@ -27,12 +26,7 @@ export function MapSection() {
 
             <div className="container relative z-10 mx-auto h-full px-6 flex items-center">
                 {/* Floating Premium Office Card */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="w-full max-w-md bg-white/90 backdrop-blur-xl p-10 rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20"
-                >
+                <div className="w-full max-w-md bg-white/90 backdrop-blur-xl p-10 rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/20">
                     <div className="space-y-8">
                         {/* Header */}
                         <div>
@@ -84,45 +78,37 @@ export function MapSection() {
 
                         {/* Call to Action */}
                         <div className="pt-8 border-t border-slate-100 flex gap-4">
-                            <motion.a
+                            <a
                                 href="https://maps.google.com"
                                 target="_blank"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="btn-md btn-primary flex-1"
+                                className="btn-md btn-primary flex-1 flex items-center justify-center gap-2"
                             >
                                 <Navigation size={18} />
                                 Get Directions
-                            </motion.a>
-                            <motion.a
+                            </a>
+                            <a
                                 href="https://maps.google.com"
                                 target="_blank"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
                                 className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all shadow-sm"
                             >
                                 <ExternalLink size={20} />
-                            </motion.a>
+                            </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
 
             {/* Custom Interactive Pin Component (Absolute on Map) */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group/pin hidden lg:block">
                 <div className="relative">
-                    {/* Pulsing Aura */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/20 rounded-full animate-ping pointer-events-none" />
+                    {/* Pulsing Aura (Disabled for simplicity) */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/20 rounded-full pointer-events-none opacity-40" />
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
                     {/* The Pin Point */}
-                    <motion.div
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        className="relative w-16 h-16 bg-[#FECD03] rounded-[1.2rem] shadow-2xl shadow-secondary/50 flex items-center justify-center border-4 border-white transform rotate-45"
-                    >
+                    <div className="relative w-16 h-16 bg-[#FECD03] rounded-[1.2rem] shadow-2xl shadow-secondary/50 flex items-center justify-center border-4 border-white transform rotate-45">
                         <MapPin className="text-slate-900 -rotate-45 w-8 h-8" fill="currentColor" />
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
