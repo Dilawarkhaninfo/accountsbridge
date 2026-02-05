@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight, TrendingUp, ShieldCheck, BarChart3, Users, Globe, Award, Star, Zap, Layers, BookOpen, FileText, RefreshCw, Leaf } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
 
 // Specified Image Imports
 import HeroImage1 from "../../../public/images/hero-image-4.png";
@@ -23,6 +24,15 @@ interface SlideData {
     accentColor: string;
     stats: { label: string; value: string; icon: React.ElementType }[];
 }
+
+const partners = [
+    { name: "Xero", icon: <Zap size={18} className="fill-current" /> },
+    { name: "MYOB", icon: <Layers size={18} /> },
+    { name: "QuickBooks", icon: <BookOpen size={18} /> },
+    { name: "HubDoc", icon: <FileText size={18} /> },
+    { name: "Dext", icon: <RefreshCw size={18} /> },
+    { name: "Sage", icon: <Leaf size={18} /> },
+];
 
 // --- Hero Content Data ---
 const slides: SlideData[] = [
@@ -170,23 +180,23 @@ export function HeroSection() {
                             </div>
 
                             {/* Stat Cards */}
-                            <div className="absolute -right-8 top-[15%] z-30 bg-white/90 backdrop-blur-xl p-5 rounded-2xl shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-inner">
-                                    {React.createElement(slideData.stats[0].icon, { size: 28, strokeWidth: 2.5 })}
+                            <div className="absolute -right-6 top-[15%] z-30 bg-white/90 backdrop-blur-xl p-3.5 rounded-xl shadow-[15px_15px_40px_-10px_rgba(0,0,0,0.2)] border border-white/50 flex items-center gap-3.5">
+                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shadow-inner">
+                                    {React.createElement(slideData.stats[0].icon, { size: 20, strokeWidth: 2.5 })}
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-black text-slate-900 tracking-tight leading-none">{slideData.stats[0].value}</p>
-                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1.5 opacity-80">{slideData.stats[0].label}</p>
+                                    <p className="text-xl font-black text-slate-900 tracking-tight leading-none">{slideData.stats[0].value}</p>
+                                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-1 opacity-80">{slideData.stats[0].label}</p>
                                 </div>
                             </div>
 
-                            <div className="absolute -left-6 bottom-[20%] z-30 bg-white/90 backdrop-blur-xl p-5 rounded-2xl shadow-[-20px_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 flex items-center gap-5">
-                                <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary-foreground shadow-inner">
-                                    {React.createElement(slideData.stats[1].icon, { size: 28, strokeWidth: 2.5 })}
+                            <div className="absolute -left-4 bottom-[20%] z-30 bg-white/90 backdrop-blur-xl p-3.5 rounded-xl shadow-[-15px_15px_40px_-10px_rgba(0,0,0,0.2)] border border-white/50 flex items-center gap-3.5">
+                                <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary-foreground shadow-inner">
+                                    {React.createElement(slideData.stats[1].icon, { size: 20, strokeWidth: 2.5 })}
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-black text-slate-900 tracking-tight leading-none">{slideData.stats[1].value}</p>
-                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1.5 opacity-80">{slideData.stats[1].label}</p>
+                                    <p className="text-xl font-black text-slate-900 tracking-tight leading-none">{slideData.stats[1].value}</p>
+                                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-1 opacity-80">{slideData.stats[1].label}</p>
                                 </div>
                             </div>
                         </div>
@@ -195,24 +205,37 @@ export function HeroSection() {
 
                 {/* Technology Stack Wrapper */}
                 <div className="mt-8 pt-6 border-t border-slate-100/60 relative">
-                    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-hidden">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 whitespace-nowrap shrink-0">
+                    <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap shrink-0">
                             Our Technology Stack
                         </span>
-                        <div className="flex items-center gap-12 md:gap-16 overflow-x-auto no-scrollbar py-2">
-                            {[
-                                { name: "Xero", icon: <Zap size={18} className="fill-current" /> },
-                                { name: "MYOB", icon: <Layers size={18} /> },
-                                { name: "QuickBooks", icon: <BookOpen size={18} /> },
-                                { name: "HubDoc", icon: <FileText size={18} /> },
-                                { name: "Dext", icon: <RefreshCw size={18} /> },
-                                { name: "Sage", icon: <Leaf size={18} /> },
-                            ].map((partner, i) => (
-                                <div key={i} className="flex items-center gap-3 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default">
-                                    <div className="text-primary/60">{partner.icon}</div>
-                                    <span className="text-lg font-black tracking-tighter text-slate-900">{partner.name}</span>
-                                </div>
-                            ))}
+
+                        <div className="relative flex-1 overflow-hidden">
+                            {/* Gradient Masks for smooth blending */}
+                            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+                            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+
+                            <motion.div
+                                className="flex items-center gap-16 whitespace-nowrap py-2"
+                                animate={{ x: ["0%", "-50%"] }}
+                                transition={{
+                                    duration: 30,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                            >
+                                {/* Double the list for a seamless loop */}
+                                {[...partners, ...partners].map((partner, i) => (
+                                    <div key={i} className="flex items-center gap-3 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default group">
+                                        <div className="text-primary/50 group-hover:text-primary transition-colors duration-500">
+                                            {partner.icon}
+                                        </div>
+                                        <span className="text-lg font-black tracking-tighter text-slate-900">
+                                            {partner.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </motion.div>
                         </div>
                     </div>
                 </div>
