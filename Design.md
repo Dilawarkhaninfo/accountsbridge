@@ -148,7 +148,9 @@ Used for "Why Us", "Vision", and "Mission" sections.
     *   **Typography**:
         *   Title: `text-xl font-bold text-primary` (Green).
         *   Body: `text-sm text-slate-500` (Gray).
-*   **Icons**: Plane, TrendingUp, ShoppingCart, Landmark, Lightbulb, Truck.
+*   **Hover State**:
+    *   **Container**: Background turns White (`bg-white`), Shadow (`shadow-2xl`), slight lift (`-translate-y-1`).
+    *   **Decoration**: Vertical yellow dashed lines (`border-dashed border-secondary`) appear above and below the hexagon icon.
 
 ---
 
