@@ -18,10 +18,10 @@ export default function Home() {
       <VisionMissionSection />
       <ServicesGrid />
       <TrustSection />
+      <TestimonialsSection />
 
       <MakeTheDifferenceSection />
       <ProblemsSolutions />
-      <TestimonialsSection />
       <MapSection />
       <RequestCallbackSection />
       <CTASection />
