@@ -164,6 +164,17 @@ Used for "Why Us", "Vision", and "Mission" sections.
     *   Main: Large Secondary Yellow Check Circle (`w-20 h-20`) centered above text.
     *   Stats: Circular icon style (`w-12 h-12` container), Secondary Yellow Icon inside.
 
+### Testimonials Section
+*   **Header**: Centered lowercase Heading 1 ("testimonials") with yellow underline.
+*   **Slider**: 2 items per row, Custom Arrows (Left: White/Border, Right: Primary Green/White).
+*   **Card Design**:
+    *   **Layout**: Horizontal (Image Left, Content Right).
+    *   **Image**: Square (`w-full` mobile, `w-[220px]` desktop), `object-cover`.
+    *   **Typography**:
+        *   Name: `text-xl font-bold text-primary`.
+        *   Role/Company: `text-xs font-semibold text-slate-500 uppercase`.
+        *   Quote: `text-sm text-slate-500 italic`.
+
 ---
 
 ## 5. CSS / Tailwind Configuration Notes
