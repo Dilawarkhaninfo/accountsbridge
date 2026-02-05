@@ -31,13 +31,13 @@ const footerData = {
 
 export function Footer() {
     return (
-        <footer className="relative bg-[#0F172A] text-white overflow-hidden">
+        <footer className="relative bg-primary text-white overflow-hidden">
             {/* Top Brand Strip */}
             <div className="h-1.5 w-full bg-secondary" />
 
             {/* --- Premium Background Decor --- */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] opacity-50" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] opacity-50" />
                 <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] opacity-30" />
             </div>
 
@@ -57,7 +57,7 @@ export function Footer() {
                             </div>
                         </Link>
 
-                        <p className="text-slate-400 text-base leading-relaxed max-w-sm font-medium">
+                        <p className="text-white/80 text-base leading-relaxed max-w-sm font-medium">
                             Strategic finance partners for growing businesses. We provide the stability and clarity needed to navigate complex financial landscapes with absolute precision.
                         </p>
 
@@ -71,7 +71,7 @@ export function Footer() {
                                 <Link
                                     key={social.name}
                                     href={social.href}
-                                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary/50 transition-all duration-300 group/social"
+                                    className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center text-white/70 hover:bg-secondary hover:text-slate-900 hover:border-secondary transition-all duration-300 group/social"
                                     aria-label={social.name}
                                 >
                                     <social.icon size={18} className="group-hover/social:scale-110 transition-transform" />
@@ -91,7 +91,7 @@ export function Footer() {
                         <ul className="space-y-4">
                             {footerData.services.map((item) => (
                                 <li key={item.label}>
-                                    <Link href={item.href} className="text-slate-400 hover:text-white transition-all flex items-center group font-medium text-[15px]">
+                                    <Link href={item.href} className="text-white/70 hover:text-white transition-all flex items-center group font-medium text-[15px]">
                                         <div className="w-0 h-0.5 bg-secondary mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300" />
                                         {item.label}
                                     </Link>
@@ -111,7 +111,7 @@ export function Footer() {
                         <ul className="space-y-4">
                             {footerData.company.map((item) => (
                                 <li key={item.label}>
-                                    <Link href={item.href} className="text-slate-400 hover:text-white transition-all flex items-center group font-medium text-[15px]">
+                                    <Link href={item.href} className="text-white/70 hover:text-white transition-all flex items-center group font-medium text-[15px]">
                                         <div className="w-0 h-0.5 bg-secondary mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-300" />
                                         {item.label}
                                     </Link>
@@ -122,7 +122,7 @@ export function Footer() {
 
                     {/* Column 4: Premium Contact Card */}
                     <div className="lg:col-span-4 lg:pl-4">
-                        <div className="bg-white/[0.03] backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 space-y-8 relative overflow-hidden group">
+                        <div className="bg-white/5 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/10 space-y-8 relative overflow-hidden group hover:bg-white/10 transition-colors duration-500">
                             <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-50" />
 
                             <h4 className="text-[11px] font-black uppercase tracking-[0.25em] text-secondary text-center lg:text-left">
@@ -131,17 +131,17 @@ export function Footer() {
 
                             <div className="space-y-6">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 border border-primary/20 text-primary">
+                                    <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-secondary">
                                         <MapPin size={20} strokeWidth={2.5} />
                                     </div>
-                                    <div className="text-sm leading-relaxed text-slate-300 font-medium">
+                                    <div className="text-sm leading-relaxed text-white/90 font-medium">
                                         38 Glenbarry Road, <br />
                                         Campbellfield, VIC 3061, Australia
                                     </div>
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 border border-primary/20 text-primary">
+                                    <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-secondary">
                                         <Phone size={20} strokeWidth={2.5} />
                                     </div>
                                     <div className="text-[15px] font-bold text-white tracking-tight">
@@ -150,16 +150,16 @@ export function Footer() {
                                 </div>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-11 h-11 rounded-xl bg-primary/20 flex items-center justify-center shrink-0 border border-primary/20 text-primary">
+                                    <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10 text-secondary">
                                         <Mail size={20} strokeWidth={2.5} />
                                     </div>
-                                    <div className="text-sm text-slate-300 font-medium">
+                                    <div className="text-sm text-white/90 font-medium">
                                         info@accountsbridge.com.au
                                     </div>
                                 </div>
                             </div>
 
-                            <button className="btn-primary btn-sm w-full group/btn">
+                            <button className="h-10 px-6 text-sm rounded-md bg-white text-primary font-bold inline-flex items-center justify-center gap-3 transition-all duration-300 w-full group/btn hover:bg-secondary hover:text-slate-900">
                                 Get Directions
                                 <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                             </button>
@@ -168,9 +168,9 @@ export function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="space-y-2 text-center md:text-left">
-                        <p className="text-slate-500 text-[11px] font-bold tracking-tight">
+                        <p className="text-white/50 text-[11px] font-bold tracking-tight">
                             © {new Date().getFullYear()} Accounts Bridge (Australia) Pty Ltd.
                             <span className="mx-2 font-normal opacity-20 hidden md:inline">|</span>
                             <br className="md:hidden" />
@@ -181,7 +181,7 @@ export function Footer() {
                     <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
                         {footerData.legal.map((item) => (
                             <li key={item.label}>
-                                <Link href={item.href} className="text-slate-500 hover:text-white text-[11px] font-bold uppercase tracking-widest transition-colors">
+                                <Link href={item.href} className="text-white/50 hover:text-white text-[11px] font-bold uppercase tracking-widest transition-colors">
                                     {item.label}
                                 </Link>
                             </li>
