@@ -1,48 +1,61 @@
 "use client";
 
 import React from "react";
-import { Shield, Users, Trophy, Smile, Star } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const stats = [
-    { label: "Cases Completed", value: 321, icon: Shield, suffix: "" },
-    { label: "Consultants", value: 27, icon: Users, suffix: "" },
-    { label: "Awards Winning", value: 125, icon: Trophy, suffix: "" },
-    { label: "Satisfied Customers", value: 100, icon: Smile, suffix: "%" },
+    { label: "Cases completed", value: "321" },
+    { label: "Consultants", value: "27" },
+    { label: "Awards winning", value: "125" },
+    { label: "Satisfied customers", value: "100%" },
 ];
 
 export function TrustSection() {
     return (
-        <section className="py-24 bg-primary text-white">
-            <div className="max-w-8xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+            {/* Parallax Background Image */}
+            <div
+                className="absolute inset-0 bg-fixed bg-center bg-cover bg-no-repeat"
+                style={{ backgroundImage: "url('/images/trust-bg.jpg')" }}
+            />
 
-                    <div className="space-y-6 max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
-                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">Our Proven Track Record</span>
+            {/* Dark Overlay - Darkened for White/Yellow text visibility */}
+            <div className="absolute inset-0 bg-slate-900/70" />
+
+            {/* Content Container */}
+            <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-center">
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                    {/* Left Side: Content */}
+                    <div className="space-y-12">
+                        {/* Heading Group */}
+                        <div className="flex items-start gap-5">
+                            <CheckCircle2 className="w-12 h-12 md:w-16 md:h-16 text-secondary shrink-0 mt-1" strokeWidth={2} />
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+                                <span className="text-secondary block text-nowrap">Doing the right thing,</span>
+                                <span className="text-white block text-nowrap">at the right time.</span>
+                            </h2>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-                            Doing the right thing, <br />
-                            <span className="text-secondary">at the right time</span>.
-                        </h2>
-                        <p className="text-base text-white/80 leading-relaxed font-medium">
-                            Expert financial advice ensuring your business stays compliant and profitable in an ever-changing landscape.
-                        </p>
+
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pl-0 md:pl-20">
+                            {stats.map((stat, idx) => (
+                                <div key={idx} className="flex flex-col space-y-2">
+                                    <span className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
+                                        {stat.value}
+                                    </span>
+                                    <span className="text-sm font-medium text-white/90 tracking-wide">
+                                        {stat.label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 md:gap-8">
-                        {stats.map((stat, i) => (
-                            <div key={i} className="p-8 rounded-2xl bg-white/5 border border-white/10 transition-all hover:bg-white/10">
-                                <stat.icon className="w-6 h-6 text-secondary mb-4" strokeWidth={1.5} />
-                                <p className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">
-                                    {stat.value}{stat.suffix}
-                                </p>
-                                <p className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] opacity-80">
-                                    {stat.label}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+                    {/* Right Side: Spacer */}
+                    <div className="hidden md:block" />
                 </div>
             </div>
         </section>

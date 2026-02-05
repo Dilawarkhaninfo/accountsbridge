@@ -44,25 +44,27 @@ const services = [
     },
 ];
 
-// Hexagon SVG Component
+// Hexagon SVG Component (Adjusted for perfect non-clipped rendering)
 const HexagonBorder = ({ className }: { className?: string }) => (
     <svg
         viewBox="0 0 100 100"
-        className={cn("w-full h-full", className)}
+        className={cn("w-full h-full drop-shadow-sm", className)}
         fill="none"
         stroke="currentColor"
-        strokeWidth="4"
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
+        style={{ overflow: 'visible' }}
     >
-        <path d="M50 3 L93.3 28 V78 L50 103 L6.7 78 V28 Z" />
+        {/* Adjusted to sit perfectly inside 100x100 box with padding for stroke */}
+        <path d="M50 2 L93 26 V74 L50 98 L7 74 V26 Z" />
     </svg>
 );
 
 export function ServicesGrid() {
     return (
         <section className="py-24 bg-[#FAFAFA]">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-8xl relative z-10 mx-auto px-6 md:px-12">
 
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-20 space-y-4">
@@ -74,18 +76,29 @@ export function ServicesGrid() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
                     {services.map((service, index) => (
-                        <div key={index} className="flex gap-6 group">
-                            {/* Hexagon Icon */}
-                            <div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
-                                <HexagonBorder className="absolute inset-0 text-primary group-hover:text-primary transition-colors duration-300" />
-                                <service.icon className="w-7 h-7 text-primary relative z-10" strokeWidth={1.5} />
+                        <div
+                            key={index}
+                            className="group relative flex gap-6 p-8 rounded-2xl transition-all duration-500 hover:bg-white hover:shadow-2xl hover:-translate-y-2 z-0 hover:z-10"
+                        >
+                            {/* Icon Section */}
+                            <div className="relative shrink-0 flex flex-col items-center">
+                                {/* Top Dashed Line */}
+                                <div className="absolute -top-8 w-0.5 h-8 border-l-2 border-dashed border-secondary opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out origin-bottom scale-y-0 group-hover:scale-y-100" />
+
+                                <div className="relative w-16 h-16 flex items-center justify-center">
+                                    <HexagonBorder className="absolute inset-0 text-primary transition-transform duration-500 group-hover:scale-110" />
+                                    <service.icon className="w-7 h-7 text-primary relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+                                </div>
+
+                                {/* Bottom Dashed Line */}
+                                <div className="absolute -bottom-8 w-0.5 h-8 border-l-2 border-dashed border-secondary opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out origin-top scale-y-0 group-hover:scale-y-100" />
                             </div>
 
                             {/* Content */}
                             <div className="space-y-3 pt-1">
-                                <h3 className="text-xl font-bold text-primary">
+                                <h3 className="text-xl font-bold text-primary transition-colors">
                                     {service.title}
                                 </h3>
                                 <p className="text-sm text-slate-500 leading-relaxed max-w-sm">

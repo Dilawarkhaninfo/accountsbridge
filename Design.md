@@ -152,6 +152,15 @@ Used for "Why Us", "Vision", and "Mission" sections.
     *   **Container**: Background turns White (`bg-white`), Shadow (`shadow-2xl`), slight lift (`-translate-y-1`).
     *   **Decoration**: Vertical yellow dashed lines (`border-dashed border-secondary`) appear above and below the hexagon icon.
 
+### Parallax Stats Section
+*   **Background**: Full-width fixed image (`bg-fixed`) with darker overlay (`bg-slate-900/70`).
+*   **Typography**:
+    *   Heading Line 1: Yellow (`text-secondary`).
+    *   Heading Line 2: White (`text-white`).
+    *   Stats Numbers: White (`text-white`).
+    *   Stats Label: White (`text-white/90`).
+*   **Icon**: Large Secondary Yellow Check Circle (`w-16 h-16`).
+
 ---
 
 ## 5. CSS / Tailwind Configuration Notes
