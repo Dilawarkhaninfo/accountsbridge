@@ -44,8 +44,14 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --width-7-5xl: 85rem;
-  --width-8xl: 90rem;
+}
+
+@utility max-w-7-5xl {
+  max-width: 85rem;
+}
+
+@utility max-w-8xl {
+  max-width: 90rem;
 }
 
 :root {
@@ -58,13 +64,13 @@
   --accent-foreground: #0B7E3E;
 
   /* Base Colors - Light Theme */
-  --background: #ffffff;
-  --foreground: #1A202C;
+  --background: #F8F9FA;
+  --foreground: #0F172A;
   --card: #ffffff;
-  --card-foreground: #1A202C;
+  --card-foreground: #0F172A;
   --popover: #ffffff;
-  --popover-foreground: #1A202C;
-  --muted: #F8F9FA;
+  --popover-foreground: #0F172A;
+  --muted: #F1F5F9;
   --muted-foreground: #64748B;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
