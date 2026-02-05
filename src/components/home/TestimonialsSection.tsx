@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -46,12 +47,29 @@ const testimonials: Testimonial[] = [
         company: "Starlight Media",
         image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&h=400&auto=format&fit=crop",
         content: "Navigating the complexities of international tax was daunting until we found Accounts Bridge. They simplified everything for us."
+    },
+    {
+        id: 5,
+        name: "Michael Chen",
+        role: "Operations Director",
+        company: "Vanguard Logistics",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop",
+        content: "The scalability advice we received from Accounts Bridge was pivotal in our recent expansion. Their strategic insight is unmatched."
+    },
+    {
+        id: 6,
+        name: "Elena Rodriguez",
+        role: "Founder",
+        company: "EcoSphere Tech",
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&h=400&auto=format&fit=crop",
+        content: "As a startup founder, I needed more than just an accountant; I needed a partner. They helped us navigate our first audit with absolute ease."
     }
 ];
 
 export function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [direction, setDirection] = useState(0);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -61,14 +79,15 @@ export function TestimonialsSection() {
     }, []);
 
     const next = () => {
+        setDirection(1);
         setCurrentIndex((prev) => (prev + 1) % testimonials.length);
     };
 
     const prev = () => {
+        setDirection(-1);
         setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     };
 
-    // Determine which testimonials to show based on screen size
     const itemsToShow = isMobile ? 1 : 3;
     const visibleTestimonials = [];
     for (let i = 0; i < itemsToShow; i++) {
@@ -84,7 +103,7 @@ export function TestimonialsSection() {
             </div>
 
             <div className="container relative z-10 mx-auto px-6 md:px-12">
-                {/* Section Header - Unified Left-Aligned Style */}
+                {/* Section Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
                     <div className="flex flex-col items-start text-left space-y-5 max-w-2xl">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/50 shadow-sm">
@@ -121,61 +140,85 @@ export function TestimonialsSection() {
 
                 {/* Testimonials Slider */}
                 <div className="relative max-w-full mx-auto min-h-[420px]">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {visibleTestimonials.map((testimonial) => (
-                            <div
-                                key={`${currentIndex}-${testimonial.id}`}
-                                className="group relative flex flex-col bg-white p-7 md:p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] border border-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
-                            >
-                                {/* Quote Icon Accent */}
-                                <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                                    <Quote size={40} className="text-primary fill-current" />
-                                </div>
-
-                                {/* Author Info */}
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-50 shadow-sm">
-                                        <Image
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            fill
-                                            className="object-cover"
-                                        />
+                    <AnimatePresence mode="wait" custom={direction}>
+                        <motion.div
+                            key={currentIndex}
+                            custom={direction}
+                            initial={{ opacity: 0, x: direction * 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -direction * 50 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                        >
+                            {visibleTestimonials.map((testimonial) => (
+                                <div
+                                    key={testimonial.id}
+                                    className="group relative flex flex-col bg-white p-7 md:p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] border border-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+                                >
+                                    <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <Quote size={40} className="text-primary fill-current" />
                                     </div>
-                                    <div>
-                                        <div className="flex items-center gap-1.5">
-                                            <h3 className="text-[15px] font-black text-slate-900 leading-none tracking-tight">
-                                                {testimonial.name}
-                                            </h3>
-                                            <CheckCircle2 size={10} className="text-primary" />
+
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-50 shadow-sm">
+                                            <Image
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                fill
+                                                className="object-cover"
+                                            />
                                         </div>
-                                        <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
-                                            {testimonial.role} <span className="mx-1 text-slate-200">/</span> {testimonial.company}
+                                        <div>
+                                            <div className="flex items-center gap-1.5">
+                                                <h3 className="text-[15px] font-black text-slate-900 leading-none tracking-tight">
+                                                    {testimonial.name}
+                                                </h3>
+                                                <CheckCircle2 size={10} className="text-primary" />
+                                            </div>
+                                            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
+                                                {testimonial.role} <span className="mx-1 text-slate-200">/</span> {testimonial.company}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex-1">
+                                        <p className="text-[15px] text-slate-700 leading-relaxed font-medium">
+                                            "{testimonial.content}"
                                         </p>
                                     </div>
-                                </div>
 
-                                {/* Testimonial Content */}
-                                <div className="flex-1">
-                                    <p className="text-[16px] text-slate-700 leading-relaxed font-medium">
-                                        "{testimonial.content}"
-                                    </p>
-                                </div>
-
-                                {/* Ratings Footer */}
-                                <div className="mt-8 pt-5 border-t border-slate-50 flex items-center justify-between">
-                                    <div className="flex gap-0.5">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star key={i} size={12} className="text-secondary fill-secondary" />
-                                        ))}
+                                    <div className="mt-8 pt-5 border-t border-slate-50 flex items-center justify-between">
+                                        <div className="flex gap-0.5">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} size={12} className="text-secondary fill-secondary" />
+                                            ))}
+                                        </div>
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">
+                                            Verified Client
+                                        </span>
                                     </div>
-                                    <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">
-                                        Verified Client
-                                    </span>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-2 mt-8">
+                    {testimonials.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => {
+                                setDirection(i > currentIndex ? 1 : -1);
+                                setCurrentIndex(i);
+                            }}
+                            className={cn(
+                                "w-2 h-2 rounded-full transition-all duration-300",
+                                i === currentIndex ? "w-6 bg-primary" : "bg-slate-200 hover:bg-slate-300"
+                            )}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
                 </div>
 
                 {/* International Trust Footer */}
