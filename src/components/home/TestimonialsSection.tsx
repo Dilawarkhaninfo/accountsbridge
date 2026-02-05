@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -95,51 +95,31 @@ export function TestimonialsSection() {
     }
 
     return (
-        <section className="relative pt-12 pb-6 bg-[#fafafa] overflow-hidden">
-            {/* --- Premium Background Elements --- */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-                <div className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] opacity-20" />
-            </div>
+        <section className="py-20 bg-[#FAFAFA]">
+            <div className="container mx-auto px-6 md:px-12">
 
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
-                {/* Section Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
-                    <div className="flex flex-col items-start text-left space-y-5 max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/50 shadow-sm">
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+                    <div className="max-w-2xl space-y-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200">
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Global Trust Indicators</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Global Trust</span>
                         </div>
-
-                        <h2 className="text-4xl md:text-5xl lg:text-[42px] font-bold text-slate-900 tracking-tight leading-tight">
-                            What <span className="text-primary font-semibold">Industry Leaders</span> Say.
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                            What <span className="text-primary italic">Industry Leaders</span> Say.
                         </h2>
-
-                        <p className="text-lg text-slate-500 leading-relaxed md:max-w-xl">
-                            We measure our success by the growth and confidence of the businesses we serve across the globe.
-                        </p>
                     </div>
 
-                    <div className="flex gap-2.5 mb-2">
-                        <button
-                            onClick={prev}
-                            className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
-                            aria-label="Previous"
-                        >
-                            <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
+                    <div className="flex gap-2">
+                        <button onClick={prev} className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-primary hover:border-primary transition-all">
+                            <ChevronLeft className="w-5 h-5" />
                         </button>
-                        <button
-                            onClick={next}
-                            className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
-                            aria-label="Next"
-                        >
-                            <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+                        <button onClick={next} className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-primary hover:border-primary transition-all">
+                            <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
                 </div>
 
-                {/* Testimonials Slider */}
-                <div className="relative max-w-full mx-auto min-h-[350px]">
+                <div className="relative min-h-[300px]">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div
                             key={currentIndex}
@@ -147,55 +127,32 @@ export function TestimonialsSection() {
                             initial={{ opacity: 0, x: direction * 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -direction * 50 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                         >
                             {visibleTestimonials.map((testimonial) => (
-                                <div
-                                    key={testimonial.id}
-                                    className="group relative flex flex-col bg-white p-7 md:p-8 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] border border-slate-100/80 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
-                                >
-                                    <div className="absolute top-8 right-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                                        <Quote size={40} className="text-primary fill-current" />
-                                    </div>
-
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="relative w-12 h-12 rounded-xl overflow-hidden border-2 border-slate-50 shadow-sm">
-                                            <Image
-                                                src={testimonial.image}
-                                                alt={testimonial.name}
-                                                fill
-                                                className="object-cover"
-                                            />
+                                <div key={testimonial.id} className="p-8 bg-white rounded-2xl border border-slate-100 space-y-6">
+                                    <div className="flex items-center gap-4">
+                                        <div className="relative w-10 h-10 rounded-full overflow-hidden grayscale opacity-70">
+                                            <Image src={testimonial.image} alt={testimonial.name} fill className="object-cover" />
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-1.5">
-                                                <h3 className="text-[15px] font-black text-slate-900 leading-none tracking-tight">
-                                                    {testimonial.name}
-                                                </h3>
+                                                <h4 className="text-sm font-bold text-slate-900">{testimonial.name}</h4>
                                                 <CheckCircle2 size={10} className="text-primary" />
                                             </div>
-                                            <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
+                                            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                                                 {testimonial.role} <span className="mx-1 text-slate-200">/</span> {testimonial.company}
                                             </p>
                                         </div>
                                     </div>
-
-                                    <div className="flex-1">
-                                        <p className="text-[15px] text-slate-700 leading-relaxed font-medium">
-                                            "{testimonial.content}"
-                                        </p>
-                                    </div>
-
-                                    <div className="mt-8 pt-5 border-t border-slate-50 flex items-center justify-between">
-                                        <div className="flex gap-0.5">
-                                            {[...Array(5)].map((_, i) => (
-                                                <Star key={i} size={12} className="text-secondary fill-secondary" />
-                                            ))}
-                                        </div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-300">
-                                            Verified Client
-                                        </span>
+                                    <p className="text-sm text-slate-600 leading-relaxed italic">
+                                        "{testimonial.content}"
+                                    </p>
+                                    <div className="flex gap-1 pt-2 border-t border-slate-50">
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star key={i} size={10} className="text-secondary fill-secondary" />
+                                        ))}
                                     </div>
                                 </div>
                             ))}
@@ -203,8 +160,7 @@ export function TestimonialsSection() {
                     </AnimatePresence>
                 </div>
 
-                {/* Pagination Dots */}
-                <div className="flex justify-center gap-2 mt-4">
+                <div className="flex justify-center gap-2 mt-12">
                     {testimonials.map((_, i) => (
                         <button
                             key={i}
@@ -213,24 +169,11 @@ export function TestimonialsSection() {
                                 setCurrentIndex(i);
                             }}
                             className={cn(
-                                "w-2 h-2 rounded-full transition-all duration-300",
-                                i === currentIndex ? "w-6 bg-primary" : "bg-slate-200 hover:bg-slate-300"
+                                "h-1.5 rounded-full transition-all duration-300",
+                                i === currentIndex ? "w-6 bg-primary" : "w-1.5 bg-slate-200"
                             )}
-                            aria-label={`Go to slide ${i + 1}`}
                         />
                     ))}
-                </div>
-
-                {/* International Trust Footer */}
-                <div className="mt-8 pt-8 border-t border-slate-100 flex flex-wrap justify-between items-center gap-6 opacity-40">
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">
-                        Global Finance Network • Certified Partners • Melbourne SME Alliance
-                    </p>
-                    <div className="flex gap-5">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    </div>
                 </div>
             </div>
         </section>

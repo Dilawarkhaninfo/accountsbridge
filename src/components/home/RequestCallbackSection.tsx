@@ -1,152 +1,92 @@
 "use client";
 
 import React from "react";
-import { Phone, Mail, Send, Clock, MapPin, CheckCircle2, Star, Shield } from "lucide-react";
+import { Phone, Mail, Send, Clock, CheckCircle2, Star, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 export function RequestCallbackSection() {
     return (
-        <section className="relative py-28 overflow-hidden bg-white">
-            {/* --- Premium Background Elements --- */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary/10 rounded-full blur-[100px]" />
-            </div>
+        <section className="py-24 bg-white">
+            <div className="container mx-auto px-6 md:px-12">
+                <div className="flex flex-col lg:flex-row items-stretch gap-16 lg:gap-24">
 
-            {/* Subtle Noise Texture */}
-            <div
-                className="absolute inset-0 opacity-[0.03] pointer-events-none z-[1]"
-                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
-            />
-
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
-                <div className="flex flex-col lg:flex-row items-stretch gap-20">
-
-                    {/* Left Side: Content Hierarchy */}
-                    <div className="lg:w-[45%] flex flex-col justify-center space-y-10 text-left">
+                    {/* Left: Info */}
+                    <div className="lg:w-[45%] flex flex-col justify-center space-y-10">
                         <div className="space-y-6">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
                                 <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                                <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Expert Consultation</span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Expert Consultation</span>
                             </div>
-
-                            <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
-                                Request a <br className="hidden md:block" />
-                                <span className="text-primary font-semibold">Call Back.</span>
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+                                Request a <span className="text-primary italic">Call Back</span>.
                             </h2>
-
-                            <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-xl">
+                            <p className="text-base text-slate-500 leading-relaxed max-w-lg">
                                 Submit your details and our senior financial advisers will be in touch within 24 hours to discuss your business needs.
                             </p>
                         </div>
 
-                        {/* Quick Contact Cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4">
-                            <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 group">
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 transition-all duration-500 group-hover:scale-110">
-                                    <Clock size={22} strokeWidth={2.5} />
-                                </div>
-                                <div>
-                                    <h4 className="font-extrabold text-slate-900 text-sm tracking-tight">Response Time</h4>
-                                    <p className="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Within 24 Hours</p>
-                                </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                                <Clock className="w-5 h-5 text-primary mb-3" />
+                                <h4 className="font-bold text-slate-900 text-sm">Response Time</h4>
+                                <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Within 24 Hours</p>
                             </div>
-
-                            <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-xl hover:shadow-secondary/5 group">
-                                <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary-foreground shrink-0 transition-all duration-500 group-hover:scale-110">
-                                    <Mail size={22} strokeWidth={2.5} />
-                                </div>
-                                <div>
-                                    <h4 className="font-extrabold text-slate-900 text-sm tracking-tight">Prefer Email?</h4>
-                                    <p className="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">info@accountsbridge.com.au</p>
-                                </div>
+                            <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                                <Mail className="w-5 h-5 text-secondary mb-3" />
+                                <h4 className="font-bold text-slate-900 text-sm">Prefer Email?</h4>
+                                <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">info@accountsbridge.com.au</p>
                             </div>
                         </div>
 
-                        {/* Trust Badges */}
-                        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-6 opacity-60">
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                    <CheckCircle2 size={12} strokeWidth={3} />
-                                </div>
-                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-primary transition-colors">CPA Certified</span>
+                        <div className="flex flex-wrap items-center gap-6 pt-4">
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 size={14} className="text-primary" />
+                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">CPA Certified</span>
                             </div>
-                            <div className="flex items-center gap-2 group cursor-default">
-                                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                                    <CheckCircle2 size={12} strokeWidth={3} />
-                                </div>
-                                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-primary transition-colors">Xero Platinum Partner</span>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 size={14} className="text-primary" />
+                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Xero Platinum Partner</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right Side: Form */}
+                    {/* Right: Form */}
                     <div className="lg:w-[55%] flex items-center">
-                        <div className="w-full bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.08)] border border-slate-100 relative overflow-hidden">
-                            {/* Decorative Accent */}
-                            <div className="absolute top-0 left-0 w-full h-[6px] bg-secondary opacity-80" />
-
-                            <form className="space-y-7 relative z-10">
+                        <div className="w-full bg-white p-8 md:p-12 rounded-2xl border border-slate-100 shadow-xl">
+                            <form className="space-y-6">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label htmlFor="firstName" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">First name *</label>
-                                        <Input
-                                            id="firstName"
-                                            placeholder="Enter your name"
-                                            className="h-14 bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/5 focus:border-primary/30 transition-all rounded-xl text-slate-900 placeholder:text-slate-300"
-                                            required
-                                        />
+                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">First name *</label>
+                                        <Input placeholder="Enter your name" className="h-12 bg-slate-50/50 border-slate-200 focus:bg-white rounded-lg" required />
                                     </div>
                                     <div className="space-y-2">
-                                        <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">E-mail *</label>
-                                        <Input
-                                            id="email"
-                                            type="email"
-                                            placeholder="john@example.com"
-                                            className="h-14 bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/5 focus:border-primary/30 transition-all rounded-xl text-slate-900 placeholder:text-slate-300"
-                                            required
-                                        />
+                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">E-mail *</label>
+                                        <Input type="email" placeholder="john@example.com" className="h-12 bg-slate-50/50 border-slate-200 focus:bg-white rounded-lg" required />
                                     </div>
                                 </div>
-
                                 <div className="space-y-2">
-                                    <label htmlFor="phone" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone *</label>
-                                    <Input
-                                        id="phone"
-                                        type="tel"
-                                        placeholder="+61 000 000 000"
-                                        className="h-14 bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/5 focus:border-primary/30 transition-all rounded-xl text-slate-900 placeholder:text-slate-300"
-                                        required
-                                    />
+                                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Phone *</label>
+                                    <Input type="tel" placeholder="+61 000 000 000" className="h-12 bg-slate-50/50 border-slate-200 focus:bg-white rounded-lg" required />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Your Message *</label>
+                                    <Textarea placeholder="Tell us about your requirements..." className="min-h-[120px] bg-slate-50/50 border-slate-200 focus:bg-white rounded-lg p-4 resize-none" required />
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Message *</label>
-                                    <Textarea
-                                        id="message"
-                                        placeholder="Tell us about your requirements..."
-                                        className="min-h-[140px] bg-slate-50/50 border-slate-100 focus:bg-white focus:ring-primary/5 focus:border-primary/30 transition-all rounded-xl text-slate-900 placeholder:text-slate-300 resize-none p-5"
-                                        required
-                                    />
-                                </div>
-
-                                <Button className="btn-primary btn-md w-full">
-                                    <span className="flex items-center justify-center gap-3 w-full">
-                                        Submit Request
-                                        <Send size={18} strokeWidth={2.5} />
-                                    </span>
+                                <Button className="h-12 w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg shadow-sm">
+                                    Submit Request
+                                    <Send size={16} className="ml-2" />
                                 </Button>
 
-                                <p className="text-[10px] font-bold text-center text-slate-400 tracking-tight flex items-center justify-center gap-2">
+                                <div className="flex items-center justify-center gap-2 opacity-50">
                                     <Shield size={10} className="text-primary" />
-                                    Your data is secure and encrypted according to our privacy policy.
-                                </p>
+                                    <p className="text-[9px] font-bold text-slate-400 tracking-tight">
+                                        Your data is secure and encrypted.
+                                    </p>
+                                </div>
                             </form>
-
-                            {/* Subtle Background Glow inside form */}
-                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-[60px] pointer-events-none" />
                         </div>
                     </div>
                 </div>

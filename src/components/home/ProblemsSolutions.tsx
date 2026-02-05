@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, TrendingUp, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const solutions = [
     {
@@ -40,108 +39,65 @@ const solutions = [
 
 export function ProblemsSolutions() {
     return (
-        <section className="relative py-24 bg-slate-50 overflow-hidden">
-            {/* --- Decorative Elements --- */}
-            <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-secondary/10 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+        <section className="py-24 bg-slate-50">
+            <div className="container mx-auto px-6 md:px-12">
 
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
-                {/* Section Header */}
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-12">
-                    <div className="flex flex-col items-start text-left space-y-6 max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2">
+                {/* Header */}
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+                    <div className="max-w-2xl space-y-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-100">
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Why Modern Businesses Choose Us</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Why Modern Businesses Choose Us</span>
                         </div>
-
-                        <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
-                            Solutions for the <br className="hidden md:block" />
-                            <span className="text-primary font-semibold">Financial Frontier.</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                            Solutions for the <span className="text-primary italic">Financial Frontier</span>.
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
-                            From complex tax structures to strategic growth advisory, we provide the clarity and confidence your business deserves.
+                        <p className="text-base text-slate-500 max-w-xl">
+                            Strategic clarity for every stage of your business journey, from complex tax structures to future-ready growth.
                         </p>
                     </div>
-
-                    {/* CTA Area on the Right */}
-                    <div className="hidden lg:flex flex-col items-end justify-end pb-4">
-                        <Button
-                            asChild
-                            className="btn-primary btn-sm group"
-                        >
-                            <Link href="/services" className="flex items-center gap-2">
-                                View All Solutions
-                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                            </Link>
-                        </Button>
-
-                        {/* Minimalistic background decoration for CTA */}
-                        <div className="relative mt-3 mr-3 opacity-20 pointer-events-none">
-                            <TrendingUp size={32} className="text-primary" />
-                        </div>
-                    </div>
+                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-lg shrink-0">
+                        <Link href="/services">
+                            View All Solutions
+                            <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                    </Button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-slate-200/60 rounded-3xl overflow-hidden bg-white shadow-2xl shadow-slate-200/50">
+                {/* Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {solutions.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className={cn(
-                                "group relative flex flex-col h-full bg-white transition-all duration-500",
-                                idx !== solutions.length - 1 ? "border-b md:border-b-0 md:border-r border-slate-100" : ""
-                            )}
-                        >
-                            {/* Image Container with Hover Effect */}
-                            <div className="relative h-60 overflow-hidden">
+                        <div key={idx} className="group bg-white rounded-2xl border border-slate-100 overflow-hidden transition-all hover:shadow-xl hover:shadow-slate-200/50">
+                            <div className="relative h-48">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="object-cover transition-transform group-hover:scale-105"
                                 />
-                                {/* Sophisticated Gradient Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                                <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                                {/* Category Badge Overlay */}
-                                <div className="absolute top-5 left-5">
-                                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-[10px] font-black uppercase tracking-widest text-primary shadow-sm">
+                                <div className="absolute top-4 left-4">
+                                    <span className="px-2.5 py-1 rounded-md bg-white/95 text-[9px] font-black uppercase tracking-widest text-primary shadow-sm border border-slate-100">
                                         {item.category}
                                     </span>
                                 </div>
                             </div>
-
-                            {/* Content Container */}
-                            <div className="flex flex-col flex-grow p-6 relative group-hover:bg-slate-50 transition-colors duration-500">
-                                {/* Brand Accent Line */}
-                                <div className="absolute top-0 left-0 w-full h-[3px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-                                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors duration-300 leading-tight">
+                            <div className="p-6 space-y-3">
+                                <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">
                                     {item.title}
                                 </h3>
-
-                                <p className="text-[14px] text-slate-500 leading-relaxed mb-4 flex-grow opacity-90">
+                                <p className="text-sm text-slate-500 leading-relaxed">
                                     {item.description}
                                 </p>
-
-                                <div className="mt-auto pt-4 border-t border-slate-100/50 flex items-center justify-between">
-                                    <Link
-                                        href={item.link}
-                                        className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-slate-400 group-hover:text-primary transition-all group/link"
-                                    >
-                                        Explore Solution
-                                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                                <div className="pt-4">
+                                    <Link href={item.link} className="inline-flex items-center text-xs font-bold text-primary group/link">
+                                        Explore
+                                        <ArrowRight className="ml-2 w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
                                     </Link>
-
-                                    <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-primary transition-all duration-500 group-hover:rotate-45">
-                                        <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-white transition-colors" />
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

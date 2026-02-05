@@ -2,111 +2,65 @@
 
 import React from "react";
 import { ArrowRight, Star } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 const cards = [
     {
         title: "Why Accounts Bridge?",
-        description: "We offer a wide range of services revolving around taxation, management accounting, bookkeeping, and financial advisory — helping your business grow better.",
+        description: "Comprehensive taxation and financial advisory services tailored to help your business reach its full growth potential.",
         link: "/about-us",
-        image: "/images/home/why_accounts_bg.png"
     },
     {
         title: "Our Vision",
-        description: "To be trusted business partners of businesses and help them reach their full potential of growth by engaging professional and industry-leading consultants.",
+        description: "To be the most trusted business partner, empowering organizations through professional and industry-leading consultancy.",
         link: "/about-us",
-        image: "/images/home/vision_bg.png"
     },
     {
         title: "Our Mission",
-        description: "Translating our knowledge and expertise into growth and profitability by managing tax liabilities and providing timely decision support.",
+        description: "Translating expertise into measurable growth by managing tax liabilities and providing strategic decision support.",
         link: "/about-us",
-        image: "/images/home/mission_bg.png"
     },
 ];
 
 export function VisionMissionSection() {
     return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container relative z-10 mx-auto px-6 md:px-12">
+        <section className="py-20 bg-white">
+            <div className="container mx-auto px-6 md:px-12">
 
-                {/* Section Header */}
-                <div className="flex flex-col items-start text-left mb-16 space-y-6 max-w-3xl">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50 shadow-sm mb-2">
+                {/* Header */}
+                <div className="max-w-3xl mb-16 space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
                         <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-slate-500">How We Define Success</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">How We Define Success</span>
                     </div>
 
-                    <h2 className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]">
-                        Our Core Purpose & <br className="hidden md:block" />
-                        <span className="text-primary font-semibold">Strategic Vision.</span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+                        Our Core Purpose & <span className="text-primary italic">Strategic Vision</span>.
                     </h2>
-                    <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
-                        We translate our knowledge and expertise into measurable growth and profitability by managing complex tax structures and providing timely decision support.
+                    <p className="text-base text-slate-500 max-w-2xl leading-relaxed">
+                        We transform financial complexity into strategic advantage, ensuring your business stays profitable and compliant in an ever-changing landscape.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {cards.map((card, idx) => (
-                        <div
-                            key={idx}
-                            className="group relative h-[450px] w-full overflow-hidden rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100"
-                        >
-                            {/* Background Image */}
-                            <Image
-                                src={card.image}
-                                alt={card.title}
-                                fill
-                                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                priority={idx === 0}
-                            />
-
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/70 transition-colors duration-300" />
-
-                            {/* Content */}
-                            <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-white/95 transition-colors">
-                                    {card.title}
-                                </h3>
-                                <p className="text-slate-200 mb-6 leading-relaxed text-sm md:text-base font-medium opacity-90">
-                                    {card.description}
-                                </p>
-                                <Button
-                                    variant="link"
-                                    className="w-fit p-0 h-auto font-bold text-white hover:text-secondary hover:no-underline transition-all group/btn"
-                                    asChild
-                                >
-                                    <Link href={card.link} className="flex items-center gap-2">
-                                        Read More
-                                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                                    </Link>
-                                </Button>
-                            </div>
+                        <div key={idx} className="group p-8 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5">
+                            <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-primary transition-colors">
+                                {card.title}
+                            </h3>
+                            <p className="text-sm text-slate-500 leading-relaxed mb-6">
+                                {card.description}
+                            </p>
+                            <Button variant="link" className="p-0 h-auto font-bold text-primary flex items-center gap-2 group/btn" asChild>
+                                <Link href={card.link}>
+                                    Read More
+                                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                </Link>
+                            </Button>
                         </div>
                     ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
-export function FollowUpSection() {
-    return (
-        <section className="py-20 bg-slate-50 border-t border-b border-slate-100/50">
-            <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
-                <div>
-                    <h2 className="text-3xl font-bold text-slate-800 mb-6">
-                        Expertise That Drives Real Growth
-                    </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                        We don't just balance the books; we provide the strategic insights you need to make confident decisions.
-                        From comprehensive tax planning to long-term business advisory, we are here to support your journey.
-                    </p>
                 </div>
             </div>
         </section>
