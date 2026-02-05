@@ -19,7 +19,6 @@ export default function Home() {
       <ServicesGrid />
       <TrustSection />
       <TestimonialsSection />
-
       <MakeTheDifferenceSection />
       <ProblemsSolutions />
       <MapSection />
