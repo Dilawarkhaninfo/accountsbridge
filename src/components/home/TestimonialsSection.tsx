@@ -20,10 +20,10 @@ const testimonials: Testimonial[] = [
     {
         id: 1,
         name: "Christian Marcil",
-        role: "Chairman",
+        role: "Director",
         company: "Harmony Corporation",
         image: ChristianImage,
-        content: "We thought a lot before choosing the Financial WordPress Theme because we wanted to sure our investment would yield results. This was clearly the best choice, it combines a fantastic design with great UI."
+        content: "Accounts Bridge transformed our financial operations. Their strategic insights and seamless management of our tax obligations have allowed us to focus entirely on growth."
     },
     {
         id: 2,
@@ -31,15 +31,15 @@ const testimonials: Testimonial[] = [
         role: "Partner & Managing Director",
         company: "Grandier Co.",
         image: CintiaImage,
-        content: "When you are in the financial industry you know the image you have to project to people. You have to be agile and authoritative; Consulting WP lets us show clients that we are slick yet also have substance."
+        content: "Navigating complex compliance issues was a nightmare until we partnered with Accounts Bridge. Their expertise in regulatory frameworks is unmatched and gives us total peace of mind."
     },
     {
         id: 3,
         name: "Debbie Kübel-Sorger",
-        role: "Chairman",
-        company: "Kreutz Airlines",
+        role: "CEO",
+        company: "Kreutz Logistics",
         image: DebbieImage,
-        content: "The demands for financial institutions have changed a bit. Obfuscation is no longer accepted, which is why this Business WordPress Theme is so perfect."
+        content: "The advisory team at Accounts Bridge goes beyond just numbers. They provided a clear roadmap for our financial restructuring that significantly improved our cash flow within months."
     },
     {
         id: 4,
@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
         role: "Chief Financial Officer",
         company: "Jamaica International",
         image: DonaldImage,
-        content: "Consulting WordPress Theme is the way to go for financial institutions. We take pride in being a transparent and perfection oriented organization, and Consulting WP perfectly represents us."
+        content: "Accounts Bridge is undoubtedly a one-stop solution for all our taxation and bookkeeping needs. Their professionalism and use of modern tools like Xero make everything efficient."
     }
 ];
 
