@@ -11,7 +11,7 @@ export function TopBar({ className }: TopBarProps) {
         <div className={cn("hidden md:block w-full bg-primary text-white py-2 z-50 shadow-sm relative overflow-hidden", className)}>
 
 
-            <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center text-xs font-semibold tracking-wide">
+            <div className="max-w-8xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center text-xs font-semibold tracking-wide">
 
                 {/* Left Side: Contact Info */}
                 <div className="flex items-center gap-6">

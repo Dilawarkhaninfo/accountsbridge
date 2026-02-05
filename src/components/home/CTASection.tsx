@@ -8,7 +8,7 @@ import { ArrowRight, PhoneCall, Star } from "lucide-react";
 export function CTASection() {
     return (
         <section className="py-24 bg-primary text-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <div className="max-w-8xl mx-auto px-6 md:px-12 text-center">
                 <div className="max-w-3xl mx-auto space-y-10">
 
                     <div className="flex justify-center">

@@ -57,7 +57,7 @@ export function Navbar() {
                     : "bg-white border-transparent py-4"
             )}
         >
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8">
+            <div className="max-w-8xl mx-auto flex items-center justify-between px-6 md:px-8">
 
                 {/* Logo Section */}
                 <Link href="/" className="relative z-50 flex items-center shrink-0">

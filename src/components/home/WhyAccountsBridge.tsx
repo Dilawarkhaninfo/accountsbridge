@@ -28,7 +28,7 @@ const features = [
 export function WhyAccountsBridge() {
     return (
         <section className="bg-slate-50 py-24">
-            <div className="container px-4 md:px-8 mx-auto max-w-7xl">
+            <div className="container px-4 md:px-8 mx-auto max-w-8xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
                         <div

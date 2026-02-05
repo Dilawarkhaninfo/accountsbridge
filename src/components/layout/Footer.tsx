@@ -41,7 +41,7 @@ export function Footer() {
                 <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] opacity-30" />
             </div>
 
-            <div className="max-w-7xl relative z-10 mx-auto px-6 md:px-12 pt-20 pb-10">
+            <div className="max-w-8xl relative z-10 mx-auto px-6 md:px-12 pt-20 pb-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
                     {/* Column 1: Brand & Identity */}

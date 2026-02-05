@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 export function RequestCallbackSection() {
     return (
         <section className="py-24 bg-white">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-8xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row items-stretch gap-16 lg:gap-24">
 
                     {/* Left: Info */}
@@ -43,11 +43,11 @@ export function RequestCallbackSection() {
                         <div className="flex flex-wrap items-center gap-6 pt-4">
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 size={14} className="text-primary" />
-                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">CPA Certified</span>
+                                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">CPA Certified</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 size={14} className="text-primary" />
-                                <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Xero Platinum Partner</span>
+                                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Xero Platinum Partner</span>
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,7 @@ const stats = [
 export function TrustSection() {
     return (
         <section className="py-24 bg-primary text-white">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-8xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                     <div className="space-y-6 max-w-2xl">
@@ -37,7 +37,7 @@ export function TrustSection() {
                                 <p className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">
                                     {stat.value}{stat.suffix}
                                 </p>
-                                <p className="text-[10px] font-black text-secondary uppercase tracking-[0.2em] opacity-80">
+                                <p className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] opacity-80">
                                     {stat.label}
                                 </p>
                             </div>

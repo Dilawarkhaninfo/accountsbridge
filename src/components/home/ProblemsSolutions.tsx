@@ -40,7 +40,7 @@ const solutions = [
 export function ProblemsSolutions() {
     return (
         <section className="py-24 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-8xl mx-auto px-6 md:px-12">
 
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
@@ -76,7 +76,7 @@ export function ProblemsSolutions() {
                                     className="object-cover transition-transform group-hover:scale-105"
                                 />
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-2.5 py-1 rounded-md bg-white/95 text-[9px] font-black uppercase tracking-widest text-primary shadow-sm border border-slate-100">
+                                    <span className="px-2.5 py-1 rounded-md bg-white/95 text-[9px] font-bold uppercase tracking-widest text-primary shadow-sm border border-slate-100">
                                         {item.category}
                                     </span>
                                 </div>

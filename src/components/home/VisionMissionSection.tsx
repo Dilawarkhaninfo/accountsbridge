@@ -26,7 +26,7 @@ const cards = [
 export function VisionMissionSection() {
     return (
         <section className="py-20 bg-white">
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="max-w-8xl mx-auto px-6 md:px-12">
 
                 {/* Header */}
                 <div className="max-w-3xl mb-16 space-y-4">

@@ -11,8 +11,8 @@ import HeroImage1 from "../../../public/images/hero-image-4.png";
 
 export function HeroSection() {
     return (
-        <section className="relative w-full bg-primary py-12 lg:py-20 overflow-hidden">
-            <div className="max-w-7xl relative z-10 mx-auto px-6 md:px-12">
+        <section className="relative w-full bg-primary py-12 lg:py-16 overflow-hidden">
+            <div className="max-w-8xl relative z-10 mx-auto px-6 md:px-12">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
                     {/* Left: Content */}

@@ -21,7 +21,7 @@ export function MapSection() {
                 ></iframe>
             </div>
 
-            <div className="max-w-7xl relative z-10 mx-auto h-full px-6 flex items-center">
+            <div className="max-w-8xl relative z-10 mx-auto h-full px-6 flex items-center">
                 {/* Minimal Office Card */}
                 <div className="w-full max-w-sm bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
                     <div className="space-y-6">
