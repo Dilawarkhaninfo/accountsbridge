@@ -95,7 +95,7 @@ export function TestimonialsSection() {
     }
 
     return (
-        <section className="relative pt-24 pb-12 bg-[#fafafa] overflow-hidden">
+        <section className="relative pt-12 pb-6 bg-[#fafafa] overflow-hidden">
             {/* --- Premium Background Elements --- */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Testimonials Slider */}
-                <div className="relative max-w-full mx-auto min-h-[420px]">
+                <div className="relative max-w-full mx-auto min-h-[350px]">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div
                             key={currentIndex}
@@ -204,7 +204,7 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Pagination Dots */}
-                <div className="flex justify-center gap-2 mt-8">
+                <div className="flex justify-center gap-2 mt-4">
                     {testimonials.map((_, i) => (
                         <button
                             key={i}
@@ -222,7 +222,7 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* International Trust Footer */}
-                <div className="mt-12 pt-8 border-t border-slate-100 flex flex-wrap justify-between items-center gap-6 opacity-40">
+                <div className="mt-8 pt-8 border-t border-slate-100 flex flex-wrap justify-between items-center gap-6 opacity-40">
                     <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">
                         Global Finance Network • Certified Partners • Melbourne SME Alliance
                     </p>
