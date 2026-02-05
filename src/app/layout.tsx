@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-sans min-h-screen bg-background antialiased flex flex-col`}>
+      <body className={`${montserrat.variable} font-sans min-h-screen bg-background antialiased flex flex-col`} suppressHydrationWarning>
         <JsonLd />
         <Preloader />
         <TopBar />
