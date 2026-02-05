@@ -29,14 +29,14 @@ export function CTASection() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-                        <Button asChild className="h-12 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 font-bold rounded-lg shadow-sm group transition-all">
+                        <Button asChild className="h-12 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 font-bold rounded-md shadow-sm group transition-all">
                             <Link href="/contact-us" className="flex items-center gap-2">
                                 Book Free Consultation
                                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </Button>
 
-                        <Button asChild variant="outline" className="h-12 px-8 border-white/20 text-white hover:bg-white/10 hover:border-white font-bold rounded-lg transition-all group">
+                        <Button asChild variant="outline" className="h-12 px-8 bg-transparent border-white/20 text-white hover:bg-white/10 hover:border-white font-bold rounded-md transition-all group shadow-none">
                             <Link href="/contact-us" className="flex items-center gap-2">
                                 <PhoneCall size={18} />
                                 Speak with an Advisor

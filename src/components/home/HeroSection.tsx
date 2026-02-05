@@ -55,13 +55,13 @@ export function HeroSection() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                                <Button className="h-14 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 rounded-full font-black drop-shadow-lg transition-all" asChild>
+                                <Button className="h-14 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 rounded-md font-bold text-base shadow-lg transition-all" asChild>
                                     <Link href="/contact-us">
                                         Book an appointment
                                     </Link>
                                 </Button>
 
-                                <Button variant="outline" className="h-14 px-8 border-white/40 text-white rounded-full font-black border-2 hover:bg-white/10 hover:border-white transition-all" asChild>
+                                <Button variant="outline" className="h-14 px-8 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white rounded-md font-bold text-base border-2 transition-all shadow-none" asChild>
                                     <Link href="/services">
                                         Start online now
                                     </Link>

@@ -46,7 +46,7 @@ export function MakeTheDifferenceSection() {
                         </div>
 
                         <div className="pt-4">
-                            <Button asChild className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-all group shadow-sm">
+                            <Button asChild className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold transition-all group shadow-sm">
                                 <Link href="/contact-us">
                                     Start a Conversation
                                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />

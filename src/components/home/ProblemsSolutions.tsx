@@ -56,7 +56,7 @@ export function ProblemsSolutions() {
                             Strategic clarity for every stage of your business journey, from complex tax structures to future-ready growth.
                         </p>
                     </div>
-                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-lg shrink-0">
+                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-md shrink-0">
                         <Link href="/services">
                             View All Solutions
                             <ArrowRight className="ml-2 w-4 h-4" />

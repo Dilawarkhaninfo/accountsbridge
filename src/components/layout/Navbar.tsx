@@ -111,7 +111,7 @@ export function Navbar() {
                 {/* CTA & Mobile Toggle */}
                 <div className="flex items-center gap-4">
                     <Button
-                        className="hidden lg:flex bg-primary hover:bg-primary/90 text-white font-bold h-11 px-6 rounded-lg"
+                        className="hidden lg:flex bg-primary hover:bg-primary/90 text-white font-bold h-11 px-6 rounded-md"
                         asChild
                     >
                         <Link href="/contact-us">Book Consultation</Link>
@@ -169,7 +169,7 @@ export function Navbar() {
                                         </div>
                                     ))}
                                     <div className="pt-8 pb-10">
-                                        <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg" asChild>
+                                        <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-md" asChild>
                                             <Link href="/contact-us">Book Consultation</Link>
                                         </Button>
                                     </div>

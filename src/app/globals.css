@@ -180,11 +180,11 @@
   }
 
   .btn-lg {
-    @apply h-16 px-10 text-lg rounded-xl;
+    @apply h-16 px-10 text-lg rounded-md;
   }
 
   .btn-md {
-    @apply h-12 px-8 text-base rounded-lg;
+    @apply h-12 px-8 text-base rounded-md;
   }
 
   .btn-sm {

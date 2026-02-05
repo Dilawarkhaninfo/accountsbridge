@@ -75,7 +75,7 @@ export function ServicesGrid() {
                             Expert-led accounting and advisory services designed to structure your financials and fuel sustainable expansion.
                         </p>
                     </div>
-                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-lg shrink-0">
+                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-md shrink-0">
                         <Link href="/services">
                             View All Services
                             <ArrowRight className="ml-2 w-4 h-4" />

@@ -65,7 +65,7 @@ export function MapSection() {
                             <a
                                 href="https://maps.google.com"
                                 target="_blank"
-                                className="h-12 w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-all text-sm shadow-sm"
+                                className="h-12 w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-md font-bold transition-all text-sm shadow-sm"
                             >
                                 <Navigation size={16} />
                                 Get Directions

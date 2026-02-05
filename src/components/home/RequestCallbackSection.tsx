@@ -75,7 +75,7 @@ export function RequestCallbackSection() {
                                     <Textarea placeholder="Tell us about your requirements..." className="min-h-[120px] bg-slate-50/50 border-slate-200 focus:bg-white rounded-lg p-4 resize-none" required />
                                 </div>
 
-                                <Button className="h-12 w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-lg shadow-sm">
+                                <Button className="h-12 w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-md shadow-sm">
                                     Submit Request
                                     <Send size={16} className="ml-2" />
                                 </Button>

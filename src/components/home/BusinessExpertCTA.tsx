@@ -28,7 +28,7 @@ export function BusinessExpertCTA() {
                         </p>
                     </div>
 
-                    <Button asChild className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-all group shrink-0">
+                    <Button asChild className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-md font-semibold transition-all group shrink-0">
                         <Link href="/contact-us" className="flex items-center gap-2">
                             Get a Quote
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
