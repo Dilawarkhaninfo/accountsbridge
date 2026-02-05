@@ -1,6 +1,5 @@
 import { ServiceDetailHero } from "@/components/services/ServiceDetailHero";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
-import { CTASection } from "@/components/home/CTASection";
 
 export default function ServicesPage() {
     return (
@@ -14,7 +13,6 @@ export default function ServicesPage() {
                 <ServicesGrid />
             </div>
 
-            <CTASection />
         </>
     );
 }

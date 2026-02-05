@@ -1,5 +1,4 @@
 import { ServiceDetailHero } from "@/components/services/ServiceDetailHero";
-import { CTASection } from "@/components/home/CTASection";
 import { CheckCircle2 } from "lucide-react";
 
 export default function BusinessAdvisoryPage() {
@@ -59,7 +58,6 @@ export default function BusinessAdvisoryPage() {
                 </div>
             </section>
 
-            <CTASection />
         </>
     );
 }

@@ -1,6 +1,5 @@
 import { MissionVision } from "@/components/about/MissionVision";
 import { TrustSection } from "@/components/home/TrustSection"; // Reusing Values section
-import { CTASection } from "@/components/home/CTASection";
 
 export default function AboutPage() {
     return (
@@ -21,7 +20,6 @@ export default function AboutPage() {
 
             <TrustSection />
 
-            <CTASection />
         </>
     );
 }
