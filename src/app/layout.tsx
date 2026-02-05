@@ -11,8 +11,36 @@ import JsonLd from "@/components/seo/JsonLd";
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://accountsbridge.vercel.app"),
   title: "Accounts Bridge - Strategic Finance Partners",
   description: "Expert accounting, taxation, and advisory for innovative SMEs. Focused on growth and strategic financial planning.",
+  openGraph: {
+    title: "Accounts Bridge - Strategic Finance Partners",
+    description: "Expert accounting, taxation, and advisory for innovative SMEs. Focused on growth and strategic financial planning.",
+    url: "https://accountsbridge.vercel.app",
+    siteName: "Accounts Bridge",
+    images: [
+      {
+        url: "/icons.png",
+        width: 1200,
+        height: 630,
+        alt: "Accounts Bridge Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Accounts Bridge - Strategic Finance Partners",
+    description: "Expert accounting, taxation, and advisory for innovative SMEs. Focused on growth and strategic financial planning.",
+    images: ["/icons.png"],
+  },
+  icons: {
+    icon: "/icons.png",
+    shortcut: "/icons.png",
+    apple: "/icons.png",
+  },
 };
 
 export default function RootLayout({

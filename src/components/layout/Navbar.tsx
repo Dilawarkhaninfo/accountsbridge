@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, ChevronDown } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
+import { Menu, ChevronDown, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LogoImage from "../../../public/logo.png";
 
@@ -38,6 +38,7 @@ const navLinks = [
 
 export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -47,6 +48,10 @@ export function Navbar() {
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const toggleSubMenu = (label: string) => {
+        setOpenSubMenu((prev) => (prev === label ? null : label));
+    };
 
     return (
         <nav
@@ -128,8 +133,8 @@ export function Navbar() {
                             </SheetTrigger>
                             <SheetContent side="right" className="w-[300px] p-0 border-l border-slate-200 overflow-y-auto">
                                 <SheetTitle className="sr-only">Navigation</SheetTitle>
-                                <div className="p-6 border-b border-slate-100 bg-white sticky top-0 z-10">
-                                    <div className="relative w-40 h-10">
+                                <div className="p-6 border-b border-slate-100 bg-white sticky top-0 z-10 flex items-center justify-between">
+                                    <div className="relative w-32 h-8">
                                         <Image
                                             src={LogoImage}
                                             alt="Accounts Bridge Logo"
@@ -137,41 +142,68 @@ export function Navbar() {
                                             className="object-contain object-left"
                                         />
                                     </div>
+                                    <SheetClose asChild>
+                                        <Button variant="ghost" size="icon" className="h-9 w-9 text-slate-400 hover:text-slate-800 hover:bg-slate-100 rounded-full">
+                                            <X className="h-5 w-5" />
+                                            <span className="sr-only">Close menu</span>
+                                        </Button>
+                                    </SheetClose>
                                 </div>
                                 <div className="flex flex-col p-6 space-y-2">
                                     {navLinks.map((link) => (
                                         <div key={link.label}>
                                             {link.items ? (
-                                                <div className="py-2">
-                                                    <p className="text-xs font-bold uppercase tracking-widest text-slate-400 px-1 mb-2">
+                                                <div className="py-2 border-b border-slate-50">
+                                                    <button
+                                                        onClick={() => toggleSubMenu(link.label)}
+                                                        className="flex items-center justify-between w-full text-base font-bold text-slate-700 hover:text-primary py-2 transition-colors"
+                                                    >
                                                         {link.label}
-                                                    </p>
-                                                    <div className="flex flex-col space-y-1">
-                                                        {link.items.map((subItem) => (
-                                                            <Link
-                                                                key={subItem.label}
-                                                                href={subItem.href}
-                                                                className="text-base font-bold text-slate-700 hover:text-primary py-2 px-1 transition-colors"
-                                                            >
-                                                                {subItem.label}
-                                                            </Link>
-                                                        ))}
+                                                        <ChevronDown
+                                                            className={cn(
+                                                                "w-5 h-5 text-slate-400 transition-transform duration-300",
+                                                                openSubMenu === link.label ? "rotate-180" : ""
+                                                            )}
+                                                        />
+                                                    </button>
+                                                    <div
+                                                        className={cn(
+                                                            "overflow-hidden transition-all duration-300 ease-in-out",
+                                                            openSubMenu === link.label ? "max-h-[500px] opacity-100 pt-2" : "max-h-0 opacity-0"
+                                                        )}
+                                                    >
+                                                        <div className="flex flex-col space-y-1 pl-4 border-l-2 border-slate-100 ml-1">
+                                                            {link.items.map((subItem) => (
+                                                                <SheetClose asChild key={subItem.label}>
+                                                                    <Link
+                                                                        href={subItem.href}
+                                                                        className="text-sm font-medium text-slate-500 hover:text-primary py-2 px-2 transition-colors block"
+                                                                    >
+                                                                        {subItem.label}
+                                                                    </Link>
+                                                                </SheetClose>
+                                                            ))}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <Link
-                                                    href={link.href}
-                                                    className="text-lg font-bold text-slate-700 hover:text-primary py-3 transition-colors block border-b border-slate-50 last:border-0"
-                                                >
-                                                    {link.label}
-                                                </Link>
+                                                <SheetClose asChild>
+                                                    <Link
+                                                        href={link.href}
+                                                        className="text-base font-bold text-slate-700 hover:text-primary py-3 transition-colors block border-b border-slate-50 last:border-0"
+                                                    >
+                                                        {link.label}
+                                                    </Link>
+                                                </SheetClose>
                                             )}
                                         </div>
                                     ))}
                                     <div className="pt-8 pb-10">
-                                        <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-md" asChild>
-                                            <Link href="/contact-us">Book Consultation</Link>
-                                        </Button>
+                                        <SheetClose asChild>
+                                            <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-md" asChild>
+                                                <Link href="/contact-us">Book Consultation</Link>
+                                            </Button>
+                                        </SheetClose>
                                     </div>
                                 </div>
                             </SheetContent>
