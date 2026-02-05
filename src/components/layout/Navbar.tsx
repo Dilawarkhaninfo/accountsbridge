@@ -190,9 +190,8 @@ export function Navbar() {
                             <Link
                                 href={section.href}
                                 className={cn(
-                                    "flex items-center px-4 py-2.5 text-[15px] font-medium transition-colors rounded-md",
-                                    hoveredItem === key ? "text-primary bg-slate-50" : "text-slate-700 hover:text-primary hover:bg-slate-50",
-                                    isScrolled ? "text-sm" : "text-[15px]"
+                                    "flex items-center px-4 py-2.5 text-sm font-medium transition-colors rounded-md",
+                                    hoveredItem === key ? "text-primary bg-slate-50" : "text-slate-700 hover:text-primary hover:bg-slate-50"
                                 )}
                             >
                                 {section.label}
@@ -266,10 +265,7 @@ export function Navbar() {
                 {/* CTA & Mobile Toggle */}
                 <div className="flex items-center gap-4 shrink-0">
                     <Button
-                        className={cn(
-                            "hidden lg:flex btn-primary",
-                            isScrolled ? "btn-sm" : "btn-md"
-                        )}
+                        className="hidden lg:flex btn-primary btn-sm"
                         asChild
                     >
                         <Link href="/contact-us">Book Consultation</Link>

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, TrendingUp, ShieldCheck, BarChart3, Users, Globe, Award, CheckCircle2 } from "lucide-react";
+import { ArrowRight, TrendingUp, ShieldCheck, BarChart3, Users, Globe, Award, Star, Zap, Layers, BookOpen, FileText, RefreshCw, Leaf, Receipt } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
@@ -92,7 +92,7 @@ export function HeroSection() {
     return (
         <section
             ref={containerRef}
-            className="relative h-auto min-h-[650px] w-full overflow-hidden bg-white flex items-center pt-8 pb-8" // Increased min-height significantly
+            className="relative h-auto min-h-[650px] w-full overflow-hidden bg-white flex items-center pt-8 pb-4"
         >
             {/* --- Premium Background Elements --- */}
 
@@ -140,7 +140,7 @@ export function HeroSection() {
                             >
                                 {/* Tagline */}
                                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200/50">
-                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                                    <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
                                     <span className="text-xs font-bold uppercase tracking-widest text-slate-500"> {/* +35% size: text-xs */}
                                         {slideData.tagline}
                                     </span>
@@ -217,7 +217,7 @@ export function HeroSection() {
                                     </div>
                                     <div className="flex flex-col gap-1">
                                         <div className="flex items-center gap-1 text-yellow-500">
-                                            {[1, 2, 3, 4, 5].map((s) => <CheckCircle2 key={s} className="w-5 h-5 fill-current" />)} {/* Larger stars */}
+                                            {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-5 h-5 fill-current" />)} {/* Larger stars */}
                                         </div>
                                         <p className="text-xs font-bold text-slate-400 uppercase tracking-tight">
                                             Trusted by 250+ Melbourne Businesses
@@ -228,94 +228,134 @@ export function HeroSection() {
                         </AnimatePresence>
                     </div>
 
-                    {/* Right: Visionary Visuals */}
-                    <div className="w-full lg:w-[55%] relative flex justify-center lg:justify-end">
+                    {/* Right: Visionary Visuals with 3D Depth */}
+                    <div className="w-full lg:w-[55%] relative flex justify-center lg:justify-end perspective-[1500px]">
                         <AnimatePresence mode="popLayout">
                             <motion.div
                                 key={currentSlide}
-                                initial={{ opacity: 0, scale: 0.98 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, transition: { duration: 0 } }} // Instant exit
-                                transition={{ duration: 0.3, ease: "easeOut" }} // Fast entry
-                                className="relative z-10 w-full max-w-[780px]" // Maximized width even more
+                                initial={{ opacity: 0, scale: 0.95, rotateY: 5 }}
+                                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                exit={{ opacity: 0, scale: 1.05, transition: { duration: 0.2 } }}
+                                transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                                className="relative z-10 w-full max-w-[780px] preserve-3d"
                             >
-                                {/* Main Image Container - Increased Height */}
-                                <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl group border-4 border-white"> {/* Taller aspect ratio 16/10 */}
+                                {/* Main Image Container - 3D Set */}
+                                <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] group border-4 border-white transform-gpu transition-all duration-700 hover:shadow-[0_70px_120px_-20px_rgba(0,0,0,0.3)]">
                                     <Image
                                         src={slideData.image}
                                         alt={slideData.headline}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
                                         priority
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-60" />
                                 </div>
 
-                                {/* Floating Stat Cards - Larger */}
-                                <div
-                                    className="absolute -right-6 top-[10%] z-20 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-slate-50 flex items-center gap-4 animate-in fade-in slide-in-from-right-4 duration-500"
-                                >
-                                    {/* Splash effect */}
-                                    <div className="absolute -inset-4 bg-primary/10 blur-2xl rounded-full -z-10" />
+                                {/* Floating Stat Cards - 3D Projections */}
 
-                                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                                        {React.createElement(slideData.stats[0].icon, { size: 24 })}
+                                {/* Top Right Card - Popping Out */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20, z: -50, rotateY: 20 }}
+                                    animate={{ opacity: 1, x: 0, z: 80, rotateY: -10 }}
+                                    transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+                                    className="absolute -right-8 top-[15%] z-30 bg-white/90 backdrop-blur-xl p-5 rounded-2xl shadow-[20px_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 flex items-center gap-5 translate-z-[100px]"
+                                >
+                                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-inner">
+                                        {React.createElement(slideData.stats[0].icon, { size: 28, strokeWidth: 2.5 })}
                                     </div>
                                     <div>
-                                        <p className="text-xl font-bold text-slate-900 leading-none">{slideData.stats[0].value}</p>
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{slideData.stats[0].label}</p>
+                                        <div className="flex items-baseline gap-1">
+                                            <p className="text-2xl font-black text-slate-900 tracking-tight leading-none">
+                                                {slideData.stats[0].value}
+                                            </p>
+                                        </div>
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1.5 opacity-80">
+                                            {slideData.stats[0].label}
+                                        </p>
                                     </div>
-                                </div>
+                                    {/* 3D Depth Shine */}
+                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
+                                </motion.div>
 
-                                <div
-                                    className="absolute -left-4 bottom-[15%] z-20 bg-white/95 backdrop-blur-md p-4 rounded-xl shadow-xl border border-slate-50 flex items-center gap-4 animate-in fade-in slide-in-from-left-4 duration-500"
+                                {/* Bottom Left Card - Projecting Forward */}
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20, z: -50, rotateY: -20 }}
+                                    animate={{ opacity: 1, x: 0, z: 100, rotateY: 12 }}
+                                    transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+                                    className="absolute -left-6 bottom-[20%] z-30 bg-white/90 backdrop-blur-xl p-5 rounded-2xl shadow-[-20px_20px_60px_-15px_rgba(0,0,0,0.3)] border border-white/50 flex items-center gap-5 translate-z-[120px]"
                                 >
-                                    {/* Splash effect */}
-                                    <div className="absolute -inset-4 bg-secondary/20 blur-2xl rounded-full -z-10" />
-
-                                    <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary-foreground">
-                                        {React.createElement(slideData.stats[1].icon, { size: 24 })}
+                                    <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary-foreground shadow-inner">
+                                        {React.createElement(slideData.stats[1].icon, { size: 28, strokeWidth: 2.5 })}
                                     </div>
                                     <div>
-                                        <p className="text-xl font-bold text-slate-900 leading-none">{slideData.stats[1].value}</p>
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">{slideData.stats[1].label}</p>
+                                        <p className="text-2xl font-black text-slate-900 tracking-tight leading-none">
+                                            {slideData.stats[1].value}
+                                        </p>
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1.5 opacity-80">
+                                            {slideData.stats[1].label}
+                                        </p>
                                     </div>
-                                </div>
+                                    {/* 3D Depth Shine */}
+                                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/40 to-transparent pointer-events-none" />
+                                </motion.div>
+
+                                {/* Subtle background glow for 3D depth */}
+                                <div className="absolute -inset-10 bg-primary/5 blur-[120px] -z-10 rounded-full" />
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
                 </div>
 
-                {/* --- Slider Controls --- */}
-                <div className="flex items-center justify-between mt-8 pt-4 border-t border-slate-100/50">
-                    <div className="flex gap-3">
-                        {slides.map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setCurrentSlide(i)}
-                                className={cn(
-                                    "h-2 transition-all duration-300 rounded-full",
-                                    currentSlide === i ? "w-10 bg-primary" : "w-2.5 bg-slate-200"
-                                )}
-                                aria-label={`Go to slide ${i + 1}`}
-                            />
-                        ))}
-                    </div>
+                {/* --- Trusted Partners Carousel --- */}
+                <div className="mt-8 pt-6 border-t border-slate-100/60 overflow-hidden relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-                    <div className="hidden md:flex items-center gap-5">
-                        <div className="flex flex-col items-end">
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Up Next</span>
-                            <span className="text-xs font-bold text-slate-500 truncate max-w-[200px]">
-                                {slides[(currentSlide + 1) % slides.length].tagline}
-                            </span>
+                    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 whitespace-nowrap shrink-0">
+                            Our Technology Stack
+                        </span>
+
+                        <div className="flex-1 overflow-hidden">
+                            <motion.div
+                                className="flex items-center gap-16 md:gap-24"
+                                animate={{ x: [0, -1035] }}
+                                transition={{
+                                    duration: 30,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                            >
+                                {/* Duplicated Logo Set for Seamless Loop */}
+                                {[
+                                    { name: "Xero", icon: <Zap size={18} className="fill-current" /> },
+                                    { name: "MYOB", icon: <Layers size={18} /> },
+                                    { name: "QuickBooks", icon: <BookOpen size={18} /> },
+                                    { name: "HubDoc", icon: <FileText size={18} /> },
+                                    { name: "Dext", icon: <RefreshCw size={18} /> },
+                                    { name: "Sage", icon: <Leaf size={18} /> },
+                                    { name: "Xero", icon: <Zap size={18} className="fill-current" /> },
+                                    { name: "MYOB", icon: <Layers size={18} /> },
+                                    { name: "QuickBooks", icon: <BookOpen size={18} /> },
+                                    { name: "HubDoc", icon: <FileText size={18} /> },
+                                    { name: "Dext", icon: <RefreshCw size={18} /> },
+                                    { name: "Sage", icon: <Leaf size={18} /> },
+                                ].map((partner, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-center gap-3 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default group"
+                                    >
+                                        <div className="text-primary/60 group-hover:text-primary transition-colors">
+                                            {partner.icon}
+                                        </div>
+                                        <span className="text-lg md:text-xl font-black tracking-tighter text-slate-900">
+                                            {partner.name}
+                                        </span>
+                                    </div>
+                                ))}
+                            </motion.div>
                         </div>
-                        <button
-                            onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-                            className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all group"
-                        >
-                            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
-                        </button>
                     </div>
                 </div>
             </div>

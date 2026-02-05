@@ -131,6 +131,15 @@
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     /* Offset for sticky navbar */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, and Opera */
   }
 
   * {
