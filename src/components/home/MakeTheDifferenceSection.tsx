@@ -22,8 +22,8 @@ export function MakeTheDifferenceSection() {
                     {/* Left: Content */}
                     <div className="w-full lg:w-1/2 space-y-10">
                         <div className="space-y-6">
-                            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1]">
-                                We combine <span className="text-primary italic">Expertise</span> with practical industry knowledge.
+                            <h2 className="text-4xl md:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                                We combine <span className="text-primary">Expertise</span> with practical industry knowledge.
                             </h2>
                             <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
                                 Accounts Bridge brings a multi-disciplinary approach to help you meet challenges and respond to opportunities in an evolving financial landscape.

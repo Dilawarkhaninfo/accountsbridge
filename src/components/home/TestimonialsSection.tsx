@@ -104,8 +104,8 @@ export function TestimonialsSection() {
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Global Trust</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            What <span className="text-primary italic">Industry Leaders</span> Say.
+                        <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
+                            What <span className="text-primary">Industry Leaders</span> Say.
                         </h2>
                     </div>
 
@@ -146,7 +146,7 @@ export function TestimonialsSection() {
                                             </p>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-slate-600 leading-relaxed italic">
+                                    <p className="text-sm text-slate-600 leading-relaxed">
                                         "{testimonial.content}"
                                     </p>
                                     <div className="flex gap-1 pt-2 border-t border-slate-50">

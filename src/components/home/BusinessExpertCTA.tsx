@@ -19,7 +19,7 @@ export function BusinessExpertCTA() {
                             </span>
                         </div>
 
-                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 tracking-tight">
                             Looking for expert business & <span className="text-primary">accounting support?</span>
                         </h2>
 

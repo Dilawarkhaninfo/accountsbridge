@@ -49,8 +49,8 @@ export function ProblemsSolutions() {
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Why Modern Businesses Choose Us</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            Solutions for the <span className="text-primary italic">Financial Frontier</span>.
+                        <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
+                            Solutions for the <span className="text-primary">Financial Frontier</span>.
                         </h2>
                         <p className="text-base text-slate-500 max-w-xl">
                             Strategic clarity for every stage of your business journey, from complex tax structures to future-ready growth.

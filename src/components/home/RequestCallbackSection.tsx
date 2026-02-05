@@ -19,8 +19,8 @@ export function RequestCallbackSection() {
                                 <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                                 <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Expert Consultation</span>
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
-                                Request a <span className="text-primary italic">Call Back</span>.
+                            <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight leading-tight">
+                                Request a <span className="text-primary">Call Back</span>.
                             </h2>
                             <p className="text-base text-slate-500 leading-relaxed max-w-lg">
                                 Submit your details and our senior financial advisers will be in touch within 24 hours to discuss your business needs.

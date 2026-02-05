@@ -68,8 +68,8 @@ export function ServicesGrid() {
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Expertise That Matters</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            Services that make the <span className="text-primary italic">Difference</span>.
+                        <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
+                            Services that make the <span className="text-primary">Difference</span>.
                         </h2>
                         <p className="text-base text-slate-500 max-w-xl">
                             Expert-led accounting and advisory services designed to structure your financials and fuel sustainable expansion.

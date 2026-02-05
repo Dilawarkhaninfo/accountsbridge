@@ -3,119 +3,87 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Star, Zap, Layers, BookOpen, FileText, RefreshCw, Leaf } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
-import { motion } from "framer-motion";
+import { ArrowRight, Star, Check } from "lucide-react";
+import Image from "next/image";
 
-// Specified Image Imports
+// Inspiration Image: H&R Block Style
 import HeroImage1 from "../../../public/images/hero-image-4.png";
-
-const partners = [
-    { name: "Xero", icon: <Zap size={18} className="fill-current" /> },
-    { name: "MYOB", icon: <Layers size={18} /> },
-    { name: "QuickBooks", icon: <BookOpen size={18} /> },
-    { name: "HubDoc", icon: <FileText size={18} /> },
-    { name: "Dext", icon: <RefreshCw size={18} /> },
-    { name: "Sage", icon: <Leaf size={18} /> },
-];
 
 export function HeroSection() {
     return (
-        <section className="relative w-full bg-white pt-20 pb-12 overflow-hidden">
+        <section className="relative w-full bg-primary py-12 lg:py-20 overflow-hidden">
             <div className="max-w-7xl relative z-10 mx-auto px-6 md:px-12">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
                     {/* Left: Content */}
-                    <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8">
-                        <div className="space-y-6">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-100">
-                                <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                                    Strategic Advisory & Accounting
-                                </span>
+                    <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8 text-white">
+
+                        {/* Rating Component */}
+                        <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-0.5">
+                                <span className="text-sm font-bold mr-1">4.7</span>
+                                {[1, 2, 3, 4, 5].map((s) => (
+                                    <Star key={s} className="w-4 h-4 text-secondary fill-secondary" />
+                                ))}
                             </div>
-
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.1]">
-                                Strategic Financial Advice for <span className="text-primary italic">Growing</span> Businesses
-                            </h1>
-
-                            <p className="text-lg text-slate-500 leading-relaxed max-w-xl">
-                                Your partner in accounting, tax compliance, and long-term business growth. We help you navigate complexity with confidence and clarity.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Button className="h-12 px-8 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-all shadow-sm" asChild>
-                                    <Link href="/contact-us">
-                                        Book Consultation
-                                        <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Link>
-                                </Button>
-
-                                <Button variant="outline" className="h-12 px-8 border-slate-200 text-slate-600 rounded-lg font-semibold hover:bg-slate-50 transition-all" asChild>
-                                    <Link href="/services">
-                                        Our Services
-                                    </Link>
-                                </Button>
-                            </div>
+                            <span className="text-sm text-white/80 font-medium">(7,109 reviews)</span>
                         </div>
 
-                        {/* Social Proof */}
-                        <div className="pt-8 flex flex-col gap-4 border-t border-slate-100 w-full">
-                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
-                                Trusted by 250+ Melbourne Businesses
+                        <div className="space-y-6">
+                            <h1 className="text-4xl md:text-[56px] font-semibold tracking-tight text-[#F0F4E9] leading-[1]">
+                                Maximise your <span className="text-secondary">Potential</span> your way.
+                            </h1>
+
+                            <p className="text-lg text-white/80 leading-relaxed max-w-xl font-medium">
+                                Book an appointment with a local Business Expert or start your financial journey online now.
                             </p>
-                            <div className="flex items-center gap-1 text-yellow-500">
-                                {[1, 2, 3, 4, 5].map((s) => <Star key={s} className="w-4 h-4 fill-current" />)}
+
+                            {/* Benefit List */}
+                            <div className="space-y-3 pt-2">
+                                {[
+                                    "Maximum growth guarantee",
+                                    "Trusted for over 15 years in Melbourne",
+                                    "250+ convenient business locations"
+                                ].map((benefit, i) => (
+                                    <div key={i} className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center">
+                                            <Check className="w-3.5 h-3.5 text-secondary" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-sm md:text-base font-bold text-white/95">{benefit}</span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                                <Button className="h-14 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 rounded-full font-black drop-shadow-lg transition-all" asChild>
+                                    <Link href="/contact-us">
+                                        Book an appointment
+                                    </Link>
+                                </Button>
+
+                                <Button variant="outline" className="h-14 px-8 border-white/40 text-white rounded-full font-black border-2 hover:bg-white/10 hover:border-white transition-all" asChild>
+                                    <Link href="/services">
+                                        Start online now
+                                    </Link>
+                                </Button>
                             </div>
                         </div>
                     </div>
 
-                    {/* Right: Modern Simple Image */}
+                    {/* Right: Premium Image following H&R Block layout */}
                     <div className="w-full lg:w-1/2 relative">
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-xl">
+                        <div className="relative aspect-[4/3] md:aspect-video lg:aspect-[5/4] rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden border-8 border-white/5 shadow-2xl transition-transform hover:scale-[1.02] duration-700">
                             <Image
                                 src={HeroImage1}
-                                alt="Strategic Financial Advice"
+                                alt="Expert Accounting Advice"
                                 fill
                                 className="object-cover"
                                 priority
                             />
                         </div>
-                    </div>
-                </div>
 
-                {/* Simplified Technology Marquee */}
-                <div className="mt-20 pt-10 border-t border-slate-100">
-                    <div className="flex flex-col md:flex-row items-center gap-8">
-                        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap shrink-0">
-                            Our Technology Stack
-                        </span>
-
-                        <div className="relative flex-1 overflow-hidden">
-                            <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
-                            <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
-
-                            <motion.div
-                                className="flex items-center gap-12 whitespace-nowrap py-2"
-                                animate={{ x: ["0%", "-50%"] }}
-                                transition={{
-                                    duration: 40,
-                                    repeat: Infinity,
-                                    ease: "linear"
-                                }}
-                            >
-                                {[...partners, ...partners].map((partner, i) => (
-                                    <div key={i} className="flex items-center gap-2.5 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                                        <div className="text-slate-900">
-                                            {partner.icon}
-                                        </div>
-                                        <span className="text-sm font-bold tracking-tight text-slate-900">
-                                            {partner.name}
-                                        </span>
-                                    </div>
-                                ))}
-                            </motion.div>
-                        </div>
+                        {/* Subtle Glow */}
+                        <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]" />
                     </div>
                 </div>
             </div>

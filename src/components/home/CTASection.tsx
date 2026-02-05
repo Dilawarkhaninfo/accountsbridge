@@ -19,9 +19,9 @@ export function CTASection() {
                     </div>
 
                     <div className="space-y-6">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1]">
                             Ready to scale your <br />
-                            <span className="text-secondary italic">Business Potential</span>?
+                            <span className="text-secondary">Business Potential</span>?
                         </h2>
                         <p className="text-lg text-white/70 max-w-xl mx-auto leading-relaxed">
                             Partner with Accounts Bridge today for strategic financial clarity and expert advisory needed for your long-term expansion.

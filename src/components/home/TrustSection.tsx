@@ -21,9 +21,9 @@ export function TrustSection() {
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
                             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/90">Our Proven Track Record</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
                             Doing the right thing, <br />
-                            <span className="text-secondary italic">at the right time</span>.
+                            <span className="text-secondary">at the right time</span>.
                         </h2>
                         <p className="text-base text-white/80 leading-relaxed font-medium">
                             Expert financial advice ensuring your business stays compliant and profitable in an ever-changing landscape.

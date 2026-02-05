@@ -35,8 +35,8 @@ export function VisionMissionSection() {
                         <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">How We Define Success</span>
                     </div>
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                        Our Core Purpose & <span className="text-primary italic">Strategic Vision</span>.
+                    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
+                        Our Core Purpose & <span className="text-primary">Strategic Vision</span>.
                     </h2>
                     <p className="text-base text-slate-500 max-w-2xl leading-relaxed">
                         We transform financial complexity into strategic advantage, ensuring your business stays profitable and compliant in an ever-changing landscape.

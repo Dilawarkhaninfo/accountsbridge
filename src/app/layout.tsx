@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Navbar } from "@/components/layout/Navbar";
@@ -8,7 +8,7 @@ import { Preloader } from "@/components/ui/Preloader";
 import { ChatWidget } from "@/components/layout/ChatWidget";
 import JsonLd from "@/components/seo/JsonLd";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
 
 export const metadata: Metadata = {
   title: "Accounts Bridge - Strategic Finance Partners",
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-background antialiased flex flex-col`}>
+      <body className={`${montserrat.variable} font-sans min-h-screen bg-background antialiased flex flex-col`}>
         <JsonLd />
         <Preloader />
         <TopBar />

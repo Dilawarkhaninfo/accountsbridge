@@ -47,7 +47,7 @@ export function Footer() {
                     {/* Column 1: Brand & Identity */}
                     <div className="lg:col-span-4 space-y-10">
                         <Link href="/" className="inline-block group">
-                            <div className="relative w-48 h-12 brightness-0 invert transition-transform duration-500 group-hover:scale-105">
+                            <div className="relative w-64 h-16 md:w-80 md:h-24 brightness-0 invert transition-transform duration-500 group-hover:scale-105">
                                 <Image
                                     src={LogoImage}
                                     alt="Accounts Bridge Logo"
