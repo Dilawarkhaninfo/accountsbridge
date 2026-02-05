@@ -80,143 +80,158 @@ export function TestimonialsSection() {
         <section className="relative py-28 bg-[#fafafa] overflow-hidden">
             {/* --- Premium Background Elements --- */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
-                <motion.div
-                    animate={{
-                        opacity: [0.3, 0.5, 0.3],
-                        scale: [1, 1.1, 1],
-                    }}
-                    transition={{ duration: 10, repeat: Infinity }}
-                    className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]"
-                />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
                 <motion.div
                     animate={{
                         opacity: [0.2, 0.4, 0.2],
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{ duration: 15, repeat: Infinity }}
+                    className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px]"
+                />
+                <motion.div
+                    animate={{
+                        opacity: [0.1, 0.3, 0.1],
                         scale: [1, 1.2, 1],
                     }}
-                    transition={{ duration: 12, repeat: Infinity }}
-                    className="absolute bottom-1/4 -left-20 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px]"
+                    transition={{ duration: 18, repeat: Infinity }}
+                    className="absolute bottom-1/4 -left-20 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"
                 />
             </div>
 
-            <div className="container relative z-10 mx-auto px-6">
-                {/* Section Header */}
-                <div className="text-center mb-20 space-y-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
-                            <Star size={14} className="text-secondary fill-secondary" />
-                            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500">Global Trust Indicators</span>
-                        </div>
+            <div className="container relative z-10 mx-auto px-6 md:px-12">
+                {/* Section Header - Unified Left-Aligned Style */}
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-16 px-4 md:px-0">
+                    <div className="flex flex-col items-start text-left space-y-6 max-w-2xl">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/50 shadow-sm mb-2"
+                        >
+                            <Star className="w-3.5 h-3.5 text-secondary fill-secondary animate-pulse" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Global Trust Indicators</span>
+                        </motion.div>
 
-                        <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-tight">
-                            What <span className="text-primary italic">Industry Leaders</span> Say.
-                        </h2>
+                        <motion.h2
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-5xl lg:text-[45px] font-bold text-slate-900 tracking-tight leading-[1.05]"
+                        >
+                            What <br className="hidden md:block" />
+                            <span className="text-primary italic font-semibold">Industry Leaders</span> Say.
+                        </motion.h2>
 
-                        <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                        <motion.p
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-lg md:text-xl text-slate-500 leading-relaxed"
+                        >
                             We measure our success by the growth and confidence of the businesses we serve across the globe.
-                        </p>
-                    </motion.div>
-                </div>
+                        </motion.p>
+                    </div>
 
-                {/* Testimonials Slider */}
-                <div className="relative max-w-7xl mx-auto">
-                    {/* Navigation Buttons - More Premium Styling */}
-                    <div className="absolute -top-12 right-4 flex gap-3 z-20">
+                    <div className="flex gap-4 mb-4 lg:mb-2">
                         <button
                             onClick={prev}
-                            className="w-12 h-12 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm group"
+                            className="w-11 h-11 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
                             aria-label="Previous"
                         >
                             <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
                         </button>
                         <button
                             onClick={next}
-                            className="w-12 h-12 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm group"
+                            className="w-11 h-11 flex items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm group"
                             aria-label="Next"
                         >
                             <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
                         </button>
                     </div>
+                </div>
 
-                    <div className="overflow-visible min-h-[400px] pt-8">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentIndex}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -30 }}
-                                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-                            >
-                                {visibleTestimonials.map((testimonial) => (
-                                    <motion.div
-                                        key={testimonial.id}
-                                        whileHover={{ y: -5 }}
-                                        className="group relative flex flex-col bg-white p-10 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] border border-slate-100 transition-all duration-500"
-                                    >
-                                        {/* Quote Icon Background */}
-                                        <div className="absolute top-8 right-10 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity">
-                                            <Quote size={80} className="text-primary fill-current" />
+                {/* Testimonials Slider */}
+                <div className="relative max-w-7xl mx-auto min-h-[480px]">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentIndex}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+                        >
+                            {visibleTestimonials.map((testimonial) => (
+                                <motion.div
+                                    key={testimonial.id}
+                                    className="group relative flex flex-col bg-white p-8 md:p-10 rounded-[2.5rem] shadow-[0_15px_60px_-15px_rgba(0,0,0,0.06)] border border-slate-100 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
+                                >
+                                    {/* Quote Icon Accent */}
+                                    <div className="absolute top-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <Quote size={60} className="text-primary fill-current" />
+                                    </div>
+
+                                    {/* Author Info - Top Header Style */}
+                                    <div className="flex items-center gap-4 mb-8">
+                                        <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-slate-50 shadow-sm">
+                                            <Image
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                fill
+                                                className="object-cover"
+                                            />
                                         </div>
-
-                                        {/* Trust Stars */}
-                                        <div className="flex gap-1 mb-8">
-                                            {[...Array(5)].map((_, i) => (
-                                                <Star key={i} size={16} className="text-secondary fill-secondary" />
-                                            ))}
-                                        </div>
-
-                                        {/* Testimonial Content */}
-                                        <div className="flex-1">
-                                            <p className="text-xl md:text-[22px] text-slate-800 leading-[1.6] font-medium italic mb-10">
-                                                "{testimonial.content}"
+                                        <div>
+                                            <div className="flex items-center gap-1.5">
+                                                <h3 className="text-[17px] font-black text-slate-900 leading-none tracking-tight">
+                                                    {testimonial.name}
+                                                </h3>
+                                                <div className="w-3.5 h-3.5 rounded-full bg-primary/10 flex items-center justify-center">
+                                                    <CheckCircle2 size={10} className="text-primary" />
+                                                </div>
+                                            </div>
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-1.5">
+                                                {testimonial.role} <span className="mx-1.5 text-slate-200">/</span> {testimonial.company}
                                             </p>
                                         </div>
+                                    </div>
 
-                                        {/* Author Info */}
-                                        <div className="flex items-center gap-5 pt-8 border-t border-slate-50">
-                                            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-slate-100 shadow-md">
-                                                <Image
-                                                    src={testimonial.image}
-                                                    alt={testimonial.name}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-                                            <div>
-                                                <div className="flex items-center gap-2">
-                                                    <h3 className="text-lg font-bold text-slate-900 leading-none">
-                                                        {testimonial.name}
-                                                    </h3>
-                                                    <CheckCircle2 size={14} className="text-primary" />
-                                                </div>
-                                                <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mt-1.5">
-                                                    {testimonial.role} <span className="mx-2 text-slate-200">|</span> {testimonial.company}
-                                                </p>
-                                            </div>
+                                    {/* Testimonial Content */}
+                                    <div className="flex-1">
+                                        <p className="text-[18px] md:text-xl text-slate-700 leading-relaxed font-medium italic">
+                                            "{testimonial.content}"
+                                        </p>
+                                    </div>
+
+                                    {/* Ratings & Service Date Footer */}
+                                    <div className="mt-10 pt-6 border-t border-slate-50 flex items-center justify-between">
+                                        <div className="flex gap-1">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} size={14} className="text-secondary fill-secondary" />
+                                            ))}
                                         </div>
-                                    </motion.div>
-                                ))}
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
+                                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">
+                                            Verified Client
+                                        </span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
 
-                    {/* International Trust Footer */}
-                    <div className="mt-20 flex flex-wrap justify-center items-center gap-x-16 gap-y-8 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-1000">
-                        <div className="flex items-center gap-3">
-                            <span className="text-sm font-black tracking-tighter uppercase italic text-slate-900">Global Finance Network</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <span className="text-sm font-black tracking-tighter uppercase italic text-slate-900">Certified Partners</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <span className="text-sm font-black tracking-tighter uppercase italic text-slate-900">Melbourne SME Alliance</span>
-                        </div>
+                {/* International Trust Footer - Simplified & Elegant */}
+                <div className="mt-20 pt-10 border-t border-slate-100 flex flex-wrap justify-between items-center gap-8 opacity-40">
+                    <p className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
+                        Global Finance Network • Certified Partners • Melbourne SME Alliance
+                    </p>
+                    <div className="flex gap-8">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
+                        <div className="w-2 h-2 rounded-full bg-secondary" />
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                     </div>
                 </div>
             </div>
