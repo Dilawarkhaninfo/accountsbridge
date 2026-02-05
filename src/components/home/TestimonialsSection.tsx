@@ -51,6 +51,20 @@ const testimonials: Testimonial[] = [
     }
 ];
 
+const tools = [
+    "QuickBooks",
+    "Xero",
+    "Sage",
+    "Zoho Books",
+    "FreshBooks",
+    "Wave",
+    "Excel",
+    "MYOB",
+    "NetSuite",
+    "Slack",
+    "Microsoft Teams"
+];
+
 export function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -140,6 +154,32 @@ export function TestimonialsSection() {
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>
+                </div>
+
+                {/* Tools & Technologies Slider */}
+                <div className="mt-20 pt-10 border-t border-slate-100">
+                    <div className="text-center mb-10">
+                        <h3 className="text-2xl font-bold text-primary">
+                            Tools & Technologies
+                        </h3>
+                        <p className="text-slate-500 mt-2">
+                            We work with the tools you already use
+                        </p>
+                    </div>
+
+                    <div className="relative w-full overflow-hidden bg-white/50 rounded-xl p-6">
+                        <div className="flex w-max animate-marquee gap-16 items-center">
+                            {/* Quadrupled list for seamless loop with 50% scroll keyframe */}
+                            {[...tools, ...tools, ...tools, ...tools].map((tool, i) => (
+                                <div key={i} className="text-2xl md:text-3xl font-bold text-slate-300 uppercase tracking-widest whitespace-nowrap hover:text-primary transition-colors cursor-default select-none">
+                                    {tool}
+                                </div>
+                            ))}
+                        </div>
+                        {/* Gradients for fade effect */}
+                        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+                        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+                    </div>
                 </div>
             </div>
         </section>

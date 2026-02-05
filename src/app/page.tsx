@@ -4,7 +4,6 @@ import { BusinessExpertCTA } from "@/components/home/BusinessExpertCTA";
 import { ProblemsSolutions } from "@/components/home/ProblemsSolutions";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { TrustSection } from "@/components/home/TrustSection";
-import { CTASection } from "@/components/home/CTASection";
 import { MakeTheDifferenceSection } from "@/components/home/MakeTheDifferenceSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { RequestCallbackSection } from "@/components/home/RequestCallbackSection";
@@ -21,9 +20,8 @@ export default function Home() {
       <TestimonialsSection />
       <MakeTheDifferenceSection />
       <ProblemsSolutions />
-      <MapSection />
       <RequestCallbackSection />
-      <CTASection />
+      <MapSection />
     </>
   );
 }

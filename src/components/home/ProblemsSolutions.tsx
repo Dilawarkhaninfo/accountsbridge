@@ -39,15 +39,15 @@ const solutions = [
 
 export function ProblemsSolutions() {
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-24 bg-white">
             <div className="max-w-8xl mx-auto px-6 md:px-12">
 
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
                     <div className="max-w-2xl space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-100">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
                             <Star className="w-3.5 h-3.5 text-secondary fill-secondary" />
-                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Why Modern Businesses Choose Us</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">Why Modern Businesses Choose Us</span>
                         </div>
                         <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">
                             Solutions for the <span className="text-primary">Financial Frontier</span>.
@@ -56,7 +56,7 @@ export function ProblemsSolutions() {
                             Strategic clarity for every stage of your business journey, from complex tax structures to future-ready growth.
                         </p>
                     </div>
-                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-md shrink-0">
+                    <Button asChild variant="outline" className="h-12 border-slate-200 text-slate-600 font-semibold rounded-md shrink-0 hover:border-primary hover:text-primary transition-colors">
                         <Link href="/services">
                             View All Solutions
                             <ArrowRight className="ml-2 w-4 h-4" />
@@ -67,31 +67,43 @@ export function ProblemsSolutions() {
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {solutions.map((item, idx) => (
-                        <div key={idx} className="group bg-white rounded-2xl border border-slate-100 overflow-hidden transition-all hover:shadow-xl hover:shadow-slate-200/50">
-                            <div className="relative h-48">
+                        <div key={idx} className="group flex flex-col rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+
+                            {/* Image Section */}
+                            <div className="relative h-64 w-full overflow-hidden">
                                 <Image
                                     src={item.image}
                                     alt={item.title}
                                     fill
-                                    className="object-cover transition-transform group-hover:scale-105"
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-300" />
+
+                                {/* Floating Category Badge (Optional, kept for context) */}
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-2.5 py-1 rounded-md bg-white/95 text-[9px] font-bold uppercase tracking-widest text-primary shadow-sm border border-slate-100">
+                                    <span className="px-3 py-1 rounded-md bg-white/95 text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm backdrop-blur-sm">
                                         {item.category}
                                     </span>
                                 </div>
                             </div>
-                            <div className="p-6 space-y-3">
-                                <h3 className="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">
+
+                            {/* Content Section */}
+                            <div className="flex flex-col flex-grow bg-primary p-6 lg:p-8 text-white relative">
+                                <h3 className="text-lg md:text-xl font-bold mb-4 text-white group-hover:text-secondary transition-colors">
                                     {item.title}
                                 </h3>
-                                <p className="text-sm text-slate-500 leading-relaxed">
+                                <p className="text-sm text-white/80 leading-relaxed mb-8 line-clamp-4 flex-grow">
                                     {item.description}
                                 </p>
-                                <div className="pt-4">
-                                    <Link href={item.link} className="inline-flex items-center text-xs font-bold text-primary group/link">
-                                        Explore
-                                        <ArrowRight className="ml-2 w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
+
+                                <div className="mt-auto">
+                                    <Link
+                                        href={item.link}
+                                        className="inline-flex items-center gap-2 text-xs font-bold text-secondary hover:text-white transition-colors uppercase tracking-wider"
+                                    >
+                                        READ MORE
+                                        <ArrowRight className="w-4 h-4" />
                                     </Link>
                                 </div>
                             </div>
