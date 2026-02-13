@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 import {
     Briefcase,
@@ -94,7 +94,7 @@ const floatingIcons = [
     { Icon: Sparkles, position: "bottom-[40%] left-[12%]", delay: 0.7, size: "w-10 h-10" },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
@@ -104,7 +104,7 @@ const containerVariants = {
     }
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
