@@ -3,7 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Star, Check } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 
 // Inspiration Image: H&R Block Style
@@ -11,9 +11,9 @@ import HeroImage1 from "../../../public/images/hero-image-4.png";
 
 export function HeroSection() {
     return (
-        <section className="relative w-full bg-primary py-12 lg:py-16 overflow-hidden">
+        <section className="relative w-full bg-primary py-12 lg:py-10 overflow-hidden">
             <div className="max-w-8xl relative z-10 mx-auto px-6 md:px-12">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 ">
 
                     {/* Left: Content */}
                     <div className="w-full lg:w-1/2 flex flex-col items-start text-left space-y-8 text-white">
@@ -30,40 +30,29 @@ export function HeroSection() {
                         </div>
 
                         <div className="space-y-6">
-                            <h1 className="text-4xl md:text-[56px] font-semibold tracking-tight text-[#F0F4E9] leading-[1]">
-                                Maximise your <span className="text-secondary">Potential</span> your way.
+                            <h1 className="text-3xl md:text-[50px] font-semibold tracking-tight text-[#F0F4E9] leading-[1.1]">
+                                Strategic Accounting for Australian Businesses Growing from <span className="text-secondary">$1M to $5M</span>.
                             </h1>
 
-                            <p className="text-lg text-white/80 leading-relaxed max-w-xl font-medium">
-                                Book an appointment with a local Business Expert or start your financial journey online now.
-                            </p>
-
-                            {/* Benefit List */}
-                            <div className="space-y-3 pt-2">
-                                {[
-                                    "Maximum growth guarantee",
-                                    "Trusted for over 15 years in Melbourne",
-                                    "250+ convenient business locations"
-                                ].map((benefit, i) => (
-                                    <div key={i} className="flex items-center gap-3">
-                                        <div className="w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center">
-                                            <Check className="w-3.5 h-3.5 text-secondary" strokeWidth={3} />
-                                        </div>
-                                        <span className="text-sm md:text-base font-bold text-white/95">{benefit}</span>
-                                    </div>
-                                ))}
+                            <div className="space-y-4 text-base text-white/80 leading-relaxed max-w-xl font-medium">
+                                <p className="text-white/80">
+                                    If your business is doing $1M or more in revenue, basic compliance isn’t enough anymore. You need accountants who understand growth, not just tax returns.
+                                </p>
+                                <p className="text-white/80">
+                                    Accounts Bridge is a mid-tier accounting firm based in Melbourne, built for companies that have outgrown solo accountant but don’t want to be lost inside a Big Four system.
+                                </p>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                                <Button className="h-14 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 rounded-md font-bold text-base shadow-lg transition-all" asChild>
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                                <Button className="h-12 px-8 bg-secondary hover:bg-secondary/90 text-slate-900 rounded-md font-bold text-[15px] shadow-lg transition-all" asChild>
                                     <Link href="/contact-us">
-                                        Book an appointment
+                                        Book a Consultation
                                     </Link>
                                 </Button>
 
-                                <Button variant="outline" className="h-14 px-8 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white rounded-md font-bold text-base border-2 transition-all shadow-none" asChild>
+                                <Button variant="outline" className="h-12 px-8 bg-transparent border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white rounded-md font-bold text-[15px] border-2 transition-all shadow-none" asChild>
                                     <Link href="/services">
-                                        Start online now
+                                        See How We Work
                                     </Link>
                                 </Button>
                             </div>

@@ -1,12 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
+import { Button } from "@/components/ui/button";
+
 import ChristianImage from "../../../public/Christian.jpg";
 import CintiaImage from "../../../public/Cintia.jpg";
 import DebbieImage from "../../../public/Debbie.jpg";
 import DonaldImage from "../../../public/Donald.jpg";
+
 interface Testimonial {
     id: number;
     name: string;
@@ -51,20 +54,6 @@ const testimonials: Testimonial[] = [
     }
 ];
 
-const tools = [
-    "QuickBooks",
-    "Xero",
-    "Sage",
-    "Zoho Books",
-    "FreshBooks",
-    "Wave",
-    "Excel",
-    "MYOB",
-    "NetSuite",
-    "Slack",
-    "Microsoft Teams"
-];
-
 export function TestimonialsSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -76,13 +65,8 @@ export function TestimonialsSection() {
         return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
-    const next = () => {
-        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    };
-
-    const prev = () => {
-        setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    };
+    const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
     const itemsToShow = isMobile ? 1 : 2;
     const visibleTestimonials = [];
@@ -91,96 +75,120 @@ export function TestimonialsSection() {
     }
 
     return (
-        <section className="py-24 bg-white relative">
-            <div className="max-w-8xl mx-auto px-6 md:px-12">
+        <section className="bg-[#F8F9FA] py-20 lg:py-28 relative overflow-hidden">
 
-                {/* Header */}
-                <div className="flex flex-col items-center justify-center text-center mb-16 space-y-4">
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
-                        testimonials
+            {/* Background glows — consistent with WhoWeWorkWith / ServicesGrid */}
+            <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[80px] -ml-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/[0.04] rounded-full blur-[80px] -mr-20 -mb-20 pointer-events-none" />
+
+            <div className="max-w-8xl mx-auto px-6 md:px-12 relative z-10">
+
+                {/* Section Header */}
+                <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span className="text-primary/60 font-bold tracking-[0.25em] uppercase text-xs">
+                        Client Stories
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-[1.1] tracking-tight">
+                        What Clients Say About{" "}
+                        <span className="text-primary">Making the Switch</span>
                     </h2>
-                    {/* Yellow Underline Accent */}
-                    <div className="w-16 h-1.5 bg-secondary rounded-full" />
+                    <p className="text-lg text-slate-500 font-medium leading-relaxed">
+                        Real stories from business leaders who moved to Accounts Bridge and never looked back.
+                    </p>
                 </div>
 
-                {/* Slider Container */}
-                <div className="flex items-center justify-between gap-4 md:gap-8">
-
-                    {/* Prev Arrow */}
-                    <button
-                        onClick={prev}
-                        className="w-12 h-12 flex items-center justify-center border border-slate-200 bg-white text-slate-400 hover:text-primary hover:border-primary transition-all shrink-0"
-                    >
-                        <ChevronLeft className="w-6 h-6" />
-                    </button>
-
-                    {/* Cards */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full overflow-hidden">
+                {/* Testimonials Slider */}
+                <div className="relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                         {visibleTestimonials.map((testimonial, idx) => (
-                            <div key={`${testimonial.id}-${idx}`} className="flex flex-col md:flex-row bg-white h-auto md:h-[280px]"> {/* Fixed height for alignment */}
-
-                                {/* Image Container (Left) */}
-                                <div className="md:w-[220px] w-full shrink-0 relative h-[250px] md:h-full">
-                                    <Image
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                        fill
-                                        className="object-cover"
-                                    />
+                            <div
+                                key={`${testimonial.id}-${idx}`}
+                                className="group bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-primary/10 relative overflow-hidden flex flex-col h-full transition-all duration-300"
+                            >
+                                {/* Quote icon — secondary color, subtle */}
+                                <div className="absolute top-8 right-8 text-secondary/20 group-hover:text-secondary/30 transition-colors duration-300">
+                                    <Quote className="w-16 h-16 fill-current" />
                                 </div>
 
-                                {/* Content Container (Right) */}
-                                <div className="flex-1 p-8 flex flex-col justify-center bg-white">
-                                    <div className="mb-4">
-                                        <h4 className="text-xl font-bold text-primary">
-                                            {testimonial.name}
-                                        </h4>
-                                        <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mt-1">
-                                            {testimonial.role} <br className="hidden md:block" /> {testimonial.company}
+                                {/* Top accent bar on hover */}
+                                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-1 bg-secondary rounded-t-[2.5rem] transition-all duration-500" />
+
+                                <div className="relative z-10 flex flex-col h-full">
+
+                                    {/* Quote text */}
+                                    <div className="grow mb-8">
+                                        <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed italic">
+                                            &ldquo;{testimonial.content}&rdquo;
+                                        </p>
+                                    </div>
+
+                                    {/* Author */}
+                                    <div className="flex items-center gap-5 pt-6 border-t border-slate-100">
+                                        {/* Avatar with secondary ring */}
+                                        <div className="relative w-14 h-14 rounded-full overflow-hidden ring-2 ring-secondary/40 ring-offset-2">
+                                            <Image
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-base font-bold text-slate-900">
+                                                {testimonial.name}
+                                            </h4>
+                                            <div className="text-sm font-semibold text-primary">
+                                                {testimonial.role},{" "}
+                                                <span className="text-slate-400 font-medium">
+                                                    {testimonial.company}
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <p className="text-sm text-slate-500 leading-relaxed italic">
-                                        "{testimonial.content}"
-                                    </p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Next Arrow */}
-                    <button
-                        onClick={next}
-                        className="w-12 h-12 flex items-center justify-center bg-primary text-white hover:bg-primary/90 transition-all shrink-0 shadow-lg"
-                    >
-                        <ChevronRight className="w-6 h-6" />
-                    </button>
-                </div>
+                    {/* Navigation */}
+                    <div className="flex justify-center items-center gap-4 mt-12">
+                        <Button
+                            onClick={prev}
+                            variant="outline"
+                            size="icon"
+                            className="w-12 h-12 rounded-full border-slate-200 hover:border-primary/30 hover:text-primary hover:bg-primary/5 bg-white transition-all shadow-sm"
+                            aria-label="Previous testimonial"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </Button>
 
-                {/* Tools & Technologies Slider */}
-                <div className="mt-20 pt-10 border-t border-slate-100">
-                    <div className="text-center mb-10">
-                        <h3 className="text-2xl font-bold text-primary">
-                            Tools & Technologies
-                        </h3>
-                        <p className="text-slate-500 mt-2">
-                            We work with the tools you already use
-                        </p>
-                    </div>
-
-                    <div className="relative w-full overflow-hidden bg-white/50 rounded-xl p-6">
-                        <div className="flex w-max animate-marquee gap-16 items-center">
-                            {/* Quadrupled list for seamless loop with 50% scroll keyframe */}
-                            {[...tools, ...tools, ...tools, ...tools].map((tool, i) => (
-                                <div key={i} className="text-2xl md:text-3xl font-bold text-slate-300 uppercase tracking-widest whitespace-nowrap hover:text-primary transition-colors cursor-default select-none">
-                                    {tool}
-                                </div>
+                        {/* Dot indicators */}
+                        <div className="flex items-center gap-2">
+                            {testimonials.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setCurrentIndex(i)}
+                                    className={`rounded-full transition-all duration-300 ${i === currentIndex
+                                            ? "w-6 h-2.5 bg-primary"
+                                            : "w-2.5 h-2.5 bg-slate-200 hover:bg-slate-300"
+                                        }`}
+                                    aria-label={`Go to testimonial ${i + 1}`}
+                                />
                             ))}
                         </div>
-                        {/* Gradients for fade effect */}
-                        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-                        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
+                        <Button
+                            onClick={next}
+                            variant="default"
+                            size="icon"
+                            className="w-12 h-12 rounded-full bg-primary hover:bg-primary/90 text-white transition-all shadow-md"
+                            aria-label="Next testimonial"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </Button>
                     </div>
                 </div>
+
             </div>
         </section>
     );

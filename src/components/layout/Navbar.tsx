@@ -66,7 +66,7 @@ export function Navbar() {
 
                 {/* Logo Section */}
                 <Link href="/" className="relative z-50 flex items-center shrink-0">
-                    <div className="relative w-64 h-16 md:w-80 md:h-24">
+                    <div className="relative w-64 h-16 md:w-80 md:h-22">
                         <Image
                             src={LogoImage}
                             alt="Accounts Bridge Logo"
